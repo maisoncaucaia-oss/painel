@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monitoramento Geral · Rede · SME Caucaia</title>
+<link rel="stylesheet" href="../assets/painel.css">
+<style>
+/* ---------- Ajustes só da página geral ---------- */
+.main{max-width:1320px}
+.side-tag.adm{background:linear-gradient(135deg,#b7791f,#d4a439)}
+.fonte{display:inline-flex;align-items:center;gap:6px;font-size:12px;padding:3px 10px;border-radius:20px;border:1px solid var(--border);background:#fff;color:var(--muted)}
+.fonte i{width:8px;height:8px;border-radius:50%;background:#9fb1c4;display:inline-block}
+.fonte.vivo i{background:#2ea36a}
+.fonte.copia i{background:#e0a020}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+.btn{font:inherit;font-size:13px;font-weight:600;padding:6px 12px;border-radius:7px;border:1px solid var(--border);background:#fff;color:var(--brand);cursor:pointer;text-decoration:none}
+.btn:hover{background:#f3f7fb}
+
+/* Semáforo da rede */
+table.sem{font-size:13px}
+.sem th{text-align:center;white-space:normal;line-height:1.25;vertical-align:bottom;min-width:58px;padding:8px 6px}
+.sem td{padding:8px 6px}
+.sem th:first-child{text-align:left;min-width:190px}
+.sem td{text-align:center;vertical-align:middle}
+.sem td:first-child{text-align:left}
+.sem td.esc a{font-weight:700;color:var(--ink);text-decoration:none;white-space:normal}
+.sem td.esc a:hover{color:var(--accent);text-decoration:underline}
+.sem td.esc span{display:block;font-size:11.5px;color:var(--muted2);font-weight:400}
+.sem a.cel{display:inline-block;width:22px;height:22px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1px var(--border)}
+.sem a.cel:hover{transform:scale(1.18)}
+.sem a.cel.s-red{background:var(--red)}.sem a.cel.s-yellow{background:#e0a020}.sem a.cel.s-green{background:#2ea36a}
+.sem a.cel.s-gray{background:#b5c3d1}.sem a.cel.s-blue{background:#4a8fd8}
+.sem .na{color:#c3cfdb;font-size:12px}
+.sem td.cnt{font-weight:700;font-size:14px}
+.sem tr.tot td{background:#f3f7fb;font-weight:700;font-size:12.5px}
+.sem-leg{display:flex;flex-wrap:wrap;gap:6px 16px;padding:10px 16px;font-size:12px;color:var(--muted);border-top:1px solid var(--border2)}
+.sem-leg i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+
+/* Comparativo */
+table.cmp th{white-space:normal;line-height:1.25;min-width:110px}
+table.cmp th:first-child{min-width:200px}
+table.cmp td{font-size:13px}
+table.cmp td .v{font-weight:700;font-size:14.5px;display:block}
+table.cmp td .d{font-size:11.5px;color:var(--muted2);display:block;line-height:1.35}
+table.cmp td.c-red{background:#fdf3f2}.cmp td.c-red .v{color:var(--red)}
+table.cmp td.c-yellow{background:#fffaec}.cmp td.c-yellow .v{color:var(--yellow)}
+table.cmp td.c-green{background:#f0faf4}.cmp td.c-green .v{color:var(--green)}
+table.cmp td.c-gray .v{color:var(--gray);font-weight:400}
+table.cmp td.ind b{display:block}
+table.cmp td.ind span{font-size:11.5px;color:var(--muted2)}
+
+/* Escola por escola */
+.esc-card summary .st b{font-size:15.5px}
+.esc-card .cont{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto;align-self:center}
+.esc-card .kpis{margin-top:4px}
+.esc-card .kpi .v{font-size:23px}
+.esc-card h4{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted2);margin:16px 0 8px}
+.esc-card .agora{box-shadow:none;margin-bottom:6px}
+.esc-card .tbl td:nth-child(2){color:var(--muted);font-size:12.5px;white-space:nowrap}
+.esc-card .abrir{display:inline-block;margin-top:12px;font-weight:700;text-decoration:none}
+.carregando{padding:18px;text-align:center;color:var(--muted2);font-size:13.5px}
+@media (max-width:600px){
+  .esc-card .cont{display:none}
+  .esc-card .tbl td:nth-child(2){white-space:normal}
+}
+@media print{
+  details.esc-card{break-inside:auto}
+  .toolbar{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== MENU LATERAL ===== -->
+<nav class="side" aria-label="Menu do painel">
+  <div class="side-head">
+    <div class="side-tag adm">Monitoramento Geral</div>
+    <div class="side-name">Rede Municipal</div>
+    <div class="side-sub">SME Caucaia · CAAR<br>Acesso restrito</div>
+  </div>
+  <div class="side-sec">Nesta página</div>
+  <a class="nav" href="#rede"><span class="ic">⏱️</span>A rede em 30 segundos</a>
+  <a class="nav" href="#semaforo"><span class="ic">🚦</span>Semáforo da rede</a>
+  <a class="nav" href="#comparativo"><span class="ic">📊</span>Resultados lado a lado</a>
+  <a class="nav" href="#padroes"><span class="ic">🔗</span>O que se repete na rede</a>
+  <a class="nav" href="#escolas"><span class="ic">🏫</span>Escola por escola</a>
+  <div class="side-sec">Painéis das escolas</div>
+  <div id="menuEscolas"></div>
+  <div class="side-sec">Semáforo</div>
+  <div class="side-legend">
+    <div><i style="background:var(--red)"></i>Crítico: agir já</div>
+    <div><i style="background:#e0a020"></i>Atenção: acompanhar</div>
+    <div><i style="background:#2ea36a"></i>Positivo: manter</div>
+    <div><i style="background:#9fb1c4"></i>Sem dados / a conferir</div>
+  </div>
+  <div class="side-foot">Secretaria Municipal de Educação<br>Caucaia-CE<a href="../index.html">Sair do painel</a></div>
+</nav>
+<div class="mbar"><button type="button" aria-label="Abrir menu" id="btnMenu">☰</button><div><b>Monitoramento Geral</b><span>Rede Municipal · Caucaia</span></div></div>
+<div class="scrim" id="scrim"></div>
+
+<main class="main">
+
+<header class="page-head">
+  <div class="crumb">Painel de Indicadores Educacionais · SME Caucaia · Visão da rede</div>
+  <h1>🧭 Monitoramento Geral das Escolas</h1>
+  <div class="meta"><span id="metaEscolas">Escolas monitoradas</span><span>Dados de 2023 a outubro de 2026</span><span>Célula de Avaliação da Aprendizagem e Resultados</span></div>
+  <div class="toolbar">
+    <span class="fonte" id="fonte"><i></i>Carregando dados das escolas…</span>
+    <button class="btn" type="button" onclick="window.print()">🖨️ Imprimir / salvar PDF</button>
+  </div>
+</header>
+
+<!-- ===== 1. A REDE EM 30 SEGUNDOS ===== -->
+<section class="sec" id="rede">
+  <h2>⏱️ A rede em 30 segundos</h2>
+  <div class="kpis" id="kpisRede"><div class="carregando">Carregando…</div></div>
+  <div class="callout s-red"><b class="t">Onde a rede está mais frágil</b>Matemática nos Anos Finais (as três escolas com 8º e 9º Ano têm de 85% a 95% de defasagem no 9º Ano e praticamente ninguém no Proficiente na Avaliação de Pulso 2026) e a alfabetização no 2º Ano, que aparece como problema em todas as seis escolas.</div>
+  <div class="callout s-green"><b class="t">Onde a rede já mostra resultado</b>Leitura nos Anos Iniciais: as cinco escolas com ADSEC 2025 completa ganharam de 14 a 20 pontos percentuais de leitores de texto em um ano. Há também referências pontuais que podem circular entre as escolas (ver “O que se repete na rede”).</div>
+</section>
+
+<!-- ===== 2. SEMÁFORO ===== -->
+<section class="sec" id="semaforo">
+  <h2>🚦 Semáforo da rede <small>clique em um círculo para abrir a página daquele indicador</small></h2>
+  <div class="tbl-wrap">
+    <div class="tbl-cap"><b>Status de cada indicador, por escola</b><div>Lido do arquivo escola.js de cada pasta: quando o status muda lá, muda aqui. Escolas ordenadas pelo número de indicadores críticos.</div></div>
+    <div class="tbl-scroll"><table class="tbl sem" id="tabSemaforo"><tbody><tr><td class="carregando">Carregando…</td></tr></tbody></table></div>
+    <div class="sem-leg"><span><i style="background:var(--red)"></i>Crítico</span><span><i style="background:#e0a020"></i>Atenção / Parcial</span><span><i style="background:#2ea36a"></i>Positivo</span><span><i style="background:#b5c3d1"></i>A conferir</span><span><span class="na">·</span> Não se aplica à escola</span></div>
+  </div>
+</section>
+
+<!-- ===== 3. COMPARATIVO ===== -->
+<section class="sec" id="comparativo">
+  <h2>📊 Principais resultados lado a lado</h2>
+  <div class="tbl-wrap">
+    <div class="tbl-cap"><b>Os números que permitem comparar as escolas</b><div>Valores conferidos nas páginas de cada escola em out/2026. Cor de fundo = situação do número. “·” = a escola não oferta a etapa ou não fez a avaliação.</div></div>
+    <div class="tbl-scroll"><table class="tbl cmp" id="tabComparativo"></table></div>
+  </div>
+  <div class="conf"><b class="t">Cuidado ao comparar</b><ul>
+    <li>Busca Ativa: cada escola registra de um jeito (faltas diárias, registros semanais, só alunos com faltas). Compare a tendência de cada escola, não os números entre elas.</li>
+    <li>Ideb: só Adriano Martins (2023) e Luiz de Gonzaga (2025) têm o valor confirmado; nas demais ele está “a confirmar” na página QEdu.</li>
+    <li>Luiz de Gonzaga tem ADSEC, Avalie.CE e bimestrais de 2026; as demais, de 2025.</li>
+  </ul></div>
+</section>
+
+<!-- ===== 4. PADRÕES DA REDE ===== -->
+<section class="sec" id="padroes">
+  <h2>🔗 O que se repete na rede</h2>
+  <div class="grid2">
+    <div class="card s-red"><h3>Matemática nos Anos Finais: três de três escolas</h3><p class="small">7 de Setembro, Aba Tapeba e Adélia Crisóstomo concordam em todas as fontes: Avalie.CE (85% a 94% de defasagem no 9º Ano), Recomposição (90% a 95%), SAEB 2023 (7,9% a 18,2% de adequado em MT no 9º Ano) e Pulso 2026 (98% a 100% no Insuficiente). É lacuna acumulada, e pede ação de rede, não só de escola.</p></div>
+    <div class="card s-red"><h3>2º Ano: alfabetização em todas as seis</h3><p class="small">Todas têm pré-leitores no 2º Ano (CNCA 2025) e o 2º Ano LP caiu no SPAECE 2025 em quase todas (Adriano Martins de 687,9 para 508,9; 12 de Outubro de 633,5 para 578,0; 7 de Setembro de 627,2 para 587,7). Essa turma hoje está no 3º Ano.</p></div>
+    <div class="card s-yellow"><h3>Meta do 2º LP no SPAECE: divergência na Pactuação</h3><p class="small">Em seis escolas do painel, a base usada na Pactuação de Metas 2025 para o 2º Ano LP não bate com a planilha de resultados da rede. Vale levar o caso à SME de uma vez, com as seis escolas juntas.</p></div>
+    <div class="card s-yellow"><h3>5º Ano MT: subiu em umas, caiu em outras</h3><p class="small">Saiu do Crítico em 7 de Setembro, Adélia Crisóstomo e Adriano Martins e bateu a meta na Aba Tapeba; caiu na 12 de Outubro (250,7 para 223,8) e na Luiz de Gonzaga (adequado de 46,2% para 24,7%). Comparar o que mudou entre esses dois grupos.</p></div>
+    <div class="card s-green"><h3>Práticas que podem circular</h3><p class="small">ADSEC da Aba Tapeba (73% de leitores de texto) · 9º Ano LP da Adélia no SPAECE (+35,9 pts) · MT do 5º Ano da 12 de Outubro no SAEB (67,2% de adequado) · 2º Ano LP da Luiz de Gonzaga no Avalie.CE 2026 (76% de adequado) · 1º Ano no CNCA em várias escolas.</p></div>
+    <div class="card s-blue"><h3>Avaliação de Pulso: pedir o relatório completo</h3><p class="small">As telas da plataforma não trazem avaliados, proficiência TRI nem acertos por descritor. Na Adélia, o resultado das três turmas está idêntico e precisa de confirmação. O Relatório por escola e a base bruta da Jovens Gênios resolvem as três escolas de uma vez.</p></div>
+  </div>
+</section>
+
+<!-- ===== 5. ESCOLA POR ESCOLA ===== -->
+<section class="sec" id="escolas">
+  <h2>🏫 Escola por escola <small>resumo tirado da Visão Geral de cada painel</small></h2>
+  <div id="listaEscolas"><div class="carregando">Carregando…</div></div>
+</section>
+
+<div class="conf" id="confGeral"><b class="t">🔎 Conferência dos dados (out/2026)</b><ul>
+  <li>12 de Outubro: a Busca Ativa 2026 lista 296 alunos com registro, mais que as 291 matrículas do 1º ao 5º Ano (contagem da ADSEC 2025). Conferir se a lista inclui a Educação Infantil ou alunos transferidos.</li>
+  <li>Adélia Crisóstomo: matrícula de 244 (ADSEC 2025) contra 307 no QEdu; o painel usa 244.</li>
+  <li>Adélia Crisóstomo: o Pulso 2026 aparece com as três turmas idênticas e cerca de 10% de acerto; resultado a confirmar com o relatório da escola.</li>
+  <li>Ideb a confirmar em 7 de Setembro, 12 de Outubro, Aba Tapeba e Adélia Crisóstomo.</li>
+</ul></div>
+
+<footer class="foot">Painel de Indicadores Educacionais · SME Caucaia · Monitoramento Geral da Rede · Fontes: SEDUC-CE, INEP, SME Caucaia, páginas de cada escola.</footer>
+</main>
+
+<script>
+/* =====================================================================
+   MONITORAMENTO GERAL · como atualizar
+   1. Nova escola: acrescente a pasta na lista ESCOLAS abaixo.
+   2. Status (semáforo) e "Escola por escola" são lidos AO VIVO de
+      ../<pasta>/escola.js e ../<pasta>/painel.html. Não precisa mexer aqui.
+   3. A tabela "Resultados lado a lado" (COMPARATIVO) é a única parte
+      digitada à mão: atualize quando sair um resultado novo.
+   ===================================================================== */
+var ESCOLAS = ['7desetembro', '12deoutubro', 'abatapeba', 'adeliacrisostomo', 'adrianomartins', 'luizdegonzaga'];
+
+var INDICADORES = [
+  { id: 'busca_ativa',  nome: 'Busca Ativa' },
+  { id: 'adsec',        nome: 'ADSEC' },
+  { id: 'avalie_ce',    nome: 'Avalie.CE' },
+  { id: 'pulso',        nome: 'Pulso 2026' },
+  { id: 'bimestrais',   nome: 'Bimestrais' },
+  { id: 'cnca',         nome: 'CNCA' },
+  { id: 'recomposicao', nome: 'Recompo&shy;sição' },
+  { id: 'saeb',         nome: 'SAEB' },
+  { id: 'spaece',       nome: 'SPAECE' },
+  { id: 'qedu',         nome: 'QEdu / Censo' }
+];
+var ROTULO = { 's-red': 'Crítico', 's-yellow': 'Atenção', 's-green': 'Positivo', 's-blue': 'Informativo', 's-gray': 'A conferir' };
+
+/* ---------- Comparativo (digitado à mão) ----------
+   Cada linha: [valor, detalhe, cor]  · cor: red, yellow, green, gray
+   Ordem das colunas = ordem da lista ESCOLAS. null = não se aplica. */
+var COMPARATIVO = [
+  { ind: 'Matrículas', sub: 'escola.js', vals: [
+    ['748', '1º ao 9º Ano', ''], ['291', '1º ao 5º Ano', ''], ['489', '1º ao 9º Ano (EF)', ''],
+    ['244', '1º ao 9º · QEdu: 307', ''], ['316', 'Infantil e 1º ao 5º', ''], ['520', 'Pré-escola e 1º ao 5º', '']] },
+  { ind: 'Ideb · Anos Iniciais', sub: 'QEdu / INEP', vals: [
+    ['a confirmar', '', 'gray'], ['6,1 a 6,2', '2023 · a confirmar', 'gray'], ['a confirmar', 'aprendizado 5,50', 'gray'],
+    ['a confirmar', '', 'gray'], ['5,8', '2023 · aprovação 100%', 'green'], ['6,1', '2025 · aprovação 100%', 'green']] },
+  { ind: 'Leitores de texto', sub: 'ADSEC · fim de 2025', vals: [
+    ['61,97%', '+19,98 p.p.', 'green'], ['61,51%', '+18,45 p.p.', 'green'], ['73,01%', '+17,40 p.p.', 'green'],
+    ['57,25%', '+18,73 p.p.', 'yellow'], ['54,55%', '+14,43 p.p.', 'yellow'], ['50,6%', '2026, acumulado', 'yellow']] },
+  { ind: 'Pré-leitores', sub: 'CNCA 2025', vals: [
+    ['74', '47 no 2º Ano', 'red'], ['45', 'no 2º Ano · 0 fluentes no 3º', 'red'], ['36', '18 no 2º A', 'red'],
+    ['15', '3 fluentes', 'red'], ['26', 'no 2º Ano · 0 fluentes', 'red'], ['37', 'no 2º Ano (21 no 2º C)', 'red']] },
+  { ind: 'Metas SPAECE 2025', sub: 'metas atingidas', vals: [
+    ['0 de 6', '5 médias em queda', 'red'], ['0 de 4', 'as 4 médias caíram', 'red'], ['1 de 6', '5º MT', 'red'],
+    ['4 de 6', '9º LP +35,9 pts', 'yellow'], ['2 de 4', '5º LP e MT · 2º despencou', 'red'], ['1 de 4', '2º MT', 'red']] },
+  { ind: 'MT 5º Ano · adequado', sub: 'SAEB', vals: [
+    ['25,5%', '2023', 'red'], ['67,2%', '2023 · +41,7 sobre similares', 'green'], ['36,8%', '2023', 'yellow'],
+    null, ['37,7%', '2023 · similares 51,4%', 'yellow'], ['42,9%', '2025 · similares 55,4%', 'yellow']] },
+  { ind: 'MT 9º Ano · adequado', sub: 'SAEB 2023', vals: [
+    ['7,9%', '', 'red'], null, ['18,2%', '', 'red'], ['10,9%', 'similares 8,8%', 'red'], null, null] },
+  { ind: 'Defasagem MT · 9º Ano', sub: 'Avalie.CE 2025.1 · Recomposição', vals: [
+    ['85% a 95%', 'Avalie 85% · Recomp. 95% e 91%', 'red'], null, ['85% a 91%', 'Avalie 85% · Recomp. 91% e 90%', 'red'],
+    ['92% a 94%', 'Avalie 94% · Recomp. 92%', 'red'], null, null] },
+  { ind: 'Pulso 2026 · MT 8º e 9º', sub: '% no Insuficiente (meta: 60% Prof.+Av.)', vals: [
+    ['98,8%', '161 de 163 · 0% Prof.', 'red'], null, ['98,0%', '99 de 101 · 0% Prof.', 'red'],
+    ['100%', '3 turmas · a confirmar', 'red'], null, null] },
+  { ind: 'Busca Ativa 2026', sub: 'frequência', vals: [
+    ['94 alunos', '6 reincidentes, todos no 9º B', 'red'], ['296 alunos', '39 com 10+ registros', 'red'], ['181 alunos', '7º Ano com 64 registros', 'yellow'],
+    ['198 alunos', '39 com 5+ registros', 'red'], ['32 alunos', 'ninguém com mais de 2', 'yellow'], ['76 alunos', 'com 40+ faltas', 'red']] }
+];
+
+/* ---------- Utilidades ---------- */
+function esc(t) { return String(t == null ? '' : t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+function cls(el) { var m = (el.className || '').match(/s-(red|yellow|green|blue|gray)/); return m ? m[0] : 's-gray'; }
+function txt(el) { return el ? el.textContent.replace(/\s+/g, ' ').trim() : ''; }
+function fmt(n) { return n.toLocaleString('pt-BR'); }
+
+/* Carrega ../<pasta>/escola.js (funciona também abrindo o arquivo direto do computador) */
+function carregaEscolaJs(id) {
+  return new Promise(function (ok) {
+    window.ESCOLA = undefined;
+    var s = document.createElement('script');
+    s.src = '../' + id + '/escola.js';
+    s.onload = function () { var e = window.ESCOLA; window.ESCOLA = undefined; ok(e || null); };
+    s.onerror = function () { ok(null); };
+    document.head.appendChild(s);
+  });
+}
+
+/* Lê a Visão Geral da escola (painel.html) */
+function lePainel(html) {
+  var d = new DOMParser().parseFromString(html, 'text/html');
+  var out = { kpis: [], callouts: [], agora: [], indicadores: [] };
+  d.querySelectorAll('#resumo .kpi').forEach(function (k) {
+    out.kpis.push({ s: cls(k), v: txt(k.querySelector('.v')), l: txt(k.querySelector('.l')), d: txt(k.querySelector('.d')) });
+  });
+  d.querySelectorAll('#resumo .callout').forEach(function (c) {
+    var t = c.querySelector('.t'); var titulo = txt(t);
+    out.callouts.push({ s: cls(c), t: titulo, x: txt(c).replace(titulo, '').trim() });
+  });
+  d.querySelectorAll('#agora li').forEach(function (li) {
+    var ch = li.querySelector('.chip'); var c = ch ? txt(ch) : '';
+    out.agora.push({ x: txt(li).replace(c, '').trim(), chip: c, s: ch ? cls(ch) : '' });
+  });
+  d.querySelectorAll('#indicadores tbody tr').forEach(function (tr) {
+    var td = tr.querySelectorAll('td'); if (td.length < 4) return;
+    var a = tr.querySelector('a'); var ch = td[3].querySelector('.chip');
+    out.indicadores.push({ n: txt(td[0]), f: txt(td[1]), r: txt(td[2]), st: txt(td[3]), s: ch ? cls(ch) : 's-gray', href: a ? a.getAttribute('href') : '' });
+  });
+  return out;
+}
+function carregaPainel(id) {
+  if (!window.fetch || location.protocol === 'file:') return Promise.resolve(null);
+  return fetch('../' + id + '/painel.html', { cache: 'no-cache' })
+    .then(function (r) { return r.ok ? r.text() : null; })
+    .then(function (h) { return h ? lePainel(h) : null; })
+    .catch(function () { return null; });
+}
+
+/* ---------- Montagem ---------- */
+async function inicia() {
+  var dados = [], aoVivo = 0, copia = 0;
+  for (var i = 0; i < ESCOLAS.length; i++) {
+    var id = ESCOLAS[i];
+    var snap = (window.COPIA && COPIA[id]) || {};
+    var e = await carregaEscolaJs(id);
+    var p = await carregaPainel(id);
+    if (p && p.kpis.length) aoVivo++; else { p = snap.painel || null; if (p) copia++; }
+    dados.push({ id: id, e: e || snap.escola || { nome: id, paginas: {} }, p: p });
+  }
+  window.__DADOS = dados;
+  var f = document.getElementById('fonte');
+  if (aoVivo === ESCOLAS.length) { f.className = 'fonte vivo'; f.innerHTML = '<i></i>Dados lidos agora das páginas das escolas'; }
+  else { f.className = 'fonte copia'; f.innerHTML = '<i></i>Resumos: cópia de ' + (window.COPIA_DATA || 'out/2026') + (aoVivo ? ' (' + aoVivo + ' ao vivo)' : '') + ' · abra pelo site para ver ao vivo'; }
+
+  montaMenu(dados); montaKpis(dados); montaSemaforo(dados); montaComparativo(dados); montaEscolas(dados);
+}
+
+function montaMenu(dados) {
+  document.getElementById('menuEscolas').innerHTML = dados.map(function (x) {
+    return '<a class="nav" href="../' + x.id + '/painel.html"><span class="ic">🏫</span>' + esc(x.e.nome) + '</a>';
+  }).join('');
+  document.getElementById('metaEscolas').textContent = dados.length + ' escolas monitoradas';
+}
+
+function contagem(e) {
+  var c = { 's-red': 0, 's-yellow': 0, 's-green': 0, 's-gray': 0, total: 0 };
+  INDICADORES.forEach(function (ind) { var p = (e.paginas || {})[ind.id]; if (p && p.status) { c[p.status] = (c[p.status] || 0) + 1; c.total++; } });
+  return c;
+}
+
+function montaKpis(dados) {
+  var mat = 0, red = 0, yel = 0, grn = 0, tot = 0, maisCrit = null;
+  dados.forEach(function (x) {
+    mat += +x.e.matriculas || 0;
+    var c = contagem(x.e); red += c['s-red']; yel += c['s-yellow']; grn += c['s-green']; tot += c.total;
+    if (!maisCrit || c['s-red'] > maisCrit.n) maisCrit = { n: c['s-red'], nome: x.e.nome };
+  });
+  var k = [
+    ['s-blue', dados.length, 'Escolas monitoradas', fmt(mat) + ' matrículas no Ensino Fundamental e Infantil'],
+    ['s-red', red + ' de ' + tot, 'Indicadores em Crítico', 'Mais críticos: ' + maisCrit.nome + ' (' + maisCrit.n + ')'],
+    ['s-yellow', yel, 'Indicadores em Atenção', 'acompanhar no bimestre'],
+    ['s-green', grn, 'Indicadores Positivos', 'ADSEC é o principal'],
+    ['s-red', '0%', 'Proficientes no Pulso 2026', 'MT 8º e 9º Ano · 3 escolas · meta 60%']
+  ];
+  document.getElementById('kpisRede').innerHTML = k.map(function (a) {
+    return '<div class="kpi ' + a[0] + '"><span class="v">' + esc(a[1]) + '</span><div class="l">' + esc(a[2]) + '</div><div class="d">' + esc(a[3]) + '</div></div>';
+  }).join('');
+}
+
+function montaSemaforo(dados) {
+  var ord = dados.slice().sort(function (a, b) {
+    var ca = contagem(a.e), cb = contagem(b.e);
+    return (cb['s-red'] - ca['s-red']) || (cb['s-yellow'] - ca['s-yellow']);
+  });
+  var h = '<thead><tr><th>Escola</th>';
+  INDICADORES.forEach(function (i) { h += '<th>' + i.nome + '</th>'; });
+  h += '<th>Crítico · Atenção · Positivo</th></tr></thead><tbody>';
+  var col = {};
+  ord.forEach(function (x) {
+    var c = contagem(x.e);
+    h += '<tr><td class="esc"><a href="../' + x.id + '/painel.html">' + esc(x.e.nome) + '</a><span>' + esc([x.e.tipo, x.e.regional].filter(Boolean).join(' · ')) + '</span></td>';
+    INDICADORES.forEach(function (i) {
+      var p = (x.e.paginas || {})[i.id];
+      if (!p) { h += '<td><span class="na" title="Não se aplica">·</span></td>'; return; }
+      col[i.id] = col[i.id] || { r: 0, n: 0 }; col[i.id].n++; if (p.status === 's-red') col[i.id].r++;
+      var tt = (p.nome || i.nome.replace('&shy;', '')) + ': ' + (ROTULO[p.status] || 'sem status');
+      h += '<td><a class="cel ' + esc(p.status || 's-gray') + '" href="../' + x.id + '/' + i.id + '.html" title="' + esc(tt) + '" aria-label="' + esc(x.e.nome + ' · ' + tt) + '"></a></td>';
+    });
+    h += '<td class="cnt" style="white-space:nowrap"><span class="t-red">' + c['s-red'] + '</span> · <span class="t-yellow">' + c['s-yellow'] + '</span> · <span class="t-green">' + c['s-green'] + '</span></td></tr>';
+  });
+  h += '<tr class="tot"><td>Escolas em Crítico</td>';
+  INDICADORES.forEach(function (i) { var c = col[i.id]; h += '<td>' + (c ? c.r + '/' + c.n : '·') + '</td>'; });
+  h += '<td></td></tr></tbody>';
+  document.getElementById('tabSemaforo').innerHTML = h;
+}
+
+function montaComparativo(dados) {
+  var h = '<thead><tr><th>Indicador</th>';
+  dados.forEach(function (x) { h += '<th><a href="../' + x.id + '/painel.html" style="color:#fff;text-decoration:none">' + esc(x.e.nome) + '</a></th>'; });
+  h += '</tr></thead><tbody>';
+  COMPARATIVO.forEach(function (row) {
+    h += '<tr><td class="ind"><b>' + esc(row.ind) + '</b><span>' + esc(row.sub) + '</span></td>';
+    dados.forEach(function (x) {
+      var v = row.vals[ESCOLAS.indexOf(x.id)];
+      if (!v) { h += '<td class="c-gray"><span class="v">·</span></td>'; return; }
+      h += '<td class="' + (v[2] ? 'c-' + v[2] : '') + '"><span class="v">' + esc(v[0]) + '</span>' + (v[1] ? '<span class="d">' + esc(v[1]) + '</span>' : '') + '</td>';
+    });
+    h += '</tr>';
+  });
+  document.getElementById('tabComparativo').innerHTML = h + '</tbody>';
+}
+
+function montaEscolas(dados) {
+  var h = '';
+  dados.forEach(function (x, n) {
+    var e = x.e, p = x.p, c = contagem(e);
+    var sc = c['s-red'] >= 6 ? 's-red' : c['s-red'] >= 4 ? 's-yellow' : 's-green';
+    h += '<details class="acao esc-card ' + sc + '"' + (n === 0 ? ' open' : '') + '><summary><div class="st"><b>' + esc(e.nome) + ' ' + esc(e.tipo || '') + '</b><span>' +
+      esc([e.regional, e.inep ? 'INEP ' + e.inep : '', e.matriculas ? fmt(e.matriculas) + ' matrículas' : ''].filter(Boolean).join(' · ')) + '</span></div>' +
+      '<div class="cont"><span class="chip s-red">' + c['s-red'] + (c['s-red'] === 1 ? ' crítico' : ' críticos') + '</span><span class="chip s-yellow">' + c['s-yellow'] + ' atenção</span><span class="chip s-green">' + c['s-green'] + (c['s-green'] === 1 ? ' positivo' : ' positivos') + '</span></div></summary><div class="body">';
+    if (!p) {
+      h += '<p class="muted">Resumo indisponível. <a href="../' + x.id + '/painel.html">Abrir o painel da escola →</a></p></div></details>';
+      return;
+    }
+    h += '<div class="kpis">' + p.kpis.map(function (k) {
+      return '<div class="kpi ' + k.s + '"><span class="v">' + esc(k.v) + '</span><div class="l">' + esc(k.l) + '</div><div class="d">' + esc(k.d) + '</div></div>';
+    }).join('') + '</div>';
+    h += p.callouts.map(function (co) { return '<div class="callout ' + co.s + '"><b class="t">' + esc(co.t) + '</b>' + esc(co.x) + '</div>'; }).join('');
+    if (p.agora.length) {
+      h += '<h4>⚡ Prioridades da semana na escola</h4><div class="agora"><ol>' + p.agora.map(function (a) {
+        return '<li>' + esc(a.x) + (a.chip ? '<span class="chip ' + a.s + '">' + esc(a.chip) + '</span>' : '') + '</li>';
+      }).join('') + '</ol></div>';
+    }
+    if (p.indicadores.length) {
+      h += '<h4>📊 Principal resultado de cada indicador</h4><div class="tbl-wrap"><div class="tbl-scroll"><table class="tbl"><thead><tr><th>Indicador</th><th>Foco</th><th>Principal resultado</th><th>Status</th></tr></thead><tbody>' +
+        p.indicadores.map(function (r) {
+          var link = r.href ? '<a href="../' + x.id + '/' + esc(r.href) + '">' + esc(r.n) + '</a>' : esc(r.n);
+          return '<tr><td><b>' + link + '</b></td><td>' + esc(r.f) + '</td><td>' + esc(r.r) + '</td><td><span class="chip ' + r.s + '">' + esc(r.st) + '</span></td></tr>';
+        }).join('') + '</tbody></table></div></div>';
+    }
+    h += '<a class="abrir" href="../' + x.id + '/painel.html">Abrir o painel completo da escola →</a></div></details>';
+  });
+  document.getElementById('listaEscolas').innerHTML = h;
+}
+
+/* Menu no celular */
+document.getElementById('btnMenu').onclick = function () { document.body.classList.toggle('menu-open'); };
+document.getElementById('scrim').onclick = function () { document.body.classList.remove('menu-open'); };
+document.querySelector('.side').addEventListener('click', function (ev) { if (ev.target.closest('a')) document.body.classList.remove('menu-open'); });
+</script>
+<!-- COPIA: resumo das escolas usado quando a página é aberta direto do computador (sem site) -->
+<script>/*COPIA*/
+window.COPIA_DATA = "29/10/2026";
+window.COPIA = {"7desetembro":{"escola":{"nome":"7 de Setembro","tipo":"EEIEF","municipio":"Caucaia-CE","regional":"Regional Jurema","inep":"23063726","endereco":"Av. Dom Almeida Lustosa, 2322 · Parque Guadalajara","matriculas":748,"atualizado":"out/2026","paginas":{"painel":{"status":""},"resumo_executivo":{"status":""},"busca_ativa":{"status":"s-red","nome":"Busca Ativa 2026"},"adsec":{"status":"s-green","nome":"ADSEC 2025 · Leitura"},"avalie_ce":{"status":"s-red","nome":"Avalie.CE 2025.1"},"pulso":{"status":"s-red","nome":"Avaliação de Pulso 2026"},"bimestrais":{"status":"s-yellow","nome":"Bimestrais 2025"},"cnca":{"status":"s-red","nome":"CNCA 2025"},"qedu":{"status":"s-gray","nome":"QEdu / Censo"},"recomposicao":{"status":"s-red","nome":"Recomposição 2025"},"saeb":{"status":"s-red","nome":"SAEB 2023"},"spaece":{"status":"s-red","nome":"SPAECE 2025"}}},"painel":{"kpis":[{"s":"s-blue","v":"748","l":"Matrículas (1º ao 9º)","d":"376 Anos Iniciais · 372 Anos Finais"},{"s":"s-green","v":"61,97%","l":"Leitores de texto (ADSEC)","d":"+19,98 p.p. em 2025"},{"s":"s-red","v":"85 a 95%","l":"Defasagem MT · 9º Ano","d":"Avalie.CE 85% · Recomposição 95% e 91%"},{"s":"s-red","v":"74","l":"Pré-leitores (CNCA)","d":"47 só no 2º Ano"},{"s":"s-red","v":"6","l":"Alunos reincidentes em faltas","d":"Todos no 9º B"}],"callouts":[{"s":"s-red","t":"Onde está o problema","x":"Matemática nos Anos Finais (8º e 9º Ano), alfabetização no 2º Ano, Língua Portuguesa no 7º Ano e frequência no 9º B."},{"s":"s-green","t":"Onde está a solução dentro da escola","x":"1º A e 1º C (CNCA), 4º Ano LP (Avalie.CE), 6º A e 6º B LP (Recomposição) e o avanço da leitura nos Anos Iniciais (ADSEC). Essas práticas podem ser compartilhadas na formação em serviço."}],"agora":[{"x":"Visita domiciliar aos 6 reincidentes do 9º B.","chip":"Busca Ativa","s":"s-red"},{"x":"Diagnóstico por descritor e reforço em contraturno de MT no 8º e 9º Ano.","chip":"MT Anos Finais","s":"s-red"},{"x":"Plano único de fluência com os três professores do 2º Ano e encaminhamento ao AEE.","chip":"CNCA","s":"s-red"},{"x":"Reunião de emergência com o professor do 3º C (83% de defasagem em MT).","chip":"CNCA","s":"s-red"},{"x":"Replanejamento de LP com os professores do 7º Ano, usando as práticas do 6º Ano.","chip":"Recomposição","s":"s-yellow"}],"indicadores":[{"n":"Busca Ativa 2026","f":"Frequência · 6º ao 9º","r":"94 alunos, 100 registros; 9º B com 21 registros e 6 reincidentes; 69% dos registros no 8º e 9º Ano; 93,6% sem motivo identificado","st":"Crítico","s":"s-red","href":"busca_ativa.html"},{"n":"ADSEC 2025","f":"Leitura · 1º ao 5º","r":"Leitores de texto de 41,99% para 61,97%; iniciantes de 32,32% para 22,07%; cobertura de 96% a 100%","st":"Positivo","s":"s-green","href":"adsec.html"},{"n":"Avalie.CE 2025.1","f":"LP e MT · 2º a 9º","r":"Defasagem em MT: 9º Ano 85%, 8º C 91%, 8º Ano 77%; 4º Ano LP com 71% de adequado","st":"Crítico","s":"s-red","href":"avalie_ce.html"},{"n":"Avaliação de Pulso 2026","f":"MT · 8º e 9º Ano (6 turmas)","r":"161 de 163 avaliados no Insuficiente, 0% em Proficiente ou Avançado (meta 60%); 69 não avaliados (8º B com 52% de participação); 0 professores ativos","st":"Crítico","s":"s-red","href":"pulso.html"},{"n":"Bimestrais 2025","f":"LP e MT · Provas Objetivas","r":"Média 6,59 (2º) · 5,45 (3º) · 5,78 (4º); LP adequado caiu de 48,7% para 16,9%; 1.073 registros abaixo da média sem RP","st":"Atenção","s":"s-yellow","href":"bimestrais.html"},{"n":"CNCA 2025","f":"LP, MT e fluência · 1º a 5º","r":"74 pré-leitores (47 no 2º Ano); 3º C com 83% de defasagem em MT; 1ºA e 1ºC como referências","st":"Crítico","s":"s-red","href":"cnca.html"},{"n":"QEdu / Censo","f":"Ideb, infraestrutura","r":"Ideb a confirmar; sem banheiro adaptado e sem laboratórios; Sala de AEE disponível","st":"A conferir","s":"s-gray","href":"qedu.html"},{"n":"Recomposição 2025","f":"LP e MT · 6º, 7º e 9º","r":"9º A e 9º B MT: 95% e 91% de defasagem; 7º Ano LP: 76% a 85%; 6º A LP: 57% adequado","st":"Crítico","s":"s-red","href":"recomposicao.html"},{"n":"SAEB 2023","f":"5º e 9º Ano","r":"Adequado: LP 5º 48,1% · MT 5º 25,5% · LP 9º 25,6% · MT 9º 7,9%; abaixo das similares nas quatro","st":"Crítico","s":"s-red","href":"saeb.html"},{"n":"SPAECE 2025","f":"2º, 5º e 9º Ano","r":"0 de 6 metas; 5 médias em queda (2º LP −39,5; 9º LP −18,8); 9º MT com 83,3% nos padrões críticos; 5º MT saiu do Crítico (205,2)","st":"Crítico","s":"s-red","href":"spaece.html"}]}},"12deoutubro":{"escola":{"nome":"12 de Outubro","tipo":"EEIEF","municipio":"Caucaia-CE","regional":"Regional Jurema","inep":"23249595","endereco":"Rua Galiente, 966 · Parque Guadalajara","matriculas":291,"atualizado":"out/2026","paginas":{"painel":{"status":""},"resumo_executivo":{"status":""},"busca_ativa":{"status":"s-red","nome":"Busca Ativa 2026"},"adsec":{"status":"s-green","nome":"ADSEC 2025 · Leitura"},"avalie_ce":{"status":"s-red","nome":"Avalie.CE 2025.1"},"bimestrais":{"status":"s-yellow","nome":"Bimestrais 2025"},"cnca":{"status":"s-red","nome":"CNCA 2025"},"qedu":{"status":"s-gray","nome":"QEdu / Censo"},"saeb":{"status":"s-yellow","nome":"SAEB 2023"},"spaece":{"status":"s-red","nome":"SPAECE 2025"}}},"painel":{"kpis":[{"s":"s-blue","v":"291","l":"Matrículas (1º ao 5º)","d":"ADSEC 2025 · 16 turmas em 2026"},{"s":"s-green","v":"61,51%","l":"Leitores de texto (ADSEC)","d":"+18,45 p.p. em 2025"},{"s":"s-red","v":"223,8","l":"SPAECE 2025 MT · 5º Ano","d":"Caiu de 250,7 (Adequado) · meta 263,7"},{"s":"s-red","v":"45","l":"Pré-leitores no 2º Ano (CNCA)","d":"E nenhum fluente no 3º Ano"},{"s":"s-red","v":"39","l":"Alunos com 10+ faltas registradas","d":"Busca Ativa fev e mar/2026"}],"callouts":[{"s":"s-red","t":"Onde está o problema","x":"Alfabetização no 2º e 3º Ano, Matemática no 3º e 4º Ano, Língua Portuguesa no 1º A e 1º C, e frequência em sete turmas com mais de 100 registros."},{"s":"s-green","t":"Onde está a solução dentro da escola","x":"Matemática do 5º Ano (SAEB e SPAECE), 5º A e 5º C (CNCA), LP do 4º e 5º Ano (Avalie.CE) e o avanço contínuo da leitura (ADSEC). Essas práticas podem ser compartilhadas na formação em serviço."}],"agora":[{"x":"Plano único de fluência com os professores do 2º e 3º Ano e encaminhamento ao AEE dos pré-leitores do nível 1.","chip":"CNCA","s":"s-red"},{"x":"Visita domiciliar aos 7 alunos com 15 ou mais registros de falta.","chip":"Busca Ativa","s":"s-red"},{"x":"Diagnóstico por habilidade em MT com os professores do 3º e 4º Ano.","chip":"CNCA · Avalie.CE","s":"s-red"},{"x":"Diagnóstico de LP no 1º A e 1º C, com troca de práticas com o 1º B.","chip":"CNCA","s":"s-yellow"},{"x":"Investigar por que o 2º C ficou sem avaliação de MT no .Avalie.CE","chip":"Avalie.CE","s":"s-yellow"}],"indicadores":[{"n":"Busca Ativa 2026","f":"Frequência · 1º ao 5º","r":"296 alunos, 1.535 registros; 39 com 10 ou mais; 5º B 168 registros; 86,5% dos alunos sem justificativa","st":"Crítico","s":"s-red","href":"busca_ativa.html"},{"n":"ADSEC 2025","f":"Leitura · 1º ao 5º","r":"Leitores de texto de 43,06% para 61,51%; iniciantes de 46,53% para 18,90%; 288 avaliados (99%)","st":"Positivo","s":"s-green","href":"adsec.html"},{"n":"Avalie.CE 2025.1","f":"LP e MT · 2º, 4º e 5º","r":"Defasagem em MT: 4º Ano 54%, 5º B 55%; 2º C sem avaliação de MT; LP 4º Ano 53% de adequado","st":"Crítico","s":"s-red","href":"avalie_ce.html"},{"n":"Bimestrais 2025","f":"LP e MT · Provas Objetivas","r":"Média 6,42 · 6,74 · 6,72; MT 2º Período com 46,9% em Crítico ou Muito Crítico; 92,56% dos registros acima da média","st":"Atenção","s":"s-yellow","href":"bimestrais.html"},{"n":"CNCA 2025","f":"LP, MT e fluência · 13 turmas","r":"45 pré-leitores no 2º Ano; 0 fluentes no 3º Ano; MT 3º Ano 54 a 60% de defasagem; 5º A com 18 fluentes","st":"Crítico","s":"s-red","href":"cnca.html"},{"n":"QEdu / Censo","f":"Ideb, infraestrutura","r":"Ideb 2023 entre 6,1 e 6,2 (a confirmar); aprendizado 6,21; sem laboratórios; Sala de AEE disponível","st":"A conferir","s":"s-gray","href":"qedu.html"},{"n":"SAEB 2023","f":"5º Ano","r":"MT 244,74 (+41,74 sobre similares), 67,2% adequado; LP 196,39 (−5,57), 47,9% adequado","st":"Parcial","s":"s-yellow","href":"saeb.html"},{"n":"SPAECE 2025","f":"2º e 5º Ano","r":"0 de 4 metas; as 4 médias caíram (5º MT 250,7 → 223,8; 2º LP 633,5 → 578,0); acima da rede em 3 das 4","st":"Crítico","s":"s-red","href":"spaece.html"}]}},"abatapeba":{"escola":{"nome":"Aba Tapeba","tipo":"EDEIEF","municipio":"Caucaia-CE","regional":"Região BR-222","inep":"23268743","endereco":"Território Indígena Tapeba · Jandaiguaba/Capuan","matriculas":489,"atualizado":"out/2026","paginas":{"painel":{"status":""},"resumo_executivo":{"status":""},"busca_ativa":{"status":"s-yellow","nome":"Busca Ativa 2026"},"adsec":{"status":"s-green","nome":"ADSEC 2025 · Leitura"},"avalie_ce":{"status":"s-red","nome":"Avalie.CE 2025.1"},"pulso":{"status":"s-red","nome":"Avaliação de Pulso 2026"},"bimestrais":{"status":"s-yellow","nome":"Bimestrais 2025"},"cnca":{"status":"s-red","nome":"CNCA 2025"},"qedu":{"status":"s-gray","nome":"QEdu / Censo"},"recomposicao":{"status":"s-red","nome":"Recomposição 2025"},"saeb":{"status":"s-red","nome":"SAEB 2023"},"spaece":{"status":"s-red","nome":"SPAECE 2025"}}},"painel":{"kpis":[{"s":"s-blue","v":"489","l":"Matrículas no EF (1º ao 9º)","d":"226 Anos Iniciais · 263 Anos Finais · ≈ 846 no total"},{"s":"s-green","v":"73,01%","l":"Leitores de texto (ADSEC)","d":"+17,40 p.p. em 2025"},{"s":"s-red","v":"85 a 91%","l":"Defasagem MT · 9º Ano","d":"Avalie.CE 85% · Recomposição 91% e 90%"},{"s":"s-red","v":"67%","l":"Defasagem MT · 5º B e 5º C","d":"CNCA"},{"s":"s-yellow","v":"64","l":"Registros de falta no 7º Ano","d":"40 alunos · 230 registros na escola"}],"callouts":[{"s":"s-red","t":"Onde está o problema","x":"Matemática no 9º Ano, no 8º B e no 5º B e 5º C; Língua Portuguesa no 7º B e no 3º C; alfabetização no 2º A; frequência no 7º Ano."},{"s":"s-green","t":"Onde está a solução dentro da escola","x":"5º A e 5º C no SPAECE 2025 (Adequado em LP; 5º Ano atingiu a meta de MT), leitura nos Anos Iniciais (ADSEC), 4º Ano LP (Avalie.CE), 3º B e 5º A (CNCA), 6º B LP e 7º B MT (Recomposição). Essas práticas podem ser compartilhadas na formação em serviço."}],"agora":[{"x":"Diagnóstico por habilidade e reforço em contraturno de MT no 8º e 9º Ano.","chip":"MT Anos Finais","s":"s-red"},{"x":"Diagnóstico e troca de práticas em MT no 5º B e 5º C, com o professor do 5º A.","chip":"CNCA · Avalie.CE","s":"s-red"},{"x":"Reaplicar as avaliações sem dados da  (7º A em LP e 9º C em MT).Recomposição","chip":"Recomposição","s":"s-red"},{"x":"Visita domiciliar aos 12 alunos com 3 registros de falta (7 no 7º A).","chip":"Busca Ativa","s":"s-yellow"},{"x":"Plano integrado de LP e fluência no 2º A, com encaminhamento ao AEE.","chip":"CNCA","s":"s-yellow"}],"indicadores":[{"n":"Busca Ativa 2026","f":"Frequência · 1º ao 9º","r":"181 alunos, 230 registros; 7º Ano com 64 registros; 12 alunos com 3 registros; pico de 98 ausentes na semana 9","st":"Atenção","s":"s-yellow","href":"busca_ativa.html"},{"n":"ADSEC 2025","f":"Leitura · 1º ao 5º","r":"Leitores de texto de 55,61% para 73,01%; iniciantes de 26,01% para 7,08%; cobertura de 98,7%","st":"Positivo","s":"s-green","href":"adsec.html"},{"n":"Avalie.CE 2025.1","f":"LP e MT · 2º a 9º","r":"Defasagem em MT: 9º Ano 85%, 8º B 86%, 5º B 73%; 4º Ano LP com 74% de adequado","st":"Crítico","s":"s-red","href":"avalie_ce.html"},{"n":"Avaliação de Pulso 2026","f":"MT · 8º e 9º Ano (5 turmas)","r":"99 de 101 avaliados no Insuficiente, 2 no Básico, 0% em Proficiente ou Avançado (meta 60%); participação de 89,4%","st":"Crítico","s":"s-red","href":"pulso.html"},{"n":"Bimestrais 2025","f":"LP e MT · Provas Objetivas","r":"Média 7,14 · 5,60 · 5,84; MT com 41,6% em Crítico ou Muito Crítico no 4º Período; tabela por ano a reextrair","st":"Atenção","s":"s-yellow","href":"bimestrais.html"},{"n":"CNCA 2025","f":"LP, MT e fluência · 9 turmas","r":"5º B e 5º C com 67% de defasagem em MT; 36 pré-leitores (18 no 2º A); 3º B e 5º A como referências","st":"Crítico","s":"s-red","href":"cnca.html"},{"n":"QEdu / Censo","f":"Ideb, infraestrutura","r":"Ideb a confirmar; aprendizado SAEB 5,50 (AI) e 4,88 (AF); sem quadra e laboratórios; Sala de AEE disponível","st":"A conferir","s":"s-gray","href":"qedu.html"},{"n":"Recomposição 2025","f":"LP e MT · 6º, 7º e 9º","r":"9º A e 9º B MT: 91% e 90% de defasagem; 7º B LP 87%; 6º B LP 65% e 7º B MT 57% de adequado","st":"Crítico","s":"s-red","href":"recomposicao.html"},{"n":"SAEB 2023","f":"5º e 9º Ano","r":"Adequado: LP 5º 46,9% · MT 5º 36,8% · LP 9º 25,9% · MT 9º 18,2%; abaixo das similares em três das quatro","st":"Crítico","s":"s-red","href":"saeb.html"},{"n":"SPAECE 2025","f":"2º, 5º e 9º Ano","r":"1 de 6 metas (5º MT); 5º Ano subiu em LP e MT; 9º MT caiu ao Muito Crítico (86,3% nos padrões críticos); 2º Ano caiu ~90 pts","st":"Crítico","s":"s-red","href":"spaece.html"}]}},"adeliacrisostomo":{"escola":{"nome":"Adélia Crisóstomo","tipo":"EQEIEF","municipio":"Caucaia-CE","regional":"Região BR-222","inep":"23063734","endereco":"","matriculas":244,"atualizado":"out/2026","paginas":{"painel":{"status":""},"resumo_executivo":{"status":""},"busca_ativa":{"status":"s-red","nome":"Busca Ativa 2026"},"adsec":{"status":"s-yellow","nome":"ADSEC 2025 · Leitura"},"avalie_ce":{"status":"s-red","nome":"Avalie.CE 2025.1"},"pulso":{"status":"s-red","nome":"Avaliação de Pulso 2026"},"bimestrais":{"status":"s-yellow","nome":"Bimestrais 2025"},"cnca":{"status":"s-red","nome":"CNCA 2025"},"qedu":{"status":"s-gray","nome":"QEdu / Censo"},"recomposicao":{"status":"s-red","nome":"Recomposição 2025"},"saeb":{"status":"s-red","nome":"SAEB 2023"},"spaece":{"status":"s-yellow","nome":"SPAECE 2025"}}},"painel":{"kpis":[{"s":"s-blue","v":"244","l":"Matrículas (1º ao 9º)","d":"ADSEC 2025: 138 AI · 106 AF (QEdu: 307)"},{"s":"s-green","v":"57,25%","l":"Leitores de texto (ADSEC)","d":"+18,73 p.p. em 2025"},{"s":"s-red","v":"92 a 94%","l":"Defasagem MT · 9º Ano","d":"Avalie.CE 94% · Recomposição 92%"},{"s":"s-green","v":"4 de 6","l":"Metas SPAECE 2025 atingidas","d":"9º LP +35,9 pts · 5º MT saiu do Crítico"},{"s":"s-red","v":"198","l":"Alunos com registro de falta","d":"596 registros · 39 com 5 ou mais"}],"callouts":[{"s":"s-red","t":"Onde está o problema","x":"Matemática do 3º ao 9º Ano (com 9º Ano acima de 90% de defasagem), LP no 7º A e no 9º Ano, fluência no 2º, 3º e 5º Ano, e frequência, sobretudo no 8º A e 6º A."},{"s":"s-green","t":"Onde está a solução dentro da escola","x":"1º Ano no CNCA (MT 58% e 63% de adequado), 2º Ano MT e 9º Ano no SPAECE 2025, LP do 5º Ano (Avalie.CE), 6º A LP e 7º A MT (Recomposição). Essas práticas podem ser compartilhadas na formação em serviço."}],"agora":[{"x":"Diagnóstico por habilidade e reforço em contraturno de MT no 8º e 9º Ano.","chip":"MT Anos Finais","s":"s-red"},{"x":"Visita domiciliar aos 4 alunos com 10 ou mais registros de falta.","chip":"Busca Ativa","s":"s-red"},{"x":"Observação de aula e replanejamento de LP no 7º A.","chip":"Recomposição","s":"s-red"},{"x":"5º Ano MT: diagnóstico e reforço antes da passagem ao 6º Ano.","chip":"SPAECE · CNCA","s":"s-red"},{"x":"Repor a avaliação de fluência no 3º A e 5º A.","chip":"CNCA","s":"s-yellow"}],"indicadores":[{"n":"Busca Ativa 2026","f":"Frequência · 1º ao 9º","r":"198 alunos, 596 registros; 39 com 5 ou mais; 47% dos registros no 6º ao 9º; março supera fevereiro","st":"Crítico","s":"s-red","href":"busca_ativa.html"},{"n":"ADSEC 2025","f":"Leitura · 1º ao 5º","r":"Leitores de texto de 38,52% para 57,25%; 20,29% iniciantes no fim; cobertura de 97,8%","st":"Atenção","s":"s-yellow","href":"adsec.html"},{"n":"Avalie.CE 2025.1","f":"LP e MT · 2º a 9º","r":"Defasagem em MT: 9º 94%, 4º 85%, 8º 82%; LP 5º Ano 52% de adequado","st":"Crítico","s":"s-red","href":"avalie_ce.html"},{"n":"Avaliação de Pulso 2026","f":"MT · 8º A, 9º A e 9º B","r":"100% das três turmas na faixa mais baixa e 0% no ranking (meta 60%); resultado a confirmar com o relatório da escola","st":"Crítico","s":"s-red","href":"pulso.html"},{"n":"Bimestrais 2025","f":"LP e MT · Provas Objetivas","r":"Média 7,38 · 5,93 · 6,22; MT em Crítico ou Muito Crítico de 10,3% para 35,1%","st":"Atenção","s":"s-yellow","href":"bimestrais.html"},{"n":"CNCA 2025","f":"LP, MT e fluência · 5 turmas","r":"5º A MT 55% de defasagem; 15 pré-leitores; 3 fluentes; 1º Ano como referência","st":"Crítico","s":"s-red","href":"cnca.html"},{"n":"QEdu / Censo","f":"Ideb, perfil","r":"Ideb a confirmar (componentes citados não fecham); aprendizado AF 4,44; matrícula e NSE divergentes","st":"A conferir","s":"s-gray","href":"qedu.html"},{"n":"Recomposição 2025","f":"LP e MT · 6º, 7º e 9º","r":"7º A LP 95% e 9º A MT 92% de defasagem; 6º A MT 64%; 6º A LP 52% e 7º A MT 32% de adequado","st":"Crítico","s":"s-red","href":"recomposicao.html"},{"n":"SAEB 2023","f":"9º Ano","r":"Adequado: LP 21,8% (similares 26,1%) · MT 10,9% (8,8%); MT 49,9% abaixo do básico","st":"Crítico","s":"s-red","href":"saeb.html"},{"n":"SPAECE 2025","f":"2º, 5º e 9º Ano","r":"4 de 6 metas; 9º LP 253,2 (+35,9); 9º MT 242,0 (saiu do Muito Crítico); 5º MT 204,5 (saiu do Crítico); 2º LP caiu ao Básico","st":"Atenção","s":"s-yellow","href":"spaece.html"}]}},"adrianomartins":{"escola":{"nome":"Adriano Martins","tipo":"EEIEF","municipio":"Caucaia-CE","regional":"Região Praia","inep":"23061944","endereco":"","matriculas":316,"atualizado":"out/2026","paginas":{"painel":{"status":""},"resumo_executivo":{"status":""},"busca_ativa":{"status":"s-yellow","nome":"Busca Ativa 2026"},"adsec":{"status":"s-yellow","nome":"ADSEC 2025 · Leitura"},"avalie_ce":{"status":"s-red","nome":"Avalie.CE 2025.1"},"bimestrais":{"status":"s-yellow","nome":"Bimestrais 2025"},"cnca":{"status":"s-red","nome":"CNCA 2025"},"qedu":{"status":"s-green","nome":"QEdu / Censo"},"saeb":{"status":"s-yellow","nome":"SAEB 2023"},"spaece":{"status":"s-red","nome":"SPAECE 2025"}}},"painel":{"kpis":[{"s":"s-blue","v":"316","l":"Matrículas (Censo 2025)","d":"191 no 1º ao 5º Ano · 83 na Educação Infantil"},{"s":"s-green","v":"5,8","l":"Ideb 2023 · Anos Iniciais","d":"Confere com o SAEB e aprovação de 100%"},{"s":"s-green","v":"54,55%","l":"Leitores de texto (ADSEC)","d":"+14,43 p.p. em 2025"},{"s":"s-red","v":"74,5%","l":"Defasagem MT · 4º Ano","d":"Avalie.CE · 2º B com 100%"},{"s":"s-red","v":"26","l":"Pré-leitores no 2º Ano","d":"CNCA · 0 fluentes no 2º A e 2º B"}],"callouts":[{"s":"s-red","t":"Onde está o problema","x":"Matemática do 2º B ao 5º Ano: 4º Ano com 74,5% de defasagem no Avalie.CE, 5º Ano MT no SPAECE (187,90 em 2024; 202,6 em 2025, ainda com 52,6% em Crítico ou Muito Crítico), nas bimestrais (adequado de 40,9% para 18,1%) e no CNCA. Na leitura, 26 pré-leitores no 2º Ano e 41 iniciantes na ADSEC."},{"s":"s-green","t":"Onde está a solução dentro da escola","x":"5º Ano no SPAECE 2025 (metas de LP e MT atingidas), LP do 5º Ano no Avalie.CE (65,7% de adequado), 1º Ano no CNCA e o avanço da ADSEC. Formação docente de 93,1% e aprovação de 100%."}],"agora":[{"x":"Plano de alfabetização por nível para os 26 pré-leitores do 2º A e 2º B.","chip":"CNCA","s":"s-red"},{"x":"Diagnóstico e planejamento conjunto de MT no 4º Ano; verificar a aplicação do 2º B.","chip":"Avalie.CE","s":"s-red"},{"x":"Reunião com os professores do 5º Ano sobre a queda em MT (SPAECE, bimestrais e CNCA).","chip":"5º Ano MT","s":"s-red"},{"x":"Lista nominal dos 41 iniciantes da , cruzada com CNCA e frequência.ADSEC","chip":"ADSEC","s":"s-yellow"},{"x":"Apurar as saídas parciais do integral em 26/02 (1º A, 2º B e 3º A).","chip":"Busca Ativa","s":"s-yellow"}],"indicadores":[{"n":"Busca Ativa 2026","f":"Frequência · Infantil ao 5º","r":"32 alunos, 36 registros em 4 dias; 28 registros em 26/02; ninguém com mais de 2","st":"Atenção","s":"s-yellow","href":"busca_ativa.html"},{"n":"ADSEC 2025","f":"Leitura · Anos Iniciais","r":"Leitores de texto de 40,12% para 54,55%; 41 iniciantes (23,3%) no fim do ano","st":"Atenção","s":"s-yellow","href":"adsec.html"},{"n":"Avalie.CE 2025.1","f":"LP e MT · 2º, 4º e 5º","r":"MT crítica no 2º B (100%) e no 4º Ano (74,5%); LP sem turma crítica, 5º Ano com 65,7% de adequado","st":"Crítico","s":"s-red","href":"avalie_ce.html"},{"n":"Bimestrais 2025","f":"LP e MT · 5º Ano","r":"Adequado no 4º Período: LP 28,8% e MT 18,1%; queda nos dois componentes","st":"Atenção","s":"s-yellow","href":"bimestrais.html"},{"n":"CNCA 2025","f":"Av1, Av2 e leitura · 7 turmas","r":"2º Ano com 26 pré-leitores e 0 fluentes; 5º A e 5º B com queda na Av2; 1º Ano evolui","st":"Crítico","s":"s-red","href":"cnca.html"},{"n":"QEdu / Censo","f":"Ideb, perfil","r":"Ideb 5,8 (aprendizado 5,85, aprovação de 100%); sem sala de leitura e sanitário acessível","st":"Positivo","s":"s-green","href":"qedu.html"},{"n":"SAEB 2023","f":"5º Ano","r":"Adequado: LP 54,3% (similares 71,5%) · MT 37,7% (51,4%); 38% no N3 de MT","st":"Atenção","s":"s-yellow","href":"saeb.html"},{"n":"SPAECE 2025","f":"2º e 5º Ano","r":"2º Ano despencou (LP 508,9 com 55,9% Abaixo do Básico; MT 447,0); 5º Ano atingiu as metas de LP (215,2) e MT (202,6)","st":"Crítico","s":"s-red","href":"spaece.html"}]}},"luizdegonzaga":{"escola":{"nome":"Luiz de Gonzaga Fonseca Mota","tipo":"EEIEF","municipio":"Caucaia-CE","regional":"Região Metrópole","inep":"23062860","endereco":"Contorno Oeste, s/n · Nova Metrópole","matriculas":520,"atualizado":"out/2026","paginas":{"painel":{"status":""},"resumo_executivo":{"status":""},"busca_ativa":{"status":"s-red","nome":"Busca Ativa 2026"},"adsec":{"status":"s-yellow","nome":"ADSEC 2026 · Leitura e Escrita"},"avalie_ce":{"status":"s-yellow","nome":"Avalie.CE 2026"},"bimestrais":{"status":"s-yellow","nome":"Bimestrais 2026"},"cnca":{"status":"s-red","nome":"CNCA 2025"},"qedu":{"status":"s-green","nome":"QEdu / Censo"},"saeb":{"status":"s-yellow","nome":"SAEB 2025"},"spaece":{"status":"s-red","nome":"SPAECE 2025"}}},"painel":{"kpis":[{"s":"s-blue","v":"520","l":"Matrículas (Censo 2025)","d":"Pré-escola 92 · 1º ao 5º Ano 428 · 16 professores"},{"s":"s-green","v":"6,1","l":"Ideb 2025 · Anos Iniciais","d":"SAEB 2025 confere · aprovação de 100%"},{"s":"s-red","v":"76","l":"Alunos com 40 ou mais faltas","d":"Busca Ativa 2026 · 122 do EF acima de 25%"},{"s":"s-red","v":"28,7%","l":"3º Ano LP abaixo da média","d":"Notas 2026 · em 2025 eram 37 pré-leitores no 2º Ano"},{"s":"s-yellow","v":"33%","l":"Defasagem MT · 4º Ano","d":"Avalie.CE 2026.2 · 4º A 38% · 4º B 37%"}],"callouts":[{"s":"s-red","t":"Onde está o problema","x":"Três frentes. A primeira é a frequência: 76 alunos já têm 40 ou mais faltas, e o segundo semestre está pior que o primeiro. A segunda é a alfabetização da turma que estava no 2º Ano em 2025 e hoje está no 3º Ano (CNCA, SPAECE e notas). A terceira é a Matemática do 4º e do 5º Ano (Avalie.CE, notas e SPAECE)."},{"s":"s-green","t":"Onde está a solução dentro da escola","x":"2º Ano MT no SPAECE 2025 (meta superada) e 2º Ano LP no Avalie.CE 2026 (76% de adequado; 2º B 92%). 5º A e 5º C MT no Avalie.CE (adequado de 30% para 55% e de 27% para 63%). Escrita na ADSEC 2026 (adequado de 52% para 67%). Ideb de 6,1 com aprovação de 100%."}],"agora":[{"x":"Contato imediato com as famílias dos 10 alunos com 40 ou mais faltas sem nenhum contato registrado; visita domiciliar para quem tem 60 ou mais.","chip":"Busca Ativa","s":"s-red"},{"x":"Plano de alfabetização para o 3º Ano, começando pelos alunos do 3º B abaixo da média em LP e pelos pré-leitores do antigo 2º C.","chip":"CNCA · Notas","s":"s-red"},{"x":"Planejamento conjunto de MT do 4º A e 4º B com o 4º C; o 4º B teve 15 de 24 alunos abaixo da média no 3º Período.","chip":"Avalie.CE · Notas","s":"s-red"},{"x":"5º Ano MT: sequência curta de frações e decimais (4% de acerto no D21) antes da passagem ao 6º Ano.","chip":"Avalie.CE","s":"s-yellow"},{"x":"Recuperação Paralela do 3º Período (38 registros abaixo da média sem RP) e cobrança do lançamento das notas pendentes.","chip":"Bimestrais","s":"s-yellow"}],"indicadores":[{"n":"Busca Ativa 2026","f":"Frequência · Infantil ao 5º","r":"501 alunos, 11.852 faltas em 106 dias; 76 com 40 ou mais; 122 do EF acima de 25%; 69 com 20 ou mais sem contato; 1 encaminhamento ao Conselho Tutelar","st":"Crítico","s":"s-red","href":"busca_ativa.html"},{"n":"ADSEC 2026","f":"Leitura e escrita · 1º ao 5º","r":"Escrita adequada de 52,1% para 66,6% e iniciantes de 32,4% para 15,4% (1º ao 3º Período); leitura só no acumulado (50,6% leitores de texto); cobertura de 99,7%","st":"Atenção","s":"s-yellow","href":"adsec.html"},{"n":"Avalie.CE 2026","f":"LP e MT · 2º, 4º e 5º","r":"Defasagem de 2026.1 para 2026.2: LP 21,1% para 12,1%, MT 30,2% para 21,9%; 4º Ano MT 33%; 5º MT adequado de 33% para 51%; 2º MT em queda","st":"Atenção","s":"s-yellow","href":"avalie_ce.html"},{"n":"Bimestrais 2026","f":"Notas · 8 componentes","r":"93,2% acima da média; MT abaixo da média 8,4% · 6,3% · 19,2% nas mesmas turmas; 3º Ano LP 28,7%; 104 abaixo sem RP","st":"Atenção","s":"s-yellow","href":"bimestrais.html"},{"n":"CNCA 2025","f":"LP, MT e fluência · 1º a 5º","r":"2º Ano com 37 pré-leitores (21 no 2º C) e 1 fluente; 3º Ano MT 41% a 52% de defasagem; 5º C MT 72%","st":"Crítico","s":"s-red","href":"cnca.html"},{"n":"QEdu / Censo","f":"Ideb, fluxo, perfil","r":"Ideb 2025 6,1; aprovação de 100%; distorção idade-série perto de 17% no 5º Ano","st":"Positivo","s":"s-green","href":"qedu.html"},{"n":"SAEB 2025","f":"5º Ano","r":"Adequado LP 62,4% (similares 71,8%) · MT 42,9% (55,4%); MT 222,95, maior média da série; 28,4% no N4 de MT","st":"Atenção","s":"s-yellow","href":"saeb.html"},{"n":"SPAECE 2025","f":"2º e 5º Ano","r":"1 de 4 metas (2º MT 528,9); 5º MT caiu para 218,2 (adequado de 46,2% para 24,7%); 2º C com 9 dos 12 alunos Abaixo do Básico em LP","st":"Crítico","s":"s-red","href":"spaece.html"}]}}};
+</script>
+<script>inicia();</script>
+</body>
+</html>
