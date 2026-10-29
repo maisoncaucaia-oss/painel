@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CNCA 2025 · Adriano Martins EEIEF</title>
+<link rel="stylesheet" href="../assets/painel.css">
+</head>
+<body data-page="cnca">
+<main class="main">
+
+<header class="page-head">
+  <div class="crumb"><span data-escola="nome"></span> · Painel do Diretor</div>
+  <h1>📚 CNCA 2025 · Avaliações internas e leitura</h1>
+  <div class="meta"><span>Fonte: CNCA · Avaliações internas Av1 e Av2</span><span>7 turmas: 1º, 2º, 3º e 5º Ano (4º Ano ausente da fonte)</span><span>Componente da Av1 e Av2 não identificado na fonte</span></div>
+</header>
+
+<section class="sec" id="resumo">
+  <h2 data-nav="Em 30 segundos">⏱️ Em 30 segundos</h2>
+  <div class="kpis">
+    <div class="kpi s-red"><span class="v">26</span><div class="l">Pré-leitores no 2º Ano</div><div class="d">2º A 10 · 2º B 16 · 0 fluentes nas duas turmas</div></div>
+    <div class="kpi s-red"><span class="v">0% → 44%</span><div class="l">Defasagem · 5º A</div><div class="d">Adequado de 67% para 28%</div></div>
+    <div class="kpi s-red"><span class="v">9% → 48%</span><div class="l">Defasagem · 5º B</div><div class="d">Adequado de 45% para 24%</div></div>
+    <div class="kpi s-green"><span class="v">24</span><div class="l">Leitores fluentes</div><div class="d">Todos no 5º Ano (5º A 10 · 5º B 14)</div></div>
+    <div class="kpi s-gray"><span class="v">34</span><div class="l">Pré-leitores no total</div><div class="d">A fonte dizia 38</div></div>
+  </div>
+  <div class="callout s-red"><b class="t">Alfabetização no 2º Ano</b>2º B: 16 pré-leitores (7 no nível 1), 2 leitores iniciantes e nenhum fluente. 2º A: 10 pré-leitores, 4 iniciantes e nenhum fluente, com participação de 70% na avaliação de leitura.</div>
+  <div class="callout s-yellow"><b class="t">Queda nas duas turmas de 5º Ano na Av2</b>A queda simultânea nas duas turmas sugere um fator comum (itens mais difíceis, conteúdo não trabalhado, mudança de aplicação). Antes de concluir por regressão, comparar os itens da Av1 e da Av2.</div>
+  <div class="callout s-green"><b class="t">1º Ano evolui</b>1º A: adequado de 23% para 50% e defasagem de 38% para 25%. 1º B: 0% de defasagem e 78% de adequado na Av2.</div>
+</section>
+
+<section class="sec" id="agora">
+  <h2 data-nav="O que fazer agora">⚡ O que fazer agora</h2>
+  <div class="agora"><ol>
+    <li>Plano de alfabetização para os 26 pré-leitores do 2º Ano, com grupos por nível (atenção aos 7 do nível 1 no 2º B).<span class="chip s-red">1 semana</span></li>
+    <li>Reunião com os professores do 5º Ano para comparar os itens da Av1 e da Av2.<span class="chip s-red">1 semana</span></li>
+    <li>Confirmar os dados da Av2 do 2º B (idênticos aos do 2º A) e lançar a Av1 do 3º Ano.<span class="chip s-gray">15 dias</span></li>
+    <li>Incluir o 4º Ano na próxima rodada (não consta da fonte).<span class="chip s-gray">Próxima avaliação</span></li>
+    <li>Troca de práticas entre os professores do 1º A e do 1º B.<span class="chip s-green">1 mês</span></li>
+  </ol></div>
+</section>
+
+<section class="sec" id="turmas">
+  <h2 data-nav="Visão por turma">🏫 Visão por turma</h2>
+  <p class="small muted" style="margin-bottom:10px">Barras: defasagem (vermelho), intermediário (amarelo) e adequado (verde). A cor do cartão segue a pior situação entre a Av2 e a leitura.</p>
+  <div class="grid3" id="cards"></div>
+</section>
+
+<section class="sec" id="comparativo">
+  <h2 data-nav="Av1 x Av2">🔄 Comparativo Av1 x Av2</h2>
+  <div class="tbl-wrap"><div class="tbl-scroll"><table class="tbl"><thead><tr><th>Turma</th><th class="n">Part. Av1</th><th class="n">Def. Av1</th><th class="n">Adeq. Av1</th><th class="n">Part. Av2</th><th class="n">Def. Av2</th><th class="n">Adeq. Av2</th><th class="n">Δ adequado</th><th>Situação Av2</th></tr></thead><tbody id="tb-comp"></tbody></table></div></div>
+  <p class="small muted">Situação: Crítico com defasagem acima de 50%; Atenção de 25% a 50%; Positivo abaixo de 25%. Nenhuma turma passa de 50% de defasagem na Av2.</p>
+</section>
+
+<section class="sec" id="leitura">
+  <h2 data-nav="Fluência">📖 Diagnóstico de leitura</h2>
+  <div class="tbl-wrap"><div class="tbl-scroll"><table class="tbl"><thead><tr><th>Turma</th><th class="n">Part.</th><th class="n">Pré N1</th><th class="n">Pré N2</th><th class="n">Pré N3</th><th class="n">Pré N4</th><th class="n">Pré-leitores</th><th class="n">Iniciantes</th><th class="n">Fluentes</th><th>Situação</th></tr></thead><tbody id="tb-fl"></tbody></table></div></div>
+  <p class="small muted">5º Ano: a fonte informa só o total de pré-leitores e de fluentes. 1º e 3º Ano sem avaliação de leitura. * Iniciantes somados só no 2º Ano.</p>
+</section>
+
+<section class="sec" id="analise">
+  <h2 data-nav="Análises e ações">🔎 Análises e ações</h2>
+  <details class="acao s-red"><summary><div class="st"><b>2º B: 16 pré-leitores e 0 fluentes</b><span>N1 7 · N2 4 · N3 2 · N4 3 · iniciantes 2</span></div><span class="chip s-red">Crítico</span></summary><div class="body"><ol>
+    <li>Atendimento em grupo reduzido para os 7 do nível 1, com consciência fonológica e correspondência letra e som.</li>
+    <li>A mesma turma tem 100% de defasagem em MT no Avalie.CE e 4 alunos com faltas em dias seguidos na Busca Ativa.</li></ol></div></details>
+  <details class="acao s-red"><summary><div class="st"><b>2º A: 10 pré-leitores e 0 fluentes</b><span>8 nos níveis 3 e 4 · participação de 70%</span></div><span class="chip s-red">Crítico</span></summary><div class="body"><ol>
+    <li>Os 8 alunos dos níveis 3 e 4 estão perto da leitura: leitura diária mediada.</li>
+    <li>Aplicar a avaliação de leitura aos 30% ausentes.</li>
+    <li>Adequado caiu de 50% para 8% na Av2: verificar se a Av2 foi mais exigente.</li></ol></div></details>
+  <details class="acao s-yellow"><summary><div class="st"><b>5º A e 5º B: queda simultânea na Av2</b><span>Def. 0% → 44% e 9% → 48%</span></div><span class="chip s-yellow">Atenção</span></summary><div class="body"><ol>
+    <li>Comparar itens e conteúdos da Av1 e da Av2 com os professores.</li>
+    <li>8 pré-leitores no 5º Ano (4 por turma): encaminhamento individual antes do 6º Ano.</li>
+    <li>24 leitores fluentes podem atuar como monitores de leitura.</li></ol></div></details>
+  <details class="acao s-gray"><summary><div class="st"><b>Lacunas de dados</b><span>Av1 do 3º Ano · Av2 do 2º B · 4º Ano ausente</span></div><span class="chip s-gray">Dado</span></summary><div class="body"><ol>
+    <li>A Av2 do 2º B repete exatamente a do 2º A (65%, 31%, 62%, 8%); a própria fonte indica "ausência de coleta".</li>
+    <li>Confirmar com a equipe pedagógica qual componente (LP ou MT) as avaliações cobrem.</li></ol></div></details>
+  <details class="acao s-green"><summary><div class="st"><b>1º Ano como referência</b><span>1º B 78% · 1º A de 23% para 50% de adequado</span></div><span class="chip s-green">Replicar</span></summary><div class="body"><ol>
+    <li>Documentar as estratégias do 1º B e do 1º A e apresentar aos professores do 2º Ano.</li></ol></div></details>
+</section>
+
+<section class="sec" id="plano">
+  <h2 data-nav="Plano de ação">🗂️ Plano de ação</h2>
+  <div class="tbl-wrap"><div class="tbl-scroll"><table class="tbl"><thead><tr><th>#</th><th>Ação</th><th>Turmas</th><th>Responsável</th><th>Prazo</th><th>Prioridade</th></tr></thead><tbody>
+    <tr><td>1</td><td>Plano de alfabetização por nível</td><td>2º A e 2º B</td><td>Coord. + profs.</td><td>1 semana</td><td><span class="chip s-red">Urgente</span></td></tr>
+    <tr><td>2</td><td>Análise dos itens da Av1 e Av2</td><td>5º A e 5º B</td><td>Coord. pedagógica</td><td>1 semana</td><td><span class="chip s-red">Urgente</span></td></tr>
+    <tr><td>3</td><td>Atendimento aos pré-leitores do 5º Ano</td><td>5º Ano</td><td>Coord. + AEE</td><td>15 dias</td><td><span class="chip s-yellow">Atenção</span></td></tr>
+    <tr><td>4</td><td>Completar dados (3º Ano Av1, 2º B Av2, 4º Ano)</td><td>3º, 2º B, 4º</td><td>Coord. pedagógica</td><td>15 dias</td><td><span class="chip s-gray">Dado</span></td></tr>
+    <tr><td>5</td><td>Troca de práticas com o 1º Ano</td><td>1º A e 1º B</td><td>Coord. pedagógica</td><td>1 mês</td><td><span class="chip s-green">Replicar</span></td></tr>
+  </tbody></table></div></div>
+</section>
+
+<div class="conf"><b class="t">🔎 Conferência dos dados (out/2026)</b><ul>
+  <li><b>Corrigido:</b> "38 pré-leitores". A soma por turma dá 34 (2º A 10, 2º B 16, 5º A 4, 5º B 4). O Resumo e o painel repetiam 38; o painel citava ainda "10 pré-leitores".</li>
+  <li><b>Corrigido:</b> "5 turmas" no topo. A página traz 7 turmas, e o 4º Ano não aparece, embora o título diga "1º ao 5º Ano".</li>
+  <li><b>Corrigido:</b> "3 turmas críticas". Pela regra de defasagem, nenhuma turma é crítica na Av2; são críticas, pela leitura, o 2º A e o 2º B. O 5º B estava como crítico e o 2º A como atenção.</li>
+  <li><b>A conferir:</b> a Av2 do 2º B é idêntica à do 2º A; a "regressão" do 2º B (adequado de 56% para 8%) depende desse dado.</li>
+  <li>O painel citava "CNCA 8% de adequação na Av1"; nenhuma turma tem 8% na Av1 (8% é o adequado do 2º A e do 2º B na Av2).</li>
+</ul></div>
+
+<footer class="foot">Fonte: CNCA · Avaliações internas Av1 e Av2 e diagnóstico de leitura · Adriano Martins EEIEF.</footer>
+</main>
+
+<script>
+/* [turma, Av1:[part,def,int,adeq]|null, Av2:[...], leitura:[part,n1,n2,n3,n4,ini,flu,pré]|null, nota] */
+var T=[
+ ['1º A',[76,38,39,23],[71,25,25,50],null,''],
+ ['1º B',[90,5,11,84],[86,0,22,78],null,''],
+ ['2º A',[90,33,17,50],[65,31,62,8],[70,1,1,2,6,4,0,10],''],
+ ['2º B',[95,6,38,56],[65,31,62,8],[95,7,4,2,3,2,0,16],'Av2 a confirmar'],
+ ['3º U',null,[83,0,48,52],null,'Av1 não coletada'],
+ ['5º A',[79,0,33,67],[95,44,28,28],[null,null,null,null,null,null,10,4],''],
+ ['5º B',[92,9,46,45],[88,48,28,24],[null,null,null,null,null,null,14,4],'']
+];
+function s(d){return d>50?['s-red','Crítico']:d>=25?['s-yellow','Atenção']:['s-green','Positivo'];}
+function fsit(f){var p=f[7];return (f[6]===0&&p>=6)||p>=14?'s-red':(p>=4||(f[6]===0&&f[5]>=10))?'s-yellow':'s-green';}
+function nm(c){return c==='s-red'?'Crítico':c==='s-yellow'?'Atenção':'Positivo';}
+function stk(l,c){return '<div class="lab">'+l+'</div><div class="stack"><span class="seg-1" style="width:'+c[1]+'%"></span><span class="seg-3" style="width:'+c[2]+'%"></span><span class="seg-4" style="width:'+c[3]+'%"></span></div><div class="small muted">Def. '+c[1]+'% · Int. '+c[2]+'% · Adeq. <b>'+c[3]+'%</b> · Part. '+c[0]+'%</div>';}
+function d(v){return v===null||v===undefined?'<span class="t-gray">n/d</span>':v;}
+var cards='',comp='',fl='',tp=0,ti=0,tf=0;
+T.forEach(function(t){
+  var a2=s(t[2][1]),lv=[a2[0]],h='';
+  h+=t[1]?stk('Av1',t[1]):'<div class="lab">Av1</div><div class="small muted">Não coletada</div>';
+  h+=stk('Av2 <span class="chip '+a2[0]+'">'+a2[1]+'</span>',t[2]);
+  if(t[3]){var fs=fsit(t[3]);lv.push(fs);tp+=t[3][7];tf+=t[3][6];if(t[3][5])ti+=t[3][5];
+    h+='<div class="lab">Leitura <span class="chip '+fs+'">'+nm(fs)+'</span></div><div class="row"><span>Pré-leitores</span><b class="t-red">'+t[3][7]+'</b></div><div class="row"><span>Iniciantes</span><b>'+d(t[3][5])+'</b></div><div class="row"><span>Fluentes</span><b class="t-green">'+t[3][6]+'</b></div>';
+    fl+='<tr><td><b>'+t[0]+'</b></td><td class="n">'+(t[3][0]===null?d(null):t[3][0]+'%')+'</td><td class="n">'+d(t[3][1])+'</td><td class="n">'+d(t[3][2])+'</td><td class="n">'+d(t[3][3])+'</td><td class="n">'+d(t[3][4])+'</td><td class="n t-red">'+t[3][7]+'</td><td class="n">'+d(t[3][5])+'</td><td class="n t-green">'+t[3][6]+'</td><td><span class="chip '+fs+'">'+nm(fs)+'</span></td></tr>';}
+  if(t[4])h+='<div class="small t-gray" style="margin-top:6px">⚠ '+t[4]+'</div>';
+  var g=lv.indexOf('s-red')>=0?'s-red':lv.indexOf('s-yellow')>=0?'s-yellow':'s-green';
+  cards+='<div class="tcard '+g+'"><div class="h"><b>'+t[0]+'</b></div>'+h+'</div>';
+  var da=t[1]?t[2][3]-t[1][3]:null;
+  comp+='<tr><td><b>'+t[0]+'</b>'+(t[4]?' <span class="small t-gray">('+t[4]+')</span>':'')+'</td>'+(t[1]?'<td class="n">'+t[1][0]+'%</td><td class="n t-red">'+t[1][1]+'%</td><td class="n t-green">'+t[1][3]+'%</td>':'<td class="n" colspan="3"><span class="t-gray">sem dados</span></td>')+
+   '<td class="n'+(t[2][0]<85?' t-yellow':'')+'">'+t[2][0]+'%</td><td class="n t-red">'+t[2][1]+'%</td><td class="n t-green">'+t[2][3]+'%</td><td class="n '+(da===null?'':da<0?'t-red':'t-green')+'">'+(da===null?'n/d':(da>0?'+':'')+da+' p.p.')+'</td><td><span class="chip '+a2[0]+'">'+a2[1]+'</span></td></tr>';
+});
+document.getElementById('cards').innerHTML=cards;
+document.getElementById('tb-comp').innerHTML=comp;
+document.getElementById('tb-fl').innerHTML=fl+'<tr class="grp"><td>Total</td><td></td><td colspan="4"></td><td class="n">'+tp+'</td><td class="n">'+ti+' *</td><td class="n">'+tf+'</td><td></td></tr>';
+</script>
+<script src="escola.js"></script>
+<script src="../assets/painel.js"></script>
+</body>
+</html>

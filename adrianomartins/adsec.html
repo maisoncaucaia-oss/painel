@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ADSEC 2025 · Adriano Martins EEIEF</title>
+<link rel="stylesheet" href="../assets/painel.css">
+</head>
+<body data-page="adsec">
+<main class="main">
+
+<header class="page-head">
+  <div class="crumb"><span data-escola="nome"></span> · Painel do Diretor</div>
+  <h1>📖 ADSEC 2025 · Leitura</h1>
+  <div class="meta"><span>Fonte: ADSEC 2025 / SEDUC-CE</span><span>Avaliação Inicial e 1º ao 4º Período</span><span>Anos Iniciais · 176 alunos na base do 4º Período</span></div>
+</header>
+
+<section class="sec" id="resumo">
+  <h2 data-nav="Em 30 segundos">⏱️ Em 30 segundos</h2>
+  <div class="kpis">
+    <div class="kpi s-green"><span class="v">54,55%</span><div class="l">Leitores de texto · 4º Período</div><div class="d">96 alunos · +14,43 p.p. desde a Inicial</div></div>
+    <div class="kpi s-green"><span class="v">32,4%</span><div class="l">Texto com fluência</div><div class="d">57 alunos (Inicial: 41 · 24,6%)</div></div>
+    <div class="kpi s-red"><span class="v">23,3%</span><div class="l">Iniciantes · 4º Período</div><div class="d">41 alunos: 21 não leitores e 20 de sílabas</div></div>
+    <div class="kpi s-yellow"><span class="v">11,9%</span><div class="l">Não leitores · 4º Período</div><div class="d">Inicial: 25,1% (42 alunos)</div></div>
+    <div class="kpi s-gray"><span class="v">5,1%</span><div class="l">Não informado · 4º Período</div><div class="d">9 alunos sem nível registrado</div></div>
+  </div>
+  <div class="callout s-green"><b class="t">Avanço real ao longo do ano</b>Leitores de texto de 40,12% para 54,55% e não leitores de 25,1% para 11,9%. O maior salto ocorreu do 2º para o 3º Período (+17 alunos com fluência).</div>
+  <div class="callout s-red"><b class="t">41 alunos terminaram o ano sem autonomia leitora</b>São 23,3% dos alunos, contra 39,5% na Avaliação Inicial. Este grupo precisa de plano individual no início de 2026.</div>
+</section>
+
+<section class="sec" id="agora">
+  <h2 data-nav="O que fazer agora">⚡ O que fazer agora</h2>
+  <div class="agora"><ol>
+    <li>Lista nominal dos 41 iniciantes por turma, cruzada com o CNCA (34 pré-leitores) e a frequência.<span class="chip s-red">1 semana</span></li>
+    <li>Grupo de leitura mediada (15 a 20 minutos diários) para os 30 leitores de palavras e frases.<span class="chip s-yellow">Início de 2026</span></li>
+    <li>Registrar o nível dos 9 alunos sem informação no 4º Período.<span class="chip s-gray">15 dias</span></li>
+    <li>Documentar o que mudou no 3º bimestre, período do maior avanço.<span class="chip s-green">1 mês</span></li>
+  </ol></div>
+</section>
+
+<section class="sec" id="evolucao">
+  <h2 data-nav="Evolução por período">📈 Evolução por período</h2>
+  <div class="tbl-wrap"><div class="tbl-scroll"><table class="tbl"><thead><tr><th>Grupo</th><th class="n">Inicial</th><th class="n">1º Per.</th><th class="n">2º Per.</th><th class="n">3º Per. *</th><th class="n">4º Per.</th><th class="n">Variação</th></tr></thead><tbody id="tb-evo"></tbody></table></div></div>
+  <p class="small muted">Percentuais sobre os avaliados de cada período. * O 3º Período soma 180 alunos por nível para 176 avaliados (102,3%); os percentuais desse período estão superestimados em cerca de 2 p.p.</p>
+  <div class="card" style="margin-top:12px"><h3>Distribuição por nível em cada período</h3><div id="stk"></div>
+    <div class="legend"><span><i style="background:var(--red)"></i>Não leitor</span><span><i style="background:#e0782a"></i>Sílabas</span><span><i style="background:#e0a020"></i>Palavras e frases</span><span><i style="background:#2ea36a"></i>Texto sem fluência</span><span><i style="background:#1a7a4a"></i>Texto com fluência</span><span><i style="background:#b5c3d1"></i>Não informado</span></div></div>
+</section>
+
+<section class="sec" id="final">
+  <h2 data-nav="4º Período">🏁 4º Período por nível</h2>
+  <div class="card"><div class="bars" id="bars-final"></div></div>
+</section>
+
+<section class="sec" id="analise">
+  <h2 data-nav="Análises e ações">🔎 Análises e ações</h2>
+  <details class="acao s-red"><summary><div class="st"><b>41 iniciantes no fim do ano</b><span>21 não leitores · 20 leitores de sílabas</span></div><span class="chip s-red">Urgente</span></summary><div class="body"><ul>
+    <li>Plano individual (reforço, AEE quando houver laudo, alfabetização complementar).</li>
+    <li>Verificar frequência e necessidades educacionais específicas de cada aluno.</li></ul></div></details>
+  <details class="acao s-yellow"><summary><div class="st"><b>Queda de fluentes no 1º Período</b><span>41 → 21 alunos (24,6% → 12,1%)</span></div><span class="chip s-yellow">Calibração</span></summary><div class="body"><ul>
+    <li>Conferir se o protocolo e os avaliadores foram os mesmos na Inicial e no 1º Período.</li>
+    <li>Padronizar a aplicação em 2026.</li></ul></div></details>
+  <details class="acao s-yellow"><summary><div class="st"><b>Leitores de sílabas subiram no 3º Período</b><span>17 → 22 alunos</span></div><span class="chip s-yellow">Atenção</span></summary><div class="body"><ul>
+    <li>Interpretar com cautela: o 3º Período tem 4 alunos a mais na soma dos níveis.</li></ul></div></details>
+  <details class="acao s-green"><summary><div class="st"><b>Participação de 100% do 2º ao 4º Período</b><span>Inicial 94,9% · 1º Período 98,3%</span></div><span class="chip s-green">Manter</span></summary><div class="body"><ul>
+    <li>Formalizar como protocolo para 2026.</li></ul></div></details>
+</section>
+
+<section class="sec" id="plano">
+  <h2 data-nav="Plano de ação">🗂️ Plano de ação</h2>
+  <div class="tbl-wrap"><div class="tbl-scroll"><table class="tbl"><thead><tr><th>#</th><th>Ação</th><th>Público</th><th>Responsável</th><th>Prazo</th><th>Prioridade</th></tr></thead><tbody>
+    <tr><td>1</td><td>Mapa nominal e plano individual dos iniciantes</td><td>41 alunos</td><td>Coord. + profs.</td><td>1 semana</td><td><span class="chip s-red">Urgente</span></td></tr>
+    <tr><td>2</td><td>Grupo de leitura mediada</td><td>30 alunos (palavras e frases)</td><td>Profs.</td><td>Início de 2026</td><td><span class="chip s-yellow">Atenção</span></td></tr>
+    <tr><td>3</td><td>Padronizar a aplicação e completar registros</td><td>Todas as turmas</td><td>Coord. pedagógica</td><td>Antes da Avaliação Inicial</td><td><span class="chip s-gray">Dado</span></td></tr>
+    <tr><td>4</td><td>Comunicar o avanço às famílias</td><td>Comunidade</td><td>Direção</td><td>Curto prazo</td><td><span class="chip s-green">Reconhecer</span></td></tr>
+  </tbody></table></div></div>
+</section>
+
+<div class="conf"><b class="t">🔎 Conferência dos dados (out/2026)</b><ul>
+  <li>4º Período conferido: 21 + 20 + 16 + 14 + 39 + 57 + 9 não informados = 176.</li>
+  <li><b>Inconsistência na fonte:</b> o 3º Período soma 180 alunos por nível (31 + 22 + 19 + 17 + 40 + 51) para 176 avaliados. A Avaliação Inicial soma 166 para 167 avaliados.</li>
+  <li><b>Corrigido:</b> o Resumo trazia "23% não leitores no 4º Período". 23,3% são os iniciantes (não leitores e sílabas); os não leitores são 11,9%. O painel citava "25% não leitores no 4º Período", valor da Avaliação Inicial.</li>
+  <li><b>Corrigido:</b> a página de Bimestrais repetia a ADSEC com "2º Período 46%" de leitores de texto; o valor é 42,05%. O 1º Período (36,42%) aparecia como "em progresso".</li>
+  <li>Evolução de leitores de texto: +14,43 p.p. (40,12% para 54,55%); a página trazia +14,5 e +14,4.</li>
+  <li>Base: 176 alunos avaliados contra 191 matrículas de Anos Iniciais no Censo 2025. A diferença deve ser verificada (alunos sem avaliação ou matrícula de outra data).</li>
+</ul></div>
+
+<footer class="foot">Fonte: ADSEC 2025 / SEDUC-CE · Avaliação Diagnóstica de Leitura · Adriano Martins EEIEF.</footer>
+</main>
+
+<script>
+/* [período, avaliados, NL, sílabas, palavras, frases, texto s/ fluência, texto c/ fluência] */
+var P=[['Inicial',167,42,24,18,15,26,41],['1º Per.',173,43,16,24,18,42,21],['2º Per.',176,33,17,20,26,40,34],['3º Per.',176,31,22,19,17,40,51],['4º Per.',176,21,20,16,14,39,57]];
+function pc(x,n){return (x/n*100).toFixed(2).replace('.',',')+'%';}
+var G=[['Leitores de texto',function(r){return r[6]+r[7];},'t-green'],['Intermediários (palavras e frases)',function(r){return r[4]+r[5];},''],['Iniciantes (não leitor e sílabas)',function(r){return r[2]+r[3];},'t-red'],['Não leitores',function(r){return r[2];},'t-red'],['Texto com fluência',function(r){return r[7];},'t-green']];
+var b='';
+G.forEach(function(g){var v=P.map(function(r){return g[1](r)/r[1]*100;});var dv=v[4]-v[0];
+ b+='<tr><td><b>'+g[0]+'</b></td>'+P.map(function(r,i){return '<td class="n">'+(i===4?'<b>':'')+pc(g[1](r),r[1])+'<span class="small muted"> · '+g[1](r)+'</span>'+(i===4?'</b>':'')+'</td>';}).join('')+'<td class="n '+(g[2]==='t-red'?(dv<0?'t-green':'t-red'):(dv>0?'t-green':'t-red'))+'">'+(dv>0?'+':'')+dv.toFixed(2).replace('.',',')+'</td></tr>';});
+b+='<tr class="grp"><td>Avaliados</td>'+P.map(function(r){return '<td class="n">'+r[1]+'</td>';}).join('')+'<td class="n">+9</td></tr>';
+document.getElementById('tb-evo').innerHTML=b;
+document.getElementById('stk').innerHTML=P.map(function(r){var n=r[1],soma=r[2]+r[3]+r[4]+r[5]+r[6]+r[7],ni=Math.max(n-soma,0),tot=Math.max(n,soma);
+ function w(x){return (x/tot*100).toFixed(2)+'%';}
+ return '<div class="bar-row" style="margin-bottom:6px"><span class="lbl">'+r[0]+'</span><div class="stack" style="flex:1"><span class="seg-1" style="width:'+w(r[2])+'"></span><span class="seg-2" style="width:'+w(r[3])+'"></span><span class="seg-3" style="width:'+w(r[4]+r[5])+'"></span><span style="background:#2ea36a;width:'+w(r[6])+'"></span><span class="seg-5" style="width:'+w(r[7])+'"></span><span class="seg-0" style="width:'+w(ni)+'"></span></div><span class="val">'+n+'</span></div>';}).join('');
+var F=[['Não leitor',21,'s-red'],['Leitor de sílabas',20,'s-red'],['Leitor de palavras',16,'s-yellow'],['Leitor de frases',14,'s-yellow'],['Texto sem fluência',39,'s-green'],['Texto com fluência',57,'s-green'],['Não informado',9,'s-gray']];
+document.getElementById('bars-final').innerHTML=F.map(function(x){return '<div class="bar-row"><span class="lbl">'+x[0]+'</span><div class="track"><div class="fill '+x[2]+'" style="width:'+(x[1]/176*100)+'%"></div></div><span class="val">'+(x[1]/176*100).toFixed(1).replace('.',',')+'% · '+x[1]+'</span></div>';}).join('')+'<p class="small muted" style="margin-top:8px">176 alunos avaliados no 4º Período.</p>';
+</script>
+<script src="escola.js"></script>
+<script src="../assets/painel.js"></script>
+</body>
+</html>

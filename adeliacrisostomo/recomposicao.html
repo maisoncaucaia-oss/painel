@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recomposição 2025 · Adélia Crisóstomo EQEIEF</title>
+<link rel="stylesheet" href="../assets/painel.css">
+</head>
+<body data-page="recomposicao">
+<main class="main">
+
+<header class="page-head">
+  <div class="crumb"><span data-escola="nome"></span> · Painel do Diretor</div>
+  <h1>🎒 Recomposição da Aprendizagem 2025</h1>
+  <div class="meta"><span>Fonte: Relatório de Acompanhamento da Recomposição</span><span>LP e Matemática</span><span>6º A, 7º A e 9º A</span><span>3 turmas</span></div>
+</header>
+
+<section class="sec" id="resumo">
+  <h2 data-nav="Em 30 segundos">⏱️ Em 30 segundos</h2>
+  <div class="kpis">
+    <div class="kpi s-red"><span class="v">95%</span><div class="l">Defasagem LP · 7º A</div><div class="d">0% adequado</div></div>
+    <div class="kpi s-red"><span class="v">92%</span><div class="l">Defasagem MT · 9º A</div><div class="d">0% adequado · participação 72%</div></div>
+    <div class="kpi s-red"><span class="v">64%</span><div class="l">Defasagem MT · 6º A</div><div class="d">7% adequado</div></div>
+    <div class="kpi s-green"><span class="v">52%</span><div class="l">Adequado LP · 6º A</div><div class="d">Melhor LP dos Anos Finais</div></div>
+    <div class="kpi s-green"><span class="v">32%</span><div class="l">Adequado MT · 7º A</div><div class="d">Só 11% de defasagem · melhor MT</div></div>
+  </div>
+  <div class="callout s-red"><b class="t">Cada turma tem um componente em colapso</b>6º A: MT com 64% de defasagem. 7º A: LP com 95%. 9º A: MT com 92%. O componente oposto de cada turma está bem melhor, o que aponta para a prática de cada componente e não para o perfil dos alunos.</div>
+  <div class="callout s-yellow"><b class="t">9º A MT: só 72% participaram</b>Os 92% de defasagem foram medidos entre os presentes. Reaplicar a avaliação para os ausentes.</div>
+</section>
+
+<section class="sec" id="agora">
+  <h2 data-nav="O que fazer agora">⚡ O que fazer agora</h2>
+  <div class="agora"><ol>
+    <li>7º A LP: diagnóstico por descritor e observação de aula; replanejamento com a coordenação.<span class="chip s-red">Imediato</span></li>
+    <li>9º A MT: reaplicar para os ausentes e iniciar reforço em contraturno.<span class="chip s-red">Imediato</span></li>
+    <li>6º A MT: diagnóstico e troca de práticas com o professor de MT do 7º A.<span class="chip s-red">15 dias</span></li>
+    <li>Formação com o professor de LP do 6º A para os colegas do 7º A.<span class="chip s-yellow">Próxima formação</span></li>
+    <li>Cruzar a lista do 9º A com a Busca Ativa (9º A e 9º B somam 101 registros).<span class="chip s-yellow">1 mês</span></li>
+  </ol></div>
+</section>
+
+<section class="sec" id="semaforo">
+  <h2 data-nav="Semáforo por turma">🚦 Semáforo por turma</h2>
+  <div class="legend" style="margin-bottom:10px"><span><i class="seg-1"></i>Defasagem</span><span><i class="seg-3"></i>Intermediário</span><span><i class="seg-4"></i>Adequado</span><span>Regra do semáforo: defasagem ≥ 50% crítico · 30 a 49% atenção · abaixo de 30% ou adequado ≥ 40% positivo</span></div>
+  <div class="grid3" id="turmas"></div>
+</section>
+
+<section class="sec" id="dados">
+  <h2 data-nav="Dados por componente">📋 Dados por componente</h2>
+  <div class="tabs"><button class="on" data-tab="t-lp">📖 Língua Portuguesa</button><button data-tab="t-mt">📐 Matemática</button></div>
+  <div class="tab-pane on" id="t-lp"><div class="tbl-wrap"><div class="tbl-scroll"><table class="tbl"><thead><tr><th>Turma</th><th class="n">Participação</th><th class="n">Defasagem</th><th class="n">Intermediário</th><th class="n">Adequado</th><th>Situação</th></tr></thead><tbody id="tb-lp"></tbody></table></div></div></div>
+  <div class="tab-pane" id="t-mt"><div class="tbl-wrap"><div class="tbl-scroll"><table class="tbl"><thead><tr><th>Turma</th><th class="n">Participação</th><th class="n">Defasagem</th><th class="n">Intermediário</th><th class="n">Adequado</th><th>Situação</th></tr></thead><tbody id="tb-mt"></tbody></table></div></div></div>
+</section>
+
+<section class="sec" id="analise">
+  <h2 data-nav="Análises e ações">🔎 Análises e ações detalhadas</h2>
+  <details class="acao s-red"><summary><div class="st"><b>7º A · LP: 95% de defasagem e 0% adequado</b><span>MT da mesma turma: 11% de defasagem e 32% adequado</span></div><span class="chip s-red">Crítico</span></summary>
+  <div class="body"><ol>
+    <li>Diagnóstico por descritor (compreensão leitora, inferência, análise linguística).</li>
+    <li>Grupos de nivelamento dentro da sala e avaliação quinzenal.</li>
+    <li>Troca de práticas com o professor de LP do 6º A.</li>
+  </ol></div></details>
+  <details class="acao s-red"><summary><div class="st"><b>9º A · MT: 92% de defasagem e 0% adequado</b><span>28% de ausentes na avaliação</span></div><span class="chip s-red">Crítico</span></summary>
+  <div class="body"><ol>
+    <li>Reaplicar a avaliação, garantindo cobertura de 95% ou mais.</li>
+    <li>Reforço em contraturno: números e operações, álgebra, grandezas e medidas.</li>
+    <li>Cruzar defasagem e infrequência para identificar risco de abandono na passagem ao Ensino Médio.</li>
+  </ol></div></details>
+  <details class="acao s-red"><summary><div class="st"><b>6º A · MT: 64% de defasagem e 7% adequado</b><span>Passagem do 5º para o 6º Ano</span></div><span class="chip s-red">Crítico</span></summary>
+  <div class="body"><ol>
+    <li>Diagnóstico de pré-requisitos do 5º Ano (o 5º Ano MT também é crítico no SPAECE e no CNCA).</li>
+    <li>Troca com o professor de MT do 7º A, que tem a menor defasagem da escola.</li>
+  </ol></div></details>
+  <details class="acao s-yellow"><summary><div class="st"><b>9º A · LP: 35% adequado e 24% de defasagem</b><span>41% no intermediário</span></div><span class="chip s-yellow">Atenção</span></summary>
+  <div class="body"><ol>
+    <li>Focar o grupo intermediário, o mais próximo do adequado.</li>
+  </ol></div></details>
+  <details class="acao s-green"><summary><div class="st"><b>6º A LP e 7º A MT: referências</b><span>52% e 32% de adequado</span></div><span class="chip s-green">Replicar</span></summary>
+  <div class="body"><ol>
+    <li>Formação em serviço com esses professores para os colegas dos componentes em crise.</li>
+    <li>Registrar as práticas no PPP.</li>
+  </ol></div></details>
+</section>
+
+<section class="sec" id="plano">
+  <h2 data-nav="Plano de ação">🗂️ Plano de ação</h2>
+  <div class="tbl-wrap"><div class="tbl-scroll"><table class="tbl"><thead><tr><th>#</th><th>Ação</th><th>Público</th><th>Responsável</th><th>Prazo</th><th>Prioridade</th></tr></thead><tbody>
+    <tr><td>1</td><td>Diagnóstico por descritor e replanejamento de LP</td><td>7º A · LP</td><td>Coord. + prof. LP</td><td>Imediato</td><td><span class="chip s-red">Urgente</span></td></tr>
+    <tr><td>2</td><td>Reaplicar MT para ausentes e reforço em contraturno</td><td>9º A · MT</td><td>Coord. + prof. MT</td><td>Imediato</td><td><span class="chip s-red">Urgente</span></td></tr>
+    <tr><td>3</td><td>Diagnóstico de pré-requisitos de MT</td><td>6º A · MT</td><td>Coord. + prof. MT</td><td>15 dias</td><td><span class="chip s-red">Urgente</span></td></tr>
+    <tr><td>4</td><td>Solicitar à SME materiais de recomposição</td><td>Anos Finais</td><td>Direção</td><td>15 dias</td><td><span class="chip s-yellow">Atenção</span></td></tr>
+    <tr><td>5</td><td>Formação com os professores do 6º A (LP) e 7º A (MT)</td><td>Anos Finais</td><td>Coordenação</td><td>Próxima formação</td><td><span class="chip s-green">Replicar</span></td></tr>
+    <tr><td>6</td><td>Cruzar defasagem com infrequência</td><td>9º Ano</td><td>Coord. + direção</td><td>1 mês</td><td><span class="chip s-yellow">Atenção</span></td></tr>
+    <tr><td>7</td><td>Reunião com famílias do 9º Ano</td><td>Famílias</td><td>Direção</td><td>1 mês</td><td><span class="chip s-blue">Planejar</span></td></tr>
+  </tbody></table></div></div>
+</section>
+
+<div class="conf"><b class="t">🔎 Conferência dos dados (out/2026)</b><ul>
+  <li><b>Corrigido (afeta 4 páginas):</b> "7º Ano: 92% de defasagem em MT e 0% de adequado". A tabela da própria página mostra 11% de defasagem, 58% intermediário e 32% de adequado: o 7º A tem o <b>melhor</b> resultado de MT da Recomposição. Os 92% são do 9º A.</li>
+  <li><b>Corrigido:</b> "9º LP (35%) acima do 7º e do 6º Ano (0% e 52%)". Está acima do 7º, mas abaixo do 6º.</li>
+  <li>Os percentuais somam 100% por turma (variação de 1 ponto por arredondamento).</li>
+  <li>"Parceria SPAECE 2025" passou a SPAECE sem ano fixo.</li>
+</ul></div>
+
+<footer class="foot">Fonte: Relatório de Acompanhamento da Recomposição da Aprendizagem 2025 · Adélia Crisóstomo EQEIEF · INEP 23063734</footer>
+</main>
+
+<script>
+/* [turma, partLP, defLP, intLP, adeqLP, partMT, defMT, intMT, adeqMT] */
+var R = [
+  ['6º A',86,16,32,52, 97,64,29,7],
+  ['7º A',95,95,5,0, 90,11,58,32],
+  ['9º A',94,24,41,35, 72,92,8,0]
+];
+function sit(def,ad){ if(def===null)return ['s-gray','Sem dados']; return ad>=40?['s-green','Positivo']:def>=50?['s-red','Crítico']:def>=30?['s-yellow','Atenção']:['s-green','Positivo']; }
+function stack(d,i,a){ return '<div class="stack"><span class="seg-1" style="width:'+d+'%"></span><span class="seg-3" style="width:'+i+'%"></span><span class="seg-4" style="width:'+a+'%"></span></div>'; }
+function part(p){ return p===0?'<span class="t-red">0% ⛔</span>':p<80?'<span class="t-yellow">'+p+'% ⚠</span>':p+'%'; }
+function bloco(nm,p,d,i,a){ var s=sit(d,a); if(d===null)return '<div class="lab">'+nm+' · <span class="chip s-gray">Sem dados</span></div><div class="small muted">Turma não avaliada (participação 0%)</div>';
+  return '<div class="lab">'+nm+' · <span class="chip '+s[0]+'">'+s[1]+'</span></div>'+stack(d,i,a)+'<div class="small muted">Def. '+d+'% · Int. '+i+'% · Adeq. <b>'+a+'%</b> · Part. '+p+'%</div>'; }
+var g='';
+R.forEach(function(t){
+  var sl=sit(t[2],t[4]), sm=sit(t[6],t[8]);
+  var pior=(sl[0]==='s-red'||sm[0]==='s-red')?'s-red':(sl[0]==='s-yellow'||sm[0]==='s-yellow')?'s-yellow':'s-green';
+  g+='<div class="tcard '+pior+'"><div class="h"><b>'+t[0]+'</b></div>'+bloco('LP',t[1],t[2],t[3],t[4])+bloco('MT',t[5],t[6],t[7],t[8])+'</div>';
+});
+document.getElementById('turmas').innerHTML=g;
+function row(nm,p,d,i,a){var s=sit(d,a);if(d===null)return '<tr><td><b>'+nm+'</b></td><td class="n">'+part(p)+'</td><td class="n t-gray">·</td><td class="n t-gray">·</td><td class="n t-gray">·</td><td><span class="chip s-gray">Sem dados</span></td></tr>';
+  return '<tr><td><b>'+nm+'</b></td><td class="n">'+part(p)+'</td><td class="n t-red">'+d+'%</td><td class="n">'+i+'%</td><td class="n t-green">'+a+'%</td><td><span class="chip '+s[0]+'">'+s[1]+'</span></td></tr>';}
+function nz(x,v){return x===null?v:x;}
+var lp=R.slice().sort(function(a,b){return nz(b[4],-1)-nz(a[4],-1)||nz(a[2],999)-nz(b[2],999);}), mt=R.slice().sort(function(a,b){return nz(a[6],999)-nz(b[6],999)||nz(b[8],-1)-nz(a[8],-1);});
+document.getElementById('tb-lp').innerHTML=lp.map(function(t){return row(t[0],t[1],t[2],t[3],t[4]);}).join('');
+document.getElementById('tb-mt').innerHTML=mt.map(function(t){return row(t[0],t[5],t[6],t[7],t[8]);}).join('');
+</script>
+<script src="escola.js"></script>
+<script src="../assets/painel.js"></script>
+</body>
+</html>

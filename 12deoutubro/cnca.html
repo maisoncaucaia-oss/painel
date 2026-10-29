@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CNCA · 12 de Outubro EEIEF</title>
+<link rel="stylesheet" href="../assets/painel.css">
+</head>
+<body data-page="cnca">
+<main class="main">
+
+<header class="page-head">
+  <div class="crumb"><span data-escola="nome"></span> · Painel do Diretor</div>
+  <h1>📚 CNCA · Compromisso Nacional Criança Alfabetizada</h1>
+  <div class="meta"><span>Fonte: avaliação CNCA da escola</span><span>LP, MT e Fluência Leitora</span><span>1º, 2º, 3º e 5º Ano · 13 turmas</span></div>
+</header>
+
+<section class="sec" id="resumo">
+  <h2 data-nav="Em 30 segundos">⏱️ Em 30 segundos</h2>
+  <div class="kpis">
+    <div class="kpi s-red"><span class="v">45</span><div class="l">Pré-leitores no 2º Ano</div><div class="d">15 em cada turma · 1 fluente (2º C)</div></div>
+    <div class="kpi s-red"><span class="v">0</span><div class="l">Fluentes no 3º Ano</div><div class="d">17 pré-leitores e 23 iniciantes</div></div>
+    <div class="kpi s-red"><span class="v">54 a 60%</span><div class="l">Defasagem MT · 3º Ano</div><div class="d">3ºA 58% e 0% adequado · 3ºB 54% · 3ºC 60%</div></div>
+    <div class="kpi s-red"><span class="v">71 e 75%</span><div class="l">Defasagem LP · 1º A e 1º C</div><div class="d">MT das mesmas turmas: 18%</div></div>
+    <div class="kpi s-green"><span class="v">43</span><div class="l">Fluentes no 5º Ano</div><div class="d">5ºA 18 · 5ºB 16 · 5ºC 9</div></div>
+  </div>
+  <div class="callout s-red"><b class="t">A alfabetização trava entre o 2º e o 3º Ano</b>O 2º Ano tem 45 pré-leitores (15 por turma) e 1 fluente; o 3º Ano não tem nenhum fluente. O padrão se repete em todas as turmas, o que aponta para causa comum (rotina, material, formação) e não para uma turma isolada.</div>
+  <div class="callout s-red"><b class="t">Matemática no 3º Ano: defasagem acima de 50% nas três turmas</b>3ºA 58% (0% adequado), 3ºB 54% (23%), 3ºC 60% (15%).</div>
+  <div class="callout s-green"><b class="t">5º Ano mostra que a escola chega lá</b>43 dos 61 alunos com fluência medida são fluentes; 5ºC tem 55% de adequado em LP e 5ºA tem 50%.</div>
+</section>
+
+<section class="sec" id="agora">
+  <h2 data-nav="O que fazer agora">⚡ O que fazer agora</h2>
+  <div class="agora"><ol>
+    <li>Reunião conjunta dos três professores do 2º Ano: plano único de fluência com agrupamento por nível.<span class="chip s-red">Imediato</span></li>
+    <li>Encaminhar ao AEE para avaliação os pré-leitores do nível 1 (2ºA 7, 2ºB 8, 2ºC 4, 3ºB 7).<span class="chip s-red">15 dias</span></li>
+    <li>3º Ano MT: diagnóstico por habilidade com os três professores e replanejamento do bimestre.<span class="chip s-red">15 dias</span></li>
+    <li>1º A e 1º C LP: diagnóstico de LP (decodificação, escrita, compreensão) e troca com o professor do 1º B (29% de defasagem).<span class="chip s-yellow">15 dias</span></li>
+    <li>3º Ano: leitura oral diária (leitura cronometrada, teatro de leitores) para os 23 iniciantes.<span class="chip s-yellow">15 dias</span></li>
+  </ol></div>
+</section>
+
+<section class="sec" id="turmas">
+  <h2 data-nav="Visão por turma">🏫 Visão por turma</h2>
+  <div class="legend" style="margin-bottom:10px"><span><i class="seg-1"></i>Defasagem</span><span><i class="seg-3"></i>Intermediário</span><span><i class="seg-4"></i>Adequado</span><span>Semáforo: defasagem acima de 50% crítico · 25 a 50% atenção · abaixo de 25% positivo</span></div>
+  <div class="grid4" id="cards"></div>
+</section>
+
+<section class="sec" id="tabelas">
+  <h2 data-nav="LP e MT">📋 Língua Portuguesa e Matemática</h2>
+  <div class="tabs"><button class="on" data-tab="t-lp">📖 LP</button><button data-tab="t-mt">📐 MT</button></div>
+  <div class="tab-pane on" id="t-lp"></div>
+  <div class="tab-pane" id="t-mt"></div>
+  <p class="small muted">Participação abaixo de 85% torna o resultado da turma menos representativo: 1º B MT (72%) e 1º D MT (84%).</p>
+</section>
+
+<section class="sec" id="fluencia">
+  <h2 data-nav="Fluência leitora">📖 Fluência leitora</h2>
+  <div class="tbl-wrap"><div class="tbl-cap"><b>Distribuição por turma (número de alunos)</b><div>Pré-leitor: níveis 1 (mais inicial) a 4 (próximo de iniciante) · n/d = não detalhado na fonte</div></div><div class="tbl-scroll"><table class="tbl"><thead><tr><th>Turma</th><th class="n">Part.</th><th class="n">Pré N1</th><th class="n">Pré N2</th><th class="n">Pré N3</th><th class="n">Pré N4</th><th class="n">Total pré</th><th class="n">Iniciantes</th><th class="n">Fluentes</th><th>Situação</th></tr></thead><tbody id="tb-fl"></tbody></table></div></div>
+  <div class="callout s-yellow"><b class="t">LP escrita x fluência no 2º Ano</b>2º B tem 50% de adequado em LP e, ao mesmo tempo, 15 pré-leitores. A diferença pode vir de instrumentos distintos (prova escrita x leitura oral) e deve ser verificada com o professor.</div>
+  <div class="callout s-gray"><b class="t">3º B: participação de 67% na fluência</b>Resultado pouco representativo; garantir reposição da avaliação.</div>
+</section>
+
+<section class="sec" id="analise">
+  <h2 data-nav="Análises e ações">🔎 Análises e ações</h2>
+  <details class="acao s-red"><summary><div class="st"><b>2º Ano: 45 pré-leitores e 1 fluente</b><span>15 em cada turma · 19 no nível 1</span></div><span class="chip s-red">Emergência</span></summary><div class="body"><ol>
+    <li>Plano unificado de fluência para as três turmas, com metas compartilhadas.</li>
+    <li>Bloco diário de 30 minutos de alfabetização, com agrupamento por nível.</li>
+    <li>Nível 1 e 2: consciência fonológica e relação grafema-fonema diariamente; avaliação no AEE.</li>
+    <li>Avaliação de fluência a cada 15 dias para reajustar grupos.</li>
+    <li>Aplicar o mesmo protocolo de fluência no 1º Ano atual para antecipar o problema.</li></ol></div></details>
+  <details class="acao s-red"><summary><div class="st"><b>3º Ano MT: defasagem de 54% a 60% nas três turmas</b><span>3ºA 0% adequado · 3ºB 23% · 3ºC 15%</span></div><span class="chip s-red">Crítico</span></summary><div class="body"><ol>
+    <li>Diagnóstico por habilidade (sistema de numeração, adição e subtração, problemas).</li>
+    <li>Replanejamento do bimestre priorizando habilidades estruturantes.</li>
+    <li>Troca de práticas com os professores do 1º Ano (defasagem de 6% a 18% em MT) e do 2º A (47% de adequado).</li>
+    <li>Reforço para os alunos em defasagem do 3º A.</li></ol></div></details>
+  <details class="acao s-red"><summary><div class="st"><b>3º Ano: nenhum fluente</b><span>3ºA 5 pré e 7 iniciantes · 3ºB 8 pré · 3ºC 4 pré e 14 iniciantes</span></div><span class="chip s-red">Crítico</span></summary><div class="body"><ol>
+    <li>Pré-leitores no 3º Ano: atraso de um ano ou mais; encaminhar ao AEE os do nível 1.</li>
+    <li>Iniciantes: leitura oral repetida, leitura em dupla e leitura cronometrada.</li>
+    <li>3º B: repor a avaliação para os 33% que não participaram.</li></ol></div></details>
+  <details class="acao s-yellow"><summary><div class="st"><b>1º A e 1º C: LP com 71% e 75% de defasagem; MT com 18%</b><span>Mesmas turmas, resultados opostos</span></div><span class="chip s-yellow">Investigar</span></summary><div class="body"><ol>
+    <li>Diagnóstico específico de LP: decodificação, escrita ou compreensão.</li>
+    <li>Comparar a abordagem de LP com o 1º B (29% de defasagem) e o 1º D (39%).</li>
+    <li>Avaliação diagnóstica quinzenal para acompanhar a progressão.</li></ol></div></details>
+  <details class="acao s-yellow"><summary><div class="st"><b>5º B MT: 58% de defasagem</b><span>LP 38% · 16 fluentes</span></div><span class="chip s-yellow">Atenção</span></summary><div class="body"><ol>
+    <li>Diagnóstico por habilidade em MT antes da passagem ao 6º Ano.</li>
+    <li>Troca com o professor do 5º C (45% de adequado em MT).</li></ol></div></details>
+  <details class="acao s-green"><summary><div class="st"><b>5º A, 5º C e 3º B LP: referências</b><span>5ºA 18 fluentes e 50% LP · 5ºC 55% LP e 45% MT · 3ºB 46% LP</span></div><span class="chip s-green">Replicar</span></summary><div class="body"><ol>
+    <li>Formação com esses professores para toda a equipe.</li>
+    <li>Observação de aula pelos professores do 2º e 3º Ano.</li>
+    <li>Registrar as práticas no PPP.</li></ol></div></details>
+</section>
+
+<section class="sec" id="plano">
+  <h2 data-nav="Plano de ação">🗂️ Plano de ação</h2>
+  <div class="tbl-wrap"><div class="tbl-scroll"><table class="tbl"><thead><tr><th>#</th><th>Ação</th><th>Turma</th><th>Responsável</th><th>Prazo</th><th>Prioridade</th></tr></thead><tbody>
+    <tr><td>1</td><td>Plano unificado de fluência do 2º Ano</td><td>2º A, B, C</td><td>Coord. + profs.</td><td>Imediato</td><td><span class="chip s-red">Emergência</span></td></tr>
+    <tr><td>2</td><td>Encaminhar ao AEE os pré-leitores do nível 1</td><td>2º Ano e 3º B</td><td>Coord. + AEE</td><td>15 dias</td><td><span class="chip s-red">Urgente</span></td></tr>
+    <tr><td>3</td><td>Diagnóstico por habilidade e replanejamento de MT</td><td>3º A, B, C</td><td>Coord. + profs.</td><td>15 dias</td><td><span class="chip s-red">Urgente</span></td></tr>
+    <tr><td>4</td><td>Leitura oral diária para os iniciantes</td><td>3º Ano</td><td>Profs.</td><td>15 dias</td><td><span class="chip s-red">Urgente</span></td></tr>
+    <tr><td>5</td><td>Diagnóstico de LP e troca com 1º B</td><td>1º A e C</td><td>Coord. + profs.</td><td>15 dias</td><td><span class="chip s-yellow">Atenção</span></td></tr>
+    <tr><td>6</td><td>Diagnóstico de MT antes da passagem ao 6º Ano</td><td>5º B</td><td>Coord. + prof.</td><td>1 mês</td><td><span class="chip s-yellow">Atenção</span></td></tr>
+    <tr><td>7</td><td>Repor avaliações com baixa participação</td><td>1º B MT, 3º B</td><td>Coordenação</td><td>1 mês</td><td><span class="chip s-yellow">Atenção</span></td></tr>
+    <tr><td>8</td><td>Formação com professores do 5º A, 5º C e 3º B</td><td>Equipe</td><td>Coordenação</td><td>Próxima formação</td><td><span class="chip s-green">Replicar</span></td></tr>
+    <tr><td>9</td><td>Investigar a passagem do 2º para o 3º Ano</td><td>2º e 3º</td><td>Coord. pedagógica</td><td>1 mês</td><td><span class="chip s-blue">Planejar</span></td></tr>
+  </tbody></table></div></div>
+</section>
+
+<div class="conf"><b class="t">🔎 Conferência dos dados (out/2026)</b><ul>
+  <li>Totais conferidos: 67 pré-leitores, 38 iniciantes e 44 fluentes; 45 pré-leitores no 2º Ano (15 por turma).</li>
+  <li><b>Corrigido:</b> a página informava "11 turmas"; a fonte traz 13 (1ºA a D, 2ºA a C, 3ºA a C, 5ºA a C).</li>
+  <li><b>Corrigido:</b> "nenhuma das três turmas do 2º Ano tem fluentes". O 2º C tem 1 fluente; o 2º A e o 2º B têm 0.</li>
+  <li><b>Corrigido:</b> "3º B e 3º C com 60% de defasagem em MT". O 3º B tem 54%; só o 3º C tem 60%.</li>
+  <li><b>Corrigido:</b> o 2º C LP (exatamente 50% de defasagem) aparecia como "Crítico", mas a regra da própria página é "acima de 50%". Passa a "Atenção".</li>
+  <li><b>Ressalva:</b> o destaque "1º B MT 62% de adequado" tem participação de 72%; o resultado pode não representar a turma inteira.</li>
+</ul></div>
+
+<footer class="foot">Fonte: CNCA · avaliação da escola · LP, MT e Fluência Leitora · 12 de Outubro EEIEF.</footer>
+</main>
+
+<script>
+/* [turma, LP:[part,def,int,adeq]|null, MT:[...]|null, FL:[part,n1,n2,n3,n4,ini,flu,(total pré)]|null] */
+var T=[
+ ['1º A',[100,71,24,6],[100,18,53,29],null],
+ ['1º B',[94,29,53,18],[72,15,23,62],null],
+ ['1º C',[94,75,19,6],[100,18,41,35],null],
+ ['1º D',[95,39,44,17],[84,6,69,25],null],
+ ['2º A',[89,31,44,25],[83,7,47,47],[89,7,2,4,2,1,0]],
+ ['2º B',[100,31,19,50],[94,20,73,7],[100,8,4,3,0,1,0]],
+ ['2º C',[100,50,25,25],[81,31,46,23],[100,4,2,7,2,0,1]],
+ ['3º A',[100,36,36,29],[86,58,42,0],[86,null,null,null,null,7,0,5]],
+ ['3º B',[87,15,38,46],[87,54,23,23],[67,7,null,null,null,2,0,8]],
+ ['3º C',[91,33,38,29],[87,60,25,15],[78,null,null,null,null,14,0,4]],
+ ['5º A',[100,12,38,50],[100,27,38,35],[100,null,null,null,null,7,18,1]],
+ ['5º B',[96,38,38,25],[96,58,17,25],[96,null,null,null,null,4,16,4]],
+ ['5º C',[100,9,36,55],[100,36,18,45],[100,null,null,null,null,2,9,0]]
+];
+function s(d){return d>50?['s-red','Crítico']:d>=25?['s-yellow','Atenção']:['s-green','Positivo'];}
+function pre(f){return f[7]!==undefined?f[7]:f[1]+f[2]+f[3]+f[4];}
+function fsit(f){var p=pre(f);return (f[6]===0&&p>=6)||p>=14?'s-red':(p>=4||(f[6]===0&&f[5]>=10))?'s-yellow':'s-green';}
+function stk(c){return '<div class="stack"><span class="seg-1" style="width:'+c[1]+'%"></span><span class="seg-3" style="width:'+c[2]+'%"></span><span class="seg-4" style="width:'+c[3]+'%"></span></div><div class="small muted">Def. '+c[1]+'% · Int. '+c[2]+'% · Adeq. <b>'+c[3]+'%</b> · Part. '+c[0]+'%</div>';}
+var html='',lp='',mt='',fl='',tp=0,ti=0,tf=0;
+T.forEach(function(t){
+  var lv=[];
+  var h='<div class="lab">LP '+(t[1]?'<span class="chip '+s(t[1][1])[0]+'">'+s(t[1][1])[1]+'</span>':'<span class="chip s-gray">Sem dados</span>')+'</div>'+(t[1]?stk(t[1]):'');
+  if(t[1])lv.push(s(t[1][1])[0]);
+  if(t[2]){h+='<div class="lab">MT <span class="chip '+s(t[2][1])[0]+'">'+s(t[2][1])[1]+'</span></div>'+stk(t[2]);lv.push(s(t[2][1])[0]);}
+  if(t[3]){var p=pre(t[3]),fs=fsit(t[3]);lv.push(fs);tp+=p;ti+=t[3][5];tf+=t[3][6];
+    h+='<div class="lab">Fluência <span class="chip '+fs+'">'+(fs==='s-red'?'Crítico':fs==='s-yellow'?'Atenção':'Positivo')+'</span></div><div class="row"><span>Pré-leitores</span><b class="t-red">'+p+'</b></div><div class="row"><span>Iniciantes</span><b>'+t[3][5]+'</b></div><div class="row"><span>Fluentes</span><b class="t-green">'+t[3][6]+'</b></div><div class="small muted">Part. '+t[3][0]+'%</div>';}
+  var g=lv.indexOf('s-red')>=0?'s-red':lv.indexOf('s-yellow')>=0?'s-yellow':lv.length?'s-green':'';
+  html+='<div class="tcard '+g+'"><div class="h"><b>'+t[0]+'</b></div>'+h+'</div>';
+  function row(c){var x=s(c[1]);return '<tr><td><b>'+t[0]+'</b></td><td class="n'+(c[0]<85?' t-yellow':'')+'">'+c[0]+'%</td><td class="n t-red">'+c[1]+'%</td><td class="n">'+c[2]+'%</td><td class="n t-green">'+c[3]+'%</td><td><span class="chip '+x[0]+'">'+x[1]+'</span></td></tr>';}
+  if(t[1])lp+=row(t[1]); if(t[2])mt+=row(t[2]);
+  if(t[3]){var f=t[3],p2=pre(f),d=function(v){return v===null?'<span class="t-gray">n/d</span>':v;},fs2=fsit(f);
+    fl+='<tr><td><b>'+t[0]+'</b></td><td class="n">'+f[0]+'%</td><td class="n">'+d(f[1])+'</td><td class="n">'+d(f[2])+'</td><td class="n">'+d(f[3])+'</td><td class="n">'+d(f[4])+'</td><td class="n t-red">'+p2+'</td><td class="n">'+f[5]+'</td><td class="n t-green">'+f[6]+'</td><td><span class="chip '+fs2+'">'+(fs2==='s-red'?'Crítico':fs2==='s-yellow'?'Atenção':'Positivo')+'</span></td></tr>';}
+});
+document.getElementById('cards').innerHTML=html;
+function wrap(b){return '<div class="tbl-wrap"><div class="tbl-scroll"><table class="tbl"><thead><tr><th>Turma</th><th class="n">Part.</th><th class="n">Defasagem</th><th class="n">Interm.</th><th class="n">Adequado</th><th>Situação</th></tr></thead><tbody>'+b+'</tbody></table></div></div>';}
+document.getElementById('t-lp').innerHTML=wrap(lp);document.getElementById('t-mt').innerHTML=wrap(mt);
+document.getElementById('tb-fl').innerHTML=fl+'<tr class="grp"><td>Total</td><td></td><td colspan="4"></td><td class="n">'+tp+'</td><td class="n">'+ti+'</td><td class="n">'+tf+'</td><td></td></tr>';
+</script>
+<script src="escola.js"></script>
+<script src="../assets/painel.js"></script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CNCA · 7 de Setembro EEIEF</title>
+<link rel="stylesheet" href="../assets/painel.css">
+</head>
+<body data-page="cnca">
+<main class="main">
+
+<header class="page-head">
+  <div class="crumb"><span data-escola="nome"></span> · Painel do Diretor</div>
+  <h1>📚 CNCA · Compromisso Nacional Criança Alfabetizada</h1>
+  <div class="meta"><span>Fonte: avaliação CNCA da escola</span><span>LP, MT e Fluência Leitora</span><span>1º, 2º, 3º e 5º Ano · 11 turmas</span></div>
+</header>
+
+<section class="sec" id="resumo">
+  <h2 data-nav="Em 30 segundos">⏱️ Em 30 segundos</h2>
+  <div class="kpis">
+    <div class="kpi s-red"><span class="v">47</span><div class="l">Pré-leitores no 2º Ano</div><div class="d">1 único leitor fluente nas 3 turmas</div></div>
+    <div class="kpi s-red"><span class="v">83%</span><div class="l">Defasagem MT · 3º C</div><div class="d">LP 61% · pior turma dos Anos Iniciais</div></div>
+    <div class="kpi s-red"><span class="v">0</span><div class="l">Fluentes no 5º A e 5º B</div><div class="d">50 iniciantes e 12 pré-leitores</div></div>
+    <div class="kpi s-green"><span class="v">78 a 93%</span><div class="l">Adequado MT · 1º Ano</div><div class="d">1ºB 93% · 1ºA 84% · 1ºC 78%</div></div>
+  </div>
+  <div class="callout s-red"><b class="t">Ruptura entre o 1º e o 2º Ano</b>O 1º Ano tem os melhores resultados da escola (1ºA e 1ºC com 68% e 80% de adequado em LP). O 2º Ano soma 47 pré-leitores e apenas 1 fluente. É preciso investigar a continuidade pedagógica nessa passagem.</div>
+  <div class="callout s-red"><b class="t">74 pré-leitores no total</b>2ºA 14 · 2ºB 16 · 2ºC 17 · 3ºA 6 · 3ºB 4 · 3ºC 5 · 5ºA 6 · 5ºB 6. Pré-leitor no 5º Ano indica atraso de vários anos e pede encaminhamento ao AEE.</div>
+</section>
+
+<section class="sec" id="agora">
+  <h2 data-nav="O que fazer agora">⚡ O que fazer agora</h2>
+  <div class="agora"><ol>
+    <li>Reunião de emergência com o professor do 3º C para plano integrado LP e MT.<span class="chip s-red">Imediato</span></li>
+    <li>Reunião conjunta dos três professores do 2º Ano: plano único de fluência com agrupamento por nível.<span class="chip s-red">Imediato</span></li>
+    <li>Encaminhar ao AEE os pré-leitores dos níveis 1 e 2 (2ºB: 8 alunos; 2ºC: 6 alunos).<span class="chip s-red">15 dias</span></li>
+    <li>Leitura em voz alta diária de 20 minutos em todas as turmas do 2º e 3º Ano.<span class="chip s-yellow">15 dias</span></li>
+    <li>Formação com os professores do 1ºA e 1ºC apresentando rotinas de LP e MT.<span class="chip s-yellow">Próxima formação</span></li>
+  </ol></div>
+</section>
+
+<section class="sec" id="turmas">
+  <h2 data-nav="Visão por turma">🏫 Visão por turma</h2>
+  <div class="legend" style="margin-bottom:10px"><span><i class="seg-1"></i>Defasagem</span><span><i class="seg-3"></i>Intermediário</span><span><i class="seg-4"></i>Adequado</span><span>Semáforo: defasagem acima de 50% crítico · 25 a 50% atenção · abaixo de 25% positivo</span></div>
+  <div class="grid4" id="cards"></div>
+</section>
+
+<section class="sec" id="tabelas">
+  <h2 data-nav="LP e MT">📋 Língua Portuguesa e Matemática</h2>
+  <div class="tabs"><button class="on" data-tab="t-lp">📖 LP</button><button data-tab="t-mt">📐 MT</button></div>
+  <div class="tab-pane on" id="t-lp"></div>
+  <div class="tab-pane" id="t-mt"></div>
+  <p class="small muted">Sem dados de MT para 2º B e 2º C. Sem dados de LP e MT para 3º B.</p>
+</section>
+
+<section class="sec" id="fluencia">
+  <h2 data-nav="Fluência leitora">📖 Fluência leitora</h2>
+  <div class="tbl-wrap"><div class="tbl-cap"><b>Distribuição por turma (número de alunos)</b><div>Pré-leitor: níveis 1 (mais inicial) a 4 (próximo de iniciante)</div></div><div class="tbl-scroll"><table class="tbl"><thead><tr><th>Turma</th><th class="n">Part.</th><th class="n">Pré N1</th><th class="n">Pré N2</th><th class="n">Pré N3</th><th class="n">Pré N4</th><th class="n">Total pré</th><th class="n">Iniciantes</th><th class="n">Fluentes</th><th>Situação</th></tr></thead><tbody id="tb-fl"></tbody></table></div></div>
+  <div class="callout s-yellow"><b class="t">Leituras que pedem investigação</b>3º C tem 8 fluentes (melhor do 3º Ano) e ao mesmo tempo 61% de defasagem em LP. 2º C tem 21% de defasagem em LP e 17 pré-leitores. A diferença pode vir de instrumentos distintos (prova escrita x leitura oral) e deve ser verificada com o professor.</div>
+  <div class="callout s-gray"><b class="t">3º B: participação de 40% na fluência</b>Resultado pouco representativo; garantir reposição da avaliação.</div>
+</section>
+
+<section class="sec" id="analise">
+  <h2 data-nav="Análises e ações">🔎 Análises e ações</h2>
+  <details class="acao s-red"><summary><div class="st"><b>3º C: 83% de defasagem em MT e 61% em LP</b><span>Problema específico da turma: 3º A tem 65% em MT e o 3º B não tem dados</span></div><span class="chip s-red">Emergência</span></summary><div class="body"><ol>
+    <li>Plano de intervenção integrado LP e MT para o próximo bimestre, com metas por conteúdo.</li>
+    <li>Diagnóstico por habilidade em MT (adição, subtração, multiplicação, frações).</li>
+    <li>Usar os 8 fluentes como base para trabalho de compreensão leitora.</li>
+    <li>Troca de experiências com os professores do 1º Ano (referências em MT).</li></ol></div></details>
+  <details class="acao s-red"><summary><div class="st"><b>2º Ano: 47 pré-leitores e 1 fluente</b><span>2ºA 14 · 2ºB 16 · 2ºC 17 (4 no nível 1)</span></div><span class="chip s-red">Emergência</span></summary><div class="body"><ol>
+    <li>Plano unificado de fluência para as três turmas, com metas compartilhadas.</li>
+    <li>Agrupamento por nível: os alunos no nível 4 (2ºA 8, 2ºC 9) estão perto de virar iniciantes e respondem rápido a leitura cronometrada de sílabas e palavras.</li>
+    <li>Nível 1 e 2: consciência fonológica e relação grafema-fonema diariamente; avaliação no AEE.</li>
+    <li>Avaliação de fluência a cada 15 dias para reajustar grupos.</li>
+    <li>Orientar famílias: 10 minutos de leitura por dia em casa.</li></ol></div></details>
+  <details class="acao s-red"><summary><div class="st"><b>3º A: crise nos três eixos</b><span>LP 47% def. · MT 65% def. · 6 pré-leitores e 12 iniciantes</span></div><span class="chip s-red">Crítico</span></summary><div class="body"><ol>
+    <li>Pré-leitores no 3º Ano: atraso de dois anos ou mais; encaminhar ao AEE.</li>
+    <li>Iniciantes: leitura oral repetida (teatro de leitores, leitura cronometrada).</li>
+    <li>Plano integrado, não ações isoladas por componente.</li></ol></div></details>
+  <details class="acao s-yellow"><summary><div class="st"><b>5º A e 5º B: nenhum fluente; 52% a 58% de defasagem em MT</b><span>Saída dos Anos Iniciais sem fluência consolidada</span></div><span class="chip s-yellow">Atenção</span></summary><div class="body"><ol>
+    <li>Rotina diária de leitura oral, leitura cronometrada e leitura em dupla para os 50 iniciantes.</li>
+    <li>Encaminhar os 12 pré-leitores ao AEE.</li>
+    <li>Plano de acompanhamento com os professores do 6º Ano.</li></ol></div></details>
+  <details class="acao s-yellow"><summary><div class="st"><b>1º B: 93% adequado em MT e 41% de defasagem em LP</b><span>Mesma turma, resultados opostos</span></div><span class="chip s-yellow">Investigar</span></summary><div class="body"><ol>
+    <li>Verificar abordagens, horários e contexto das aulas de LP.</li>
+    <li>Diagnóstico de LP: decodificação, escrita ou compreensão.</li>
+    <li>Troca com os professores de LP do 1ºA (68%) e 1ºC (80%).</li></ol></div></details>
+  <details class="acao s-green"><summary><div class="st"><b>1º A e 1º C: referências da escola</b><span>1ºA 68% LP e 84% MT · 1ºC 80% LP e 78% MT</span></div><span class="chip s-green">Replicar</span></summary><div class="body"><ol>
+    <li>Formação com esses professores para toda a equipe.</li>
+    <li>Observação de aula pelos professores do 2º Ano e do 3º C.</li>
+    <li>Registrar as práticas no PPP.</li></ol></div></details>
+</section>
+
+<section class="sec" id="plano">
+  <h2 data-nav="Plano de ação">🗂️ Plano de ação</h2>
+  <div class="tbl-wrap"><div class="tbl-scroll"><table class="tbl"><thead><tr><th>#</th><th>Ação</th><th>Turma</th><th>Responsável</th><th>Prazo</th><th>Prioridade</th></tr></thead><tbody>
+    <tr><td>1</td><td>Plano integrado LP + MT com o professor do 3º C</td><td>3º C</td><td>Coord. pedagógica</td><td>Imediato</td><td><span class="chip s-red">Emergência</span></td></tr>
+    <tr><td>2</td><td>Plano unificado de fluência do 2º Ano</td><td>2º A, B, C</td><td>Coord. + profs.</td><td>Imediato</td><td><span class="chip s-red">Urgente</span></td></tr>
+    <tr><td>3</td><td>Encaminhar ao AEE pré-leitores N1 e N2 (2ºB 8, 2ºC 6)</td><td>2º B e C</td><td>Coord. + AEE</td><td>15 dias</td><td><span class="chip s-red">Urgente</span></td></tr>
+    <tr><td>4</td><td>Diagnóstico por habilidade em MT</td><td>3º A e C</td><td>Coord. + profs.</td><td>15 dias</td><td><span class="chip s-red">Urgente</span></td></tr>
+    <tr><td>5</td><td>Plano de intervenção em LP por habilidade</td><td>3º C e 5º B</td><td>Coord. + profs.</td><td>15 dias</td><td><span class="chip s-red">Urgente</span></td></tr>
+    <tr><td>6</td><td>Investigar dissociação LP x MT do 1º B</td><td>1º B</td><td>Coord. + prof.</td><td>15 dias</td><td><span class="chip s-yellow">Atenção</span></td></tr>
+    <tr><td>7</td><td>Formação com professores do 1ºA e 1ºC</td><td>Equipe</td><td>Coordenação</td><td>Próxima formação</td><td><span class="chip s-yellow">Atenção</span></td></tr>
+    <tr><td>8</td><td>Leitura diária de 20 minutos</td><td>2º e 3º Ano</td><td>Profs.</td><td>15 dias</td><td><span class="chip s-yellow">Atenção</span></td></tr>
+    <tr><td>9</td><td>Investigar a passagem do 1º para o 2º Ano</td><td>1º e 2º</td><td>Coord. pedagógica</td><td>1 mês</td><td><span class="chip s-yellow">Atenção</span></td></tr>
+    <tr><td>10</td><td>Encaminhar ao AEE os 12 pré-leitores do 5º Ano</td><td>5º A e B</td><td>Coord. + AEE</td><td>1 mês</td><td><span class="chip s-yellow">Atenção</span></td></tr>
+    <tr><td>11</td><td>Plano de continuidade com o 6º Ano</td><td>5º para 6º</td><td>Coord. + profs.</td><td>1 mês</td><td><span class="chip s-blue">Planejar</span></td></tr>
+    <tr><td>12</td><td>Registrar práticas do 1ºA e 1ºC no PPP</td><td>Escola</td><td>Direção + coord.</td><td>2 meses</td><td><span class="chip s-blue">Planejar</span></td></tr>
+  </tbody></table></div></div>
+</section>
+
+<div class="conf"><b class="t">🔎 Conferência dos dados (out/2026)</b><ul>
+  <li>Totais conferidos: 74 pré-leitores, 47 no 2º Ano, 16 iniciantes no 2º Ano, 50 iniciantes e 12 pré-leitores no 5º Ano. Os níveis 1 a 4 somam o total de cada turma.</li>
+  <li><b>Corrigido:</b> o texto dizia que o 3º C "encerra os Anos Iniciais"; os Anos Iniciais terminam no 5º Ano.</li>
+  <li><b>Corrigido nas outras páginas:</b> "2ºA com 1 único fluente" (o 2ºA tem 0; o único fluente do 2º Ano está no 2ºB) e "3ºB com resultados satisfatórios" (3ºB não tem dados de LP e MT).</li>
+  <li>O selo "Crítico" do 2º B e 2º C vem da fluência, não da LP (2ºB tem 54% de adequado em LP). A página agora mostra o motivo.</li>
+  <li>A legenda antiga dizia "satisfatório abaixo de 25%", mas classificava 25% como verde. A regra foi explicitada.</li>
+</ul></div>
+
+<footer class="foot">Fonte: CNCA · avaliação da escola · LP, MT e Fluência Leitora · 7 de Setembro EEIEF.</footer>
+</main>
+
+<script>
+/* [turma, LP:[part,def,int,adeq]|null, MT:[...]|null, FL:[part,n1,n2,n3,n4,ini,flu]|null] */
+var T=[
+ ['1º A',[95,11,21,68],[95,5,11,84],null],
+ ['1º B',[89,41,41,18],[79,7,0,93],null],
+ ['1º C',[95,5,15,80],[86,0,22,78],null],
+ ['2º A',[67,44,25,31],[58,7,71,21],[75,0,2,4,8,4,0]],
+ ['2º B',[100,25,21,54],null,[96,0,8,6,2,6,1]],
+ ['2º C',[89,21,38,42],null,[85,4,2,2,9,6,0]],
+ ['3º A',[68,47,42,11],[71,65,20,15],[75,null,null,null,null,12,3,6]],
+ ['3º B',null,null,[40,null,null,null,null,4,2,4]],
+ ['3º C',[78,61,28,11],[78,83,6,11],[74,null,null,null,null,4,8,5]],
+ ['5º A',[79,35,23,42],[79,58,23,19],[82,null,null,null,null,26,0,6]],
+ ['5º B',[92,47,35,18],[89,52,33,15],[81,null,null,null,null,24,0,6]]
+];
+function s(d){return d>50?['s-red','Crítico']:d>=25?['s-yellow','Atenção']:['s-green','Positivo'];}
+function pre(f){return f[7]!==undefined?f[7]:f[1]+f[2]+f[3]+f[4];}
+function stk(c){return '<div class="stack"><span class="seg-1" style="width:'+c[1]+'%"></span><span class="seg-3" style="width:'+c[2]+'%"></span><span class="seg-4" style="width:'+c[3]+'%"></span></div><div class="small muted">Def. '+c[1]+'% · Int. '+c[2]+'% · Adeq. <b>'+c[3]+'%</b> · Part. '+c[0]+'%</div>';}
+var html='',lp='',mt='',fl='';
+T.forEach(function(t){
+  var lv=[];
+  var h='<div class="lab">LP '+(t[1]?'<span class="chip '+s(t[1][1])[0]+'">'+s(t[1][1])[1]+'</span>':'<span class="chip s-gray">Sem dados</span>')+'</div>'+(t[1]?stk(t[1]):'');
+  if(t[1])lv.push(s(t[1][1])[0]);
+  if(t[2]){h+='<div class="lab">MT <span class="chip '+s(t[2][1])[0]+'">'+s(t[2][1])[1]+'</span></div>'+stk(t[2]);lv.push(s(t[2][1])[0]);}
+  if(t[3]){var p=pre(t[3]),fs=(t[3][6]===0&&p>=6)||p>=14?'s-red':p>=4?'s-yellow':'s-green';lv.push(fs);
+    h+='<div class="lab">Fluência <span class="chip '+fs+'">'+(fs==='s-red'?'Crítico':fs==='s-yellow'?'Atenção':'Positivo')+'</span></div><div class="row"><span>Pré-leitores</span><b class="t-red">'+p+'</b></div><div class="row"><span>Iniciantes</span><b>'+t[3][5]+'</b></div><div class="row"><span>Fluentes</span><b class="t-green">'+t[3][6]+'</b></div><div class="small muted">Part. '+t[3][0]+'%</div>';}
+  var g=lv.indexOf('s-red')>=0?'s-red':lv.indexOf('s-yellow')>=0?'s-yellow':lv.length?'s-green':'';
+  html+='<div class="tcard '+g+'"><div class="h"><b>'+t[0]+'</b></div>'+h+'</div>';
+  function row(c){var x=s(c[1]);return '<tr><td><b>'+t[0]+'</b></td><td class="n">'+c[0]+'%</td><td class="n t-red">'+c[1]+'%</td><td class="n">'+c[2]+'%</td><td class="n t-green">'+c[3]+'%</td><td><span class="chip '+x[0]+'">'+x[1]+'</span></td></tr>';}
+  if(t[1])lp+=row(t[1]); if(t[2])mt+=row(t[2]);
+  if(t[3]){var f=t[3],p2=pre(f),d=function(v){return v===null?'<span class="t-gray">n/d</span>':v;},fs2=(f[6]===0&&p2>=6)||p2>=14?'s-red':p2>=4?'s-yellow':'s-green';
+    fl+='<tr><td><b>'+t[0]+'</b></td><td class="n">'+f[0]+'%</td><td class="n">'+d(f[1])+'</td><td class="n">'+d(f[2])+'</td><td class="n">'+d(f[3])+'</td><td class="n">'+d(f[4])+'</td><td class="n t-red">'+p2+'</td><td class="n">'+f[5]+'</td><td class="n t-green">'+f[6]+'</td><td><span class="chip '+fs2+'">'+(fs2==='s-red'?'Crítico':fs2==='s-yellow'?'Atenção':'Positivo')+'</span></td></tr>';}
+});
+document.getElementById('cards').innerHTML=html;
+function wrap(b){return '<div class="tbl-wrap"><div class="tbl-scroll"><table class="tbl"><thead><tr><th>Turma</th><th class="n">Part.</th><th class="n">Defasagem</th><th class="n">Interm.</th><th class="n">Adequado</th><th>Situação</th></tr></thead><tbody>'+b+'</tbody></table></div></div>';}
+document.getElementById('t-lp').innerHTML=wrap(lp);document.getElementById('t-mt').innerHTML=wrap(mt);
+document.getElementById('tb-fl').innerHTML=fl+'<tr class="grp"><td>Total</td><td></td><td colspan="4"></td><td class="n">74</td><td class="n">86</td><td class="n">14</td><td></td></tr>';
+</script>
+<script src="escola.js"></script>
+<script src="../assets/painel.js"></script>
+</body>
+</html>

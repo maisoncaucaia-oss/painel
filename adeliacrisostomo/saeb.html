@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAEB 2023 · Adélia Crisóstomo EQEIEF</title>
+<link rel="stylesheet" href="../assets/painel.css">
+</head>
+<body data-page="saeb">
+<main class="main">
+
+<header class="page-head">
+  <div class="crumb"><span data-escola="nome"></span> · Painel do Diretor</div>
+  <h1>📋 SAEB 2023</h1>
+  <div class="meta"><span>Fonte: Boletim da Escola · INEP/MEC</span><span>9º Ano · LP e MT (5º Ano sem resultado divulgado)</span><span>Nível socioeconômico: Grupo 4</span><span>Próxima edição: SAEB 2027 (resultados do SAEB 2025 a incorporar quando publicados)</span></div>
+</header>
+
+<section class="sec" id="resumo">
+  <h2 data-nav="Em 30 segundos">⏱️ Em 30 segundos</h2>
+  <div class="kpis">
+    <div class="kpi s-red"><span class="v">21,8%</span><div class="l">Adequado LP · 9º Ano</div><div class="d">Similares: 26,1% · corte 275 pts</div></div>
+    <div class="kpi s-red"><span class="v">10,9%</span><div class="l">Adequado MT · 9º Ano</div><div class="d">Similares: 8,8% · corte 300 pts</div></div>
+    <div class="kpi s-red"><span class="v">49,9%</span><div class="l">Abaixo do básico em MT</div><div class="d">N0 32,1% (similares 19,9%)</div></div>
+    <div class="kpi s-yellow"><span class="v">87,9%</span><div class="l">Participação · 9º Ano</div><div class="d">29 de 33 estudantes</div></div>
+  </div>
+  <div class="callout s-red"><b class="t">Abaixo das similares nas duas médias</b>LP: 237,42 contra 241,69 (−4,27). MT: 228,93 contra 237,73 (−8,80). O ponto mais grave é o N0 de MT: 32,1% dos estudantes, cerca de 9 dos 29 avaliados, sem as habilidades mais elementares.</div>
+  <div class="callout s-yellow"><b class="t">Um grupo pequeno vai bem</b>N5 em LP (14,3%) e em MT (7,5%) estão acima das similares (8,2% e 3,6%). Por isso o adequado de MT (10,9%) supera o das similares (8,8%), mesmo com média menor.</div>
+  <div class="callout s-yellow"><b class="t">Formação docente nos Anos Finais</b>61,2% das disciplinas dos Anos Finais são ministradas por professores com formação na área (Anos Iniciais: 98,1%).</div>
+</section>
+
+<section class="sec" id="agora">
+  <h2 data-nav="O que fazer agora">⚡ O que fazer agora</h2>
+  <div class="agora"><ol>
+    <li>MT: diagnóstico individual dos alunos do 9º Ano atual com foco nas habilidades do N0 e N1 (racionais, frações, operações).<span class="chip s-red">Imediato</span></li>
+    <li>LP: leitura estruturada para o N0 (24,9%), com localização de informação e inferência em textos curtos.<span class="chip s-red">15 dias</span></li>
+    <li>LP: trabalhar o N3 (17,8%), a um nível do corte de 275 pontos.<span class="chip s-yellow">1 mês</span></li>
+    <li>Apresentar à SME o mapa de formação docente dos Anos Finais (38,8% sem formação na área).<span class="chip s-yellow">1 mês</span></li>
+  </ol></div>
+</section>
+
+<section class="sec" id="como-ler">
+  <h2 data-nav="Como ler">📐 Como ler o "adequado"</h2>
+  <div class="tbl-wrap"><div class="tbl-scroll"><table class="tbl"><thead><tr><th>Etapa</th><th>Componente</th><th class="n">Abaixo do básico</th><th class="n">Adequado a partir de</th><th>Níveis do boletim</th></tr></thead><tbody>
+    <tr><td>9º Ano</td><td>LP</td><td class="n">&lt; 200</td><td class="n">275 pts</td><td>N4 a N8</td></tr>
+    <tr><td>9º Ano</td><td>MT</td><td class="n">&lt; 225</td><td class="n">300 pts</td><td>N5 a N9</td></tr>
+  </tbody></table></div></div>
+  <p class="small muted">Pontos de corte do Todos Pela Educação, os mesmos usados pelo QEdu.</p>
+</section>
+
+<section class="sec" id="comparativo">
+  <h2 data-nav="Escola x similares">⚖️ Escola x escolas similares</h2>
+  <div class="tbl-wrap"><div class="tbl-scroll"><table class="tbl"><thead><tr><th>Avaliação</th><th class="n">Média escola</th><th class="n">Média similares</th><th class="n">Diferença</th><th class="n">Adequado escola</th><th class="n">Adequado similares</th><th class="n">Abaixo do básico</th></tr></thead><tbody id="tb-comp"></tbody></table></div></div>
+</section>
+
+<section class="sec" id="niveis">
+  <h2 data-nav="Níveis de proficiência">📊 Distribuição por nível</h2>
+  <div class="tabs"><button class="on" data-tab="p-lp9">LP · 9º</button><button data-tab="p-mt9">MT · 9º</button></div>
+  <div class="tab-pane on" id="p-lp9"></div>
+  <div class="tab-pane" id="p-mt9"></div>
+  <p class="small muted">Coluna "Diferença": escola menos similares. Vermelho indica desvantagem da escola; verde indica vantagem.</p>
+</section>
+
+<section class="sec" id="contexto">
+  <h2 data-nav="Contexto">🏫 Contexto institucional</h2>
+  <div class="grid3">
+    <div class="card s-blue"><h3>Nível socioeconômico</h3><div class="kpi" style="box-shadow:none;border:none;padding:0"><span class="v" style="color:var(--blue)">Grupo 4</span></div><p class="small muted">Escala de 6 grupos do INEP. A página QEdu indica "NSE 3 (INSE 2021)": divergência a conferir.</p></div>
+    <div class="card s-green"><h3>Formação docente · Anos Iniciais</h3><div class="bars"><div class="bar-row"><span class="lbl">Adequada</span><div class="track"><div class="fill s-green" style="width:98.1%"></div></div><span class="val t-green">98,1%</span></div></div></div>
+    <div class="card s-yellow"><h3>Formação docente · Anos Finais</h3><div class="bars"><div class="bar-row"><span class="lbl">Adequada</span><div class="track"><div class="fill s-yellow" style="width:61.2%"></div></div><span class="val t-yellow">61,2%</span></div></div></div>
+  </div>
+  <div class="callout s-gray" style="margin-top:12px"><b class="t">5º Ano sem resultado no boletim</b>O boletim de 2023 não traz resultado do 5º Ano. O motivo não consta da fonte; confirmar com a SME ou no INEP antes de atribuí-lo à participação.</div>
+</section>
+
+<section class="sec" id="plano">
+  <h2 data-nav="Plano de ação">🗂️ Plano de ação</h2>
+  <details class="acao s-red"><summary><div class="st"><b>1 · MT: 49,9% abaixo do básico</b><span>N0 32,1% (similares 19,9%) · N1 17,8%</span></div><span class="chip s-red">Emergência</span></summary>
+  <div class="body"><ul>
+    <li>Diagnóstico individual e plano de recomposição de números racionais, frações, operações e representação decimal.</li>
+    <li>Reforço em contraturno de 2 a 3 aulas semanais.</li>
+    <li>Ficha individual por descritor, com acompanhamento mensal.</li>
+  </ul></div></details>
+  <details class="acao s-red"><summary><div class="st"><b>2 · LP: 24,9% abaixo do básico e N1 com 24,6%</b><span>Metade da turma nos dois primeiros níveis</span></div><span class="chip s-red">Emergência</span></summary>
+  <div class="body"><ul>
+    <li>Localização de informação explícita, inferência e tema em crônicas, fábulas e reportagens.</li>
+    <li>Leitura semanal estruturada com questões de inferência.</li>
+  </ul></div></details>
+  <details class="acao s-red"><summary><div class="st"><b>3 · Formação docente nos Anos Finais (61,2%)</b><span>Depende da gestão de rede</span></div><span class="chip s-red">Estrutural</span></summary>
+  <div class="body"><ul>
+    <li>Mapear disciplinas sem professor habilitado, priorizando LP e MT.</li>
+    <li>Solicitar à SME a alocação de docentes habilitados, usando este boletim como evidência.</li>
+  </ul></div></details>
+  <details class="acao s-green"><summary><div class="st"><b>4 · Grupo do N5 acima das similares</b><span>LP 14,3% (8,2%) · MT 7,5% (3,6%)</span></div><span class="chip s-green">Manter</span></summary>
+  <div class="body"><ul>
+    <li>Atividades desafiadoras para levar esse grupo ao N6.</li>
+    <li>Usar esses alunos como monitores em grupos de estudo.</li>
+  </ul></div></details>
+</section>
+
+<div class="conf"><b class="t">🔎 Conferência dos dados (out/2026)</b><ul>
+  <li><b>Corte esclarecido:</b> o adequado de LP (21,8%) estava rotulado como "N5+ (≥ 300 pts)", mas corresponde a N4+ (≥ 275 pts), o corte correto do QEdu. N5+ seria 14,3%. MT (10,9%, N5+ ≥ 300) confere.</li>
+  <li><b>Corrigido:</b> "LP acima das escolas similares (237 vs 241)". A escola está 4,27 pontos abaixo (a página citava também −3,73).</li>
+  <li><b>Corrigido:</b> "MT: 71,3% nos níveis N0+N1". A soma é 49,85%. "LP: 49,6% abaixo de 200 pts": apenas o N0 (24,93%) está abaixo de 200; N0+N1 = 49,56%.</li>
+  <li><b>Corrigido:</b> o adequado das similares é 26,1% em LP e 8,8% em MT; em MT a escola supera as similares.</li>
+  <li><b>Retirado:</b> "5º Ano sem dados por participação abaixo de 80%" (hipótese sem fonte) e "garantir participação no SAEB 2025" (já aplicado; próxima edição em 2027).</li>
+  <li>Os níveis somam 100% (variação de 0,01 por arredondamento).</li>
+</ul></div>
+
+<footer class="foot">Fonte: Boletim SAEB 2023 da escola · INEP/MEC · Adélia Crisóstomo EQEIEF · INEP 23063734. Pontos de corte: Todos Pela Educação / QEdu.</footer>
+</main>
+
+<script>
+var D = {
+ lp9:{t:'LP · 9º Ano',esc:237.42,sim:241.69,corte:4,bb:1,n:[
+  ['N0','< 200',24.93,20.48,'Habilidades muito elementares ausentes'],['N1','200 a 225',24.63,16.26,'Linguagem jornalística; inferência em crônicas'],
+  ['N2','225 a 250',10.89,17.53,'Informação em romances e crônicas; causa e consequência'],['N3','250 a 275',17.76,19.60,'Pronomes, advérbios e conjunções em reportagens'],
+  ['N4','275 a 300',7.46,15.63,'Finalidade; opiniões distintas em contos e reportagens'],['N5','300 a 325',14.33,8.22,'Argumentos e opiniões em reportagens e crônicas'],
+  ['N6','325 a 350',0.00,1.52,'Figuras de linguagem; fato e opinião'],['N7','350 a 375',0.00,0.77,'Variantes linguísticas'],['N8','≥ 375',0.00,0.00,'Manuais, artigos, teses']]},
+ mt9:{t:'MT · 9º Ano',esc:228.93,sim:237.73,corte:5,bb:2,n:[
+  ['N0','< 200',32.09,19.89,'Habilidades básicas ausentes'],['N1','200 a 225',17.76,21.28,'Racionais decimais; tabelas e gráficos de colunas'],
+  ['N2','225 a 250',21.49,23.73,'Frações, representação decimal, gráficos de linha'],['N3','250 a 275',10.60,14.03,'Ângulos, planificação, proporções com inteiros'],
+  ['N4','275 a 300',7.16,12.31,'Plano cartesiano, álgebra de 1º grau'],['N5','300 a 325',7.46,3.59,'Porcentagem, equações de 1º grau'],
+  ['N6','325 a 350',3.43,3.65,'Pitágoras, semelhança de triângulos'],['N7','350 a 375',0.00,1.03,'Equações de 2º grau'],
+  ['N8','375 a 400',0.00,0.50,'Cevianas, conversão de unidades'],['N9','≥ 400',0.00,0.00,'Ângulos internos de polígonos']]}
+};
+function f(x,d){return x.toFixed(d===undefined?2:d).replace('.',',');}
+function soma(a,i,de,ate){var s=0;for(var k=de;k<ate;k++)s+=a[k][i];return s;}
+var cores=['#c0392b','#d9572b','#e0782a','#e0a020','#9bc23c','#5cb85c','#2ea36a','#1a8a5a','#1a7a6a','#2a6f97','#3d5a99'];
+var comp='';
+Object.keys(D).forEach(function(k){
+  var o=D[k],n=o.n,L=n.length;
+  var ae=soma(n,2,o.corte,L), as=soma(n,3,o.corte,L), bb=soma(n,2,0,o.bb), dif=o.esc-o.sim;
+  comp+='<tr><td><b>'+o.t+'</b></td><td class="n">'+f(o.esc)+'</td><td class="n">'+f(o.sim)+'</td><td class="n '+(dif<0?'t-red':'t-green')+'">'+(dif>0?'+':'')+f(dif)+'</td><td class="n"><b>'+f(ae,1)+'%</b></td><td class="n">'+f(as,1)+'%</td><td class="n t-red">'+f(bb,1)+'%</td></tr>';
+  var rows='',bars='';
+  n.forEach(function(r,i){
+    var ad=i>=o.corte, d=r[2]-r[3], ruim=ad?d<0:d>0;
+    var dc=Math.abs(d)<0.005?'t-gray':(ruim?'t-red':'t-green');
+    rows+='<tr'+(ad?' style="background:#f3fbf6"':'')+'><td><b>'+r[0]+'</b></td><td>'+r[1]+'</td><td class="n"><b>'+f(r[2])+'%</b></td><td class="n">'+f(r[3])+'%</td><td class="n '+dc+'">'+(d>0?'+':'')+f(d)+'</td><td>'+(ad?'<span class="chip s-green">Adequado</span>':(i<o.bb?'<span class="chip s-red">Abaixo do básico</span>':'<span class="chip s-yellow">Básico</span>'))+'</td><td class="small">'+r[4]+'</td></tr>';
+    bars+='<div class="bar-row"><span class="lbl">'+r[0]+' · '+r[1]+'</span><div class="track"><div class="fill" style="width:'+Math.min(r[2]*3,100)+'%;background:'+cores[i]+'"></div></div><span class="val">'+f(r[2],1)+'%</span></div>';
+  });
+  document.getElementById('p-'+k).innerHTML=
+   '<div class="grid2" style="margin-bottom:14px"><div class="card"><h3>'+o.t+' · escola</h3><div class="bars">'+bars+'</div><p class="small muted" style="margin-top:8px">Barras em escala ampliada (3x) para leitura.</p></div>'+
+   '<div class="card"><h3>Resumo</h3><div class="bars">'+
+   '<div class="bar-row"><span class="lbl">Abaixo do básico</span><div class="track"><div class="fill s-red" style="width:'+bb+'%"></div></div><span class="val t-red">'+f(bb,1)+'%</span></div>'+
+   '<div class="bar-row"><span class="lbl">Básico</span><div class="track"><div class="fill s-yellow" style="width:'+(100-bb-ae)+'%"></div></div><span class="val t-yellow">'+f(100-bb-ae,1)+'%</span></div>'+
+   '<div class="bar-row"><span class="lbl">Adequado</span><div class="track"><div class="fill s-green" style="width:'+ae+'%"></div></div><span class="val t-green">'+f(ae,1)+'%</span></div>'+
+   '<div class="bar-row"><span class="lbl">Adequado similares</span><div class="track"><div class="fill s-gray" style="width:'+as+'%"></div></div><span class="val t-gray">'+f(as,1)+'%</span></div>'+
+   '</div><p class="small muted" style="margin-top:8px">Proficiência média: escola '+f(o.esc)+' · similares '+f(o.sim)+'</p></div></div>'+
+   '<div class="tbl-wrap"><div class="tbl-scroll"><table class="tbl"><thead><tr><th>Nível</th><th>Pontos</th><th class="n">Escola</th><th class="n">Similares</th><th class="n">Diferença</th><th>Faixa</th><th>O que o aluno já demonstra</th></tr></thead><tbody>'+rows+'</tbody></table></div></div>';
+});
+document.getElementById('tb-comp').innerHTML=comp;
+</script>
+<script src="escola.js"></script>
+<script src="../assets/painel.js"></script>
+</body>
+</html>

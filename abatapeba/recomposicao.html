@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recomposição 2025 · Aba Tapeba EDEIEF</title>
+<link rel="stylesheet" href="../assets/painel.css">
+</head>
+<body data-page="recomposicao">
+<main class="main">
+
+<header class="page-head">
+  <div class="crumb"><span data-escola="nome"></span> · Painel do Diretor</div>
+  <h1>🎒 Recomposição da Aprendizagem 2025</h1>
+  <div class="meta"><span>Fonte: Relatório de Acompanhamento da Recomposição</span><span>LP e Matemática</span><span>6º (A, B, C), 7º (A, B) e 9º (A, B, C)</span><span>8 turmas</span></div>
+</header>
+
+<section class="sec" id="resumo">
+  <h2 data-nav="Em 30 segundos">⏱️ Em 30 segundos</h2>
+  <div class="kpis">
+    <div class="kpi s-red"><span class="v">91% e 90%</span><div class="l">Defasagem em MT · 9º A e 9º B</div><div class="d">Adequado: 5% e 0%</div></div>
+    <div class="kpi s-red"><span class="v">87%</span><div class="l">Defasagem em LP · 7º B</div><div class="d">0% adequado</div></div>
+    <div class="kpi s-green"><span class="v">65%</span><div class="l">Adequado LP · 6º B</div><div class="d">6º A: 54%</div></div>
+    <div class="kpi s-green"><span class="v">57%</span><div class="l">Adequado MT · 7º B</div><div class="d">0% de defasagem · 7º A: 45%</div></div>
+    <div class="kpi s-gray"><span class="v">2</span><div class="l">Avaliações sem dados</div><div class="d">7º A em LP · 9º C em MT</div></div>
+  </div>
+  <div class="callout s-red"><b class="t">9º Ano em Matemática: emergência pedagógica</b>9º A e 9º B, as duas turmas da manhã, têm 90% ou mais de defasagem. O 9º C não fez a avaliação de MT. A participação no 9º A (85%) e no 9º B (91%) torna o resultado representativo.</div>
+  <div class="callout s-yellow"><b class="t">7º Ano: Matemática é destaque, LP do 7º B em colapso</b>Os dois 7º Anos têm os melhores resultados de MT da escola (7º B 57% e 7º A 45% de adequado). Na mesma turma do 7º B, LP tem 87% de defasagem e 0% de adequado. O 7º A não tem dado de LP.</div>
+  <div class="callout s-yellow"><b class="t">MT despenca do 7º para o 9º Ano</b>Defasagem em MT: 0% a 7% no 7º Ano e 90% a 91% no 9º Ano. O 8º Ano não está nesta Recomposição; no Avalie.CE, a defasagem em MT do 8º Ano é de 64%.</div>
+</section>
+
+<section class="sec" id="agora">
+  <h2 data-nav="O que fazer agora">⚡ O que fazer agora</h2>
+  <div class="agora"><ol>
+    <li>Reaplicar as avaliações que ficaram sem dados (7º A em LP e 9º C em MT) e verificar a causa da ausência.<span class="chip s-red">Imediato</span></li>
+    <li>Diagnóstico por descritor em MT no 9º A e 9º B e reforço em contraturno (mínimo 2 h semanais).<span class="chip s-red">Imediato</span></li>
+    <li>Investigar a assimetria do 7º B (LP 87% de defasagem, MT 57% de adequado) com observação de aula e escuta do professor de LP.<span class="chip s-red">15 dias</span></li>
+    <li>Formação em serviço com o professor de LP do 6º B e o de MT do 7º B apresentando suas rotinas.<span class="chip s-yellow">Próxima formação</span></li>
+    <li>6º C: diagnóstico em MT (64% de defasagem) e reposição da avaliação para quem faltou (participação de 74%).<span class="chip s-yellow">15 dias</span></li>
+  </ol></div>
+</section>
+
+<section class="sec" id="semaforo">
+  <h2 data-nav="Semáforo por turma">🚦 Semáforo por turma</h2>
+  <div class="legend" style="margin-bottom:10px"><span><i class="seg-1"></i>Defasagem</span><span><i class="seg-3"></i>Intermediário</span><span><i class="seg-4"></i>Adequado</span><span>Regra do semáforo: defasagem ≥ 50% crítico · 30 a 49% atenção · abaixo de 30% ou adequado ≥ 40% positivo</span></div>
+  <div class="grid4" id="turmas"></div>
+</section>
+
+<section class="sec" id="dados">
+  <h2 data-nav="Dados por componente">📋 Dados por componente</h2>
+  <div class="tabs"><button class="on" data-tab="t-lp">📖 Língua Portuguesa</button><button data-tab="t-mt">📐 Matemática</button></div>
+  <div class="tab-pane on" id="t-lp"><div class="tbl-wrap"><div class="tbl-cap"><b>LP · distribuição por nível</b><div>Ordenado do melhor para o pior adequado</div></div><div class="tbl-scroll"><table class="tbl"><thead><tr><th>Turma</th><th class="n">Participação</th><th class="n">Defasagem</th><th class="n">Intermediário</th><th class="n">Adequado</th><th>Situação</th></tr></thead><tbody id="tb-lp"></tbody></table></div></div></div>
+  <div class="tab-pane" id="t-mt"><div class="tbl-wrap"><div class="tbl-cap"><b>MT · distribuição por nível</b><div>Ordenado da menor para a maior defasagem</div></div><div class="tbl-scroll"><table class="tbl"><thead><tr><th>Turma</th><th class="n">Participação</th><th class="n">Defasagem</th><th class="n">Intermediário</th><th class="n">Adequado</th><th>Situação</th></tr></thead><tbody id="tb-mt"></tbody></table></div></div></div>
+  <div class="callout s-yellow"><b class="t">Participação abaixo de 80%</b>6º C teve 79% em LP e 74% em MT. Esses resultados devem ser lidos com cautela.</div>
+</section>
+
+<section class="sec" id="analise">
+  <h2 data-nav="Análises e ações">🔎 Análises e ações detalhadas</h2>
+  <details class="acao s-red"><summary><div class="st"><b>9º A e 9º B · MT: 91% e 90% de defasagem</b><span>Adequado 5% e 0% · 9º C sem dados de MT</span></div><span class="chip s-red">Crítico</span></summary>
+  <div class="body"><ol>
+    <li><b>Diagnóstico por descritor:</b> identificar lacunas em operações, frações, álgebra e geometria.</li>
+    <li><b>Reforço em contraturno:</b> com 90% em defasagem, a aula regular não basta.</li>
+    <li><b>9º C:</b> reaplicar a avaliação de MT antes de planejar a intervenção da turma.</li>
+    <li><b>Busca Ativa:</b> cruzar defasagem e infrequência (9º B e 9º C têm registros em 2026).</li>
+    <li><b>SPAECE:</b> articular materiais e simulados com a SME para o 9º Ano.</li>
+  </ol></div></details>
+  <details class="acao s-red"><summary><div class="st"><b>7º B · LP: 87% de defasagem e 0% adequado</b><span>A mesma turma tem 57% de adequado em MT</span></div><span class="chip s-red">Crítico</span></summary>
+  <div class="body"><ol>
+    <li>Observação de aula e escuta do professor de LP: a diferença entre componentes na mesma turma aponta para a prática de LP, não para o perfil dos alunos.</li>
+    <li>Diagnóstico por descritor em LP (compreensão leitora, inferência, análise linguística).</li>
+    <li>Replanejamento das sequências de LP com a coordenação antes de avançar no currículo.</li>
+  </ol></div></details>
+  <details class="acao s-red"><summary><div class="st"><b>9º C · LP: 55% de defasagem e 5% adequado</b><span>41% no intermediário</span></div><span class="chip s-red">Crítico</span></summary>
+  <div class="body"><ol>
+    <li>Trabalhar o grupo intermediário (41%), o mais próximo do adequado.</li>
+    <li>Comparar com 9º A (36% de adequado) e 9º B (32%).</li>
+  </ol></div></details>
+  <details class="acao s-yellow"><summary><div class="st"><b>6º C: LP 47% de defasagem e MT 64%</b><span>Participação de 79% e 74%</span></div><span class="chip s-yellow">Atenção</span></summary>
+  <div class="body"><ol>
+    <li>Reposição da avaliação para os alunos que faltaram.</li>
+    <li>Comparar com 6º A e 6º B, que têm 54% e 65% de adequado em LP.</li>
+  </ol></div></details>
+  <details class="acao s-green"><summary><div class="st"><b>6º B LP (65%) e 7º B MT (57%): referências</b><span>6º A LP 54% · 7º A MT 45%</span></div><span class="chip s-green">Replicar</span></summary>
+  <div class="body"><ol>
+    <li>Formação em serviço com esses professores para toda a equipe dos Anos Finais.</li>
+    <li>Observação de aula cruzada pelos professores das turmas críticas.</li>
+    <li>Investigar por que a MT forte do 7º Ano não aparece no 9º Ano (90% de defasagem).</li>
+    <li>Registrar as práticas no PPP.</li>
+  </ol></div></details>
+</section>
+
+<section class="sec" id="plano">
+  <h2 data-nav="Plano de ação">🗂️ Plano de ação</h2>
+  <div class="tbl-wrap"><div class="tbl-scroll"><table class="tbl"><thead><tr><th>#</th><th>Ação</th><th>Público</th><th>Responsável</th><th>Prazo</th><th>Prioridade</th></tr></thead><tbody>
+    <tr><td>1</td><td>Reaplicar avaliações sem dados</td><td>7º A LP · 9º C MT</td><td>Coord. + profs.</td><td>Imediato</td><td><span class="chip s-red">Urgente</span></td></tr>
+    <tr><td>2</td><td>Diagnóstico por descritor e reforço de MT em contraturno</td><td>9º A, B e C · MT</td><td>Coord. + prof. MT</td><td>Imediato</td><td><span class="chip s-red">Urgente</span></td></tr>
+    <tr><td>3</td><td>Investigar a assimetria LP x MT e replanejar LP</td><td>7º B · LP</td><td>Coord. pedagógica</td><td>15 dias</td><td><span class="chip s-red">Urgente</span></td></tr>
+    <tr><td>4</td><td>Intervenção no grupo intermediário de LP</td><td>9º C · LP</td><td>Prof. LP</td><td>15 dias</td><td><span class="chip s-red">Urgente</span></td></tr>
+    <tr><td>5</td><td>Solicitar à SME materiais de recomposição LP e MT</td><td>9º Ano</td><td>Direção</td><td>15 dias</td><td><span class="chip s-yellow">Atenção</span></td></tr>
+    <tr><td>6</td><td>Diagnóstico em MT e reposição da avaliação</td><td>6º C</td><td>Coord. + prof.</td><td>15 dias</td><td><span class="chip s-yellow">Atenção</span></td></tr>
+    <tr><td>7</td><td>Formação com os professores do 6º B (LP) e 7º B (MT)</td><td>Anos Finais</td><td>Coordenação</td><td>Próxima formação</td><td><span class="chip s-green">Replicar</span></td></tr>
+    <tr><td>8</td><td>Cruzar defasagem com infrequência (Busca Ativa)</td><td>7º e 9º Ano</td><td>Coord. + direção</td><td>1 mês</td><td><span class="chip s-yellow">Atenção</span></td></tr>
+    <tr><td>9</td><td>Plano integrado de preparação SPAECE (LP + MT)</td><td>9º A, B e C</td><td>Coord. + profs.</td><td>2 meses</td><td><span class="chip s-blue">Planejar</span></td></tr>
+    <tr><td>10</td><td>Registrar as práticas do 6º B e 7º B no PPP</td><td>Gestão</td><td>Direção + coord.</td><td>2 meses</td><td><span class="chip s-blue">Planejar</span></td></tr>
+  </tbody></table></div></div>
+</section>
+
+<div class="conf"><b class="t">🔎 Conferência dos dados (out/2026)</b><ul>
+  <li>Os percentuais desta página batem com o relatório original e somam 100% por turma (variações de 1 ponto são arredondamento).</li>
+  <li><b>Semáforo unificado:</b> o 6º C LP (47% de defasagem) aparecia como "Crítico"; pela regra única do painel (crítico a partir de 50%) passa a "Atenção".</li>
+  <li><b>Corrigido:</b> "Preparação para o SPAECE 2025" foi substituído por SPAECE sem ano fixo; a edição de 2025 já foi aplicada.</li>
+  <li>Retirada a frase "o 9º C provavelmente tem situação semelhante": sem dado, a turma aparece como "sem dados".</li>
+</ul></div>
+
+<footer class="foot">Fonte: Relatório de Acompanhamento da Recomposição da Aprendizagem 2025 · Aba Tapeba EDEIEF · INEP 23268743</footer>
+</main>
+
+<script>
+/* [turma, partLP, defLP, intLP, adeqLP, partMT, defMT, intMT, adeqMT] ; null = sem dados */
+var R = [
+  ['6º A',89,17,29,54, 93,44,36,20],
+  ['6º B',85,12,24,65, 85,35,35,29],
+  ['6º C',79,47,40,13, 74,64,14,21],
+  ['7º A',0,null,null,null, 91,7,48,45],
+  ['7º B',82,87,13,0, 100,0,43,57],
+  ['9º A',96,28,36,36, 85,91,5,5],
+  ['9º B',86,37,32,32, 91,90,10,0],
+  ['9º C',85,55,41,5, 0,null,null,null]
+];
+function sit(def,ad){ if(def===null)return ['s-gray','Sem dados']; return ad>=40?['s-green','Positivo']:def>=50?['s-red','Crítico']:def>=30?['s-yellow','Atenção']:['s-green','Positivo']; }
+function stack(d,i,a){ return '<div class="stack"><span class="seg-1" style="width:'+d+'%"></span><span class="seg-3" style="width:'+i+'%"></span><span class="seg-4" style="width:'+a+'%"></span></div>'; }
+function part(p){ return p===0?'<span class="t-red">0% ⛔</span>':p<80?'<span class="t-yellow">'+p+'% ⚠</span>':p+'%'; }
+function bloco(nm,p,d,i,a){ var s=sit(d,a); if(d===null)return '<div class="lab">'+nm+' · <span class="chip s-gray">Sem dados</span></div><div class="small muted">Turma não avaliada (participação 0%)</div>';
+  return '<div class="lab">'+nm+' · <span class="chip '+s[0]+'">'+s[1]+'</span></div>'+stack(d,i,a)+'<div class="small muted">Def. '+d+'% · Int. '+i+'% · Adeq. <b>'+a+'%</b> · Part. '+p+'%</div>'; }
+var g='';
+R.forEach(function(t){
+  var sl=sit(t[2],t[4]), sm=sit(t[6],t[8]);
+  var pior=(sl[0]==='s-red'||sm[0]==='s-red')?'s-red':(sl[0]==='s-yellow'||sm[0]==='s-yellow')?'s-yellow':'s-green';
+  g+='<div class="tcard '+pior+'"><div class="h"><b>'+t[0]+'</b></div>'+bloco('LP',t[1],t[2],t[3],t[4])+bloco('MT',t[5],t[6],t[7],t[8])+'</div>';
+});
+document.getElementById('turmas').innerHTML=g;
+function row(nm,p,d,i,a){var s=sit(d,a);if(d===null)return '<tr><td><b>'+nm+'</b></td><td class="n">'+part(p)+'</td><td class="n t-gray">·</td><td class="n t-gray">·</td><td class="n t-gray">·</td><td><span class="chip s-gray">Sem dados</span></td></tr>';
+  return '<tr><td><b>'+nm+'</b></td><td class="n">'+part(p)+'</td><td class="n t-red">'+d+'%</td><td class="n">'+i+'%</td><td class="n t-green">'+a+'%</td><td><span class="chip '+s[0]+'">'+s[1]+'</span></td></tr>';}
+function nz(x,v){return x===null?v:x;}
+var lp=R.slice().sort(function(a,b){return nz(b[4],-1)-nz(a[4],-1)||nz(a[2],999)-nz(b[2],999);}), mt=R.slice().sort(function(a,b){return nz(a[6],999)-nz(b[6],999)||nz(b[8],-1)-nz(a[8],-1);});
+document.getElementById('tb-lp').innerHTML=lp.map(function(t){return row(t[0],t[1],t[2],t[3],t[4]);}).join('');
+document.getElementById('tb-mt').innerHTML=mt.map(function(t){return row(t[0],t[5],t[6],t[7],t[8]);}).join('');
+</script>
+<script src="escola.js"></script>
+<script src="../assets/painel.js"></script>
+</body>
+</html>

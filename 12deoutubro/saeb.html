@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAEB 2023 · 12 de Outubro EEIEF</title>
+<link rel="stylesheet" href="../assets/painel.css">
+</head>
+<body data-page="saeb">
+<main class="main">
+
+<header class="page-head">
+  <div class="crumb"><span data-escola="nome"></span> · Painel do Diretor</div>
+  <h1>📋 SAEB 2023</h1>
+  <div class="meta"><span>Fonte: Boletim da Escola · INEP/MEC</span><span>5º Ano · LP e MT</span><span>Nível socioeconômico: Grupo 4</span><span>Próxima edição: SAEB 2027 (resultados do SAEB 2025 a incorporar quando publicados)</span></div>
+</header>
+
+<section class="sec" id="resumo">
+  <h2 data-nav="Em 30 segundos">⏱️ Em 30 segundos</h2>
+  <div class="kpis">
+    <div class="kpi s-green"><span class="v">244,74</span><div class="l">Proficiência MT · 5º Ano</div><div class="d">Similares: 203,00 · +41,74 pontos</div></div>
+    <div class="kpi s-green"><span class="v">67,2%</span><div class="l">Adequado MT · 5º Ano</div><div class="d">Similares: 30,5% · corte 225 pts</div></div>
+    <div class="kpi s-yellow"><span class="v">196,39</span><div class="l">Proficiência LP · 5º Ano</div><div class="d">Similares: 201,96 · −5,57 pontos</div></div>
+    <div class="kpi s-yellow"><span class="v">47,9%</span><div class="l">Adequado LP · 5º Ano</div><div class="d">Similares: 50,8% · corte 200 pts</div></div>
+  </div>
+  <div class="callout s-green"><b class="t">Matemática muito acima das escolas similares</b>A média de 244,74 é a maior da série histórica da escola e supera as similares em 41,74 pontos. Dois em cada três estudantes (67,2%) estão no nível adequado, mais que o dobro das similares (30,5%). Apenas 8,8% estão abaixo do básico.</div>
+  <div class="callout s-yellow"><b class="t">Língua Portuguesa recuou e ficou abaixo das similares</b>A média caiu de 208,0 (2021) para 196,4 (2023), primeira queda após quatro edições de alta. 19,4% dos estudantes estão abaixo do básico (N0 e N1).</div>
+  <div class="callout s-green"><b class="t">Participação plena</b>47 de 47 estudantes do 5º Ano (100%). Formação docente adequada nos Anos Iniciais: 98,2%.</div>
+</section>
+
+<section class="sec" id="agora">
+  <h2 data-nav="O que fazer agora">⚡ O que fazer agora</h2>
+  <div class="agora"><ol>
+    <li>LP: trabalhar com o N3 (21,7%, 5,1 p.p. acima das similares), que está a um nível do adequado (200 pontos).<span class="chip s-yellow">15 dias</span></li>
+    <li>LP: identificar por nome os alunos do N0 e N1 (19,4%) e aplicar diagnóstico de leitura.<span class="chip s-yellow">15 dias</span></li>
+    <li>MT: registrar as rotinas e materiais do 5º Ano para levar às turmas do 3º Ano, onde o CNCA aponta defasagem alta.<span class="chip s-green">1 mês</span></li>
+    <li>Atualizar esta página com o boletim do SAEB 2025 assim que for publicado pelo INEP.<span class="chip s-blue">Gestão de dados</span></li>
+  </ol></div>
+</section>
+
+<section class="sec" id="como-ler">
+  <h2 data-nav="Como ler">📐 Como ler o "adequado"</h2>
+  <div class="tbl-wrap"><div class="tbl-scroll"><table class="tbl"><thead><tr><th>Etapa</th><th>Componente</th><th class="n">Abaixo do básico</th><th class="n">Adequado a partir de</th><th>Níveis do boletim</th></tr></thead><tbody>
+    <tr><td>5º Ano</td><td>LP</td><td class="n">&lt; 150</td><td class="n">200 pts</td><td>N4 a N9</td></tr>
+    <tr><td>5º Ano</td><td>MT</td><td class="n">&lt; 175</td><td class="n">225 pts</td><td>N5 a N10</td></tr>
+  </tbody></table></div></div>
+  <p class="small muted">Pontos de corte do Todos Pela Educação, os mesmos usados pelo QEdu. Assim, os percentuais desta página podem ser comparados diretamente com o QEdu.</p>
+</section>
+
+<section class="sec" id="comparativo">
+  <h2 data-nav="Escola x similares">⚖️ Escola x escolas similares</h2>
+  <div class="tbl-wrap"><div class="tbl-scroll"><table class="tbl"><thead><tr><th>Avaliação</th><th class="n">Média escola</th><th class="n">Média similares</th><th class="n">Diferença</th><th class="n">Adequado escola</th><th class="n">Adequado similares</th><th class="n">Abaixo do básico</th></tr></thead><tbody id="tb-comp"></tbody></table></div></div>
+</section>
+
+<section class="sec" id="niveis">
+  <h2 data-nav="Níveis de proficiência">📊 Distribuição por nível</h2>
+  <div class="tabs"><button class="on" data-tab="p-lp5">LP · 5º</button><button data-tab="p-mt5">MT · 5º</button></div>
+  <div class="tab-pane on" id="p-lp5"></div>
+  <div class="tab-pane" id="p-mt5"></div>
+  <p class="small muted">Coluna "Diferença": escola menos similares. Vermelho indica desvantagem da escola (mais alunos em nível baixo ou menos em nível alto); verde indica vantagem.</p>
+</section>
+
+<section class="sec" id="historico">
+  <h2 data-nav="Série histórica">📅 Série histórica · 5º Ano</h2>
+  <div class="tbl-wrap"><div class="tbl-scroll"><table class="tbl"><thead><tr><th>Edição</th><th class="n">LP</th><th class="n">Variação LP</th><th class="n">MT</th><th class="n">Variação MT</th></tr></thead><tbody id="tb-hist"></tbody></table></div></div>
+  <p class="small muted">MT teve oscilações (queda em 2013 e em 2021), mas a tendência de longo prazo é de alta: 176,4 (2011) para 244,7 (2023). LP subiu de 2011 a 2021 e caiu em 2023.</p>
+</section>
+
+<section class="sec" id="contexto">
+  <h2 data-nav="Contexto">🏫 Contexto institucional</h2>
+  <div class="grid3">
+    <div class="card s-blue"><h3>Nível socioeconômico</h3><div class="kpi" style="box-shadow:none;border:none;padding:0"><span class="v" style="color:var(--blue)">Grupo 4</span></div><p class="small muted">Escala de 6 grupos do INEP (escolaridade dos pais e posse de bens).</p></div>
+    <div class="card s-green"><h3>Formação docente · Anos Iniciais</h3><div class="bars"><div class="bar-row"><span class="lbl">Adequada</span><div class="track"><div class="fill s-green" style="width:98.2%"></div></div><span class="val t-green">98,2%</span></div></div></div>
+    <div class="card s-blue"><h3>Componente de aprendizado do Ideb</h3><div class="kpi" style="box-shadow:none;border:none;padding:0"><span class="v" style="color:var(--blue)">6,21</span></div><p class="small muted">Média padronizada: LP 5,36 e MT 7,05 (cálculo a partir das médias do boletim).</p></div>
+  </div>
+</section>
+
+<section class="sec" id="plano">
+  <h2 data-nav="Plano de ação">🗂️ Plano de ação</h2>
+  <details class="acao s-yellow"><summary><div class="st"><b>1 · LP: recuperar a queda de 11,6 pontos (208,0 para 196,4)</b><span>N3 com 21,7% é o grupo mais próximo do corte de 200 pontos</span></div><span class="chip s-yellow">Prioridade</span></summary>
+  <div class="body"><ul>
+    <li>Sequência didática para a passagem N3 para N4: identificar assunto, personagem e efeito de humor em contos, fábulas e tirinhas.</li>
+    <li>Leitura semanal estruturada com questões de inferência e de causa e consequência.</li>
+    <li>Ouvir os professores sobre o que mudou entre 2021 e 2023 (turmas, materiais, rotina de leitura).</li>
+    <li>Meta interna: voltar a superar as similares (cerca de 202 pontos) na próxima edição.</li>
+  </ul></div></details>
+  <details class="acao s-yellow"><summary><div class="st"><b>2 · LP: 19,4% abaixo do básico</b><span>N0 4,4% · N1 15,1%</span></div><span class="chip s-yellow">Atenção</span></summary>
+  <div class="body"><ul>
+    <li>Identificar por nome os alunos do N0 e N1 nas turmas atuais do 5º Ano e cruzar com os iniciantes da ADSEC e os pré-leitores do CNCA.</li>
+    <li>Leitura diária supervisionada de 15 minutos, com textos curtos e progressivos.</li>
+    <li>Tutoria entre pares com alunos do N5 e N6.</li>
+  </ul></div></details>
+  <details class="acao s-green"><summary><div class="st"><b>3 · MT: documentar o que funciona</b><span>67,2% adequado e 0% no N0</span></div><span class="chip s-green">Replicar</span></summary>
+  <div class="body"><ul>
+    <li>Registrar rotinas, materiais e formas de avaliação dos professores de MT do 5º Ano no PPP.</li>
+    <li>Apresentar essas práticas na formação em serviço, com prioridade para o 3º Ano (CNCA) e o 4º Ano (Avalie.CE).</li>
+    <li>Manter o grupo de N9 (4,3%) com desafios de nível mais alto.</li>
+  </ul></div></details>
+</section>
+
+<div class="conf"><b class="t">🔎 Conferência dos dados (out/2026)</b><ul>
+  <li><b>Ponto de corte corrigido:</b> a versão anterior calculava o adequado de MT a partir de 200 pontos (78,18%). Pelo critério do QEdu e do Todos Pela Educação, o corte do 5º Ano em MT é 225 pontos: o adequado é 67,17% (N5 a N10). Com isso, a frase "meta de 70% superada" deixa de valer.</li>
+  <li><b>Unidade corrigida:</b> "+41,74 pp" passou a "+41,74 pontos" (diferença de proficiência, não de percentual).</li>
+  <li>LP conferido: adequado 47,92% (N4 a N9) e similares 50,76%; abaixo do básico 19,43%.</li>
+  <li>Retirados termos como "referência nacional" e "excepcional para qualquer escola municipal", que não têm base comparativa na fonte.</li>
+  <li>Retirado "garantir participação no SAEB 2025": o SAEB 2025 já foi aplicado e a próxima edição é em 2027.</li>
+  <li>O componente de aprendizado (6,21) foi recalculado a partir das médias do boletim e confere com o valor citado na página QEdu.</li>
+</ul></div>
+
+<footer class="foot">Fonte: Boletim SAEB 2023 da escola · INEP/MEC · 12 de Outubro EEIEF · INEP 23249595. Pontos de corte: Todos Pela Educação / QEdu.</footer>
+</main>
+
+<script>
+/* [nível, faixa, escola %, similares %, descrição] ; corte = primeiro nível adequado ; bb = níveis abaixo do básico */
+var D = {
+ lp5:{t:'LP · 5º Ano',esc:196.39,sim:201.96,corte:4,bb:2,n:[
+  ['N0','< 125',4.35,6.12,'Habilidades muito elementares ausentes'],['N1','125 a 150',15.08,11.91,'Localizar informação explícita em textos curtos'],
+  ['N2','150 a 175',10.92,14.56,'Localizar informação em contos e fábulas'],['N3','175 a 200',21.74,16.65,'Causa e consequência; inferir sentido em tirinhas'],
+  ['N4','200 a 225',24.05,18.93,'Assunto, personagem, efeito de humor'],['N5','225 a 250',13.04,13.14,'Finalidade, causa e consequência em vários gêneros'],
+  ['N6','250 a 275',4.44,9.47,'Inferir assunto, humor e moral'],['N7','275 a 300',4.26,6.06,'Gênero textual e elementos da narrativa'],
+  ['N8','300 a 325',2.13,2.30,'Assunto comum a textos de gêneros diferentes'],['N9','≥ 325',0.00,0.86,'Opinião em fábulas, sentido de advérbios']]},
+ mt5:{t:'MT · 5º Ano',esc:244.74,sim:203.00,corte:5,bb:3,n:[
+  ['N0','< 125',0.00,3.61,'Habilidades muito elementares ausentes'],['N1','125 a 150',2.13,10.44,'Área em malha quadriculada por contagem'],
+  ['N2','150 a 175',6.66,15.05,'Adição de quantias; tabelas e gráficos'],['N3','175 a 200',13.04,20.17,'Coordenadas, conversão de moedas, frações simples'],
+  ['N4','200 a 225',11.01,20.26,'Multiplicação, divisão, valor posicional'],['N5','225 a 250',21.83,13.54,'Subtração com reserva, sistema monetário, reta numérica'],
+  ['N6','250 a 275',12.77,9.43,'Porcentagens simples, área, intervalos de tempo'],['N7','275 a 300',17.30,5.32,'Perímetro, conversão de massa, gráfico de setores'],
+  ['N8','300 a 325',10.92,1.75,'Área de retângulo modificada, medidas lineares'],['N9','325 a 350',4.35,0.43,'Frações equivalentes, medidas de tempo'],['N10','≥ 350',0.00,0.00,'Perpendiculares, medidas avançadas']]}
+};
+function f(x,d){return x.toFixed(d===undefined?2:d).replace('.',',');}
+function soma(a,i,de,ate){var s=0;for(var k=de;k<ate;k++)s+=a[k][i];return s;}
+var cores=['#c0392b','#d9572b','#e0782a','#e0a020','#9bc23c','#5cb85c','#2ea36a','#1a8a5a','#1a7a6a','#2a6f97','#3d5a99'];
+var comp='';
+Object.keys(D).forEach(function(k){
+  var o=D[k],n=o.n,L=n.length;
+  var ae=soma(n,2,o.corte,L), as=soma(n,3,o.corte,L), bb=soma(n,2,0,o.bb), dif=o.esc-o.sim;
+  comp+='<tr><td><b>'+o.t+'</b></td><td class="n">'+f(o.esc)+'</td><td class="n">'+f(o.sim)+'</td><td class="n '+(dif<0?'t-red':'t-green')+'">'+(dif>0?'+':'')+f(dif)+'</td><td class="n"><b>'+f(ae,1)+'%</b></td><td class="n">'+f(as,1)+'%</td><td class="n t-red">'+f(bb,1)+'%</td></tr>';
+  var rows='',bars='';
+  n.forEach(function(r,i){
+    var ad=i>=o.corte, d=r[2]-r[3], ruim=ad?d<0:d>0;
+    var dc=Math.abs(d)<0.005?'t-gray':(ruim?'t-red':'t-green');
+    rows+='<tr'+(ad?' style="background:#f3fbf6"':'')+'><td><b>'+r[0]+'</b></td><td>'+r[1]+'</td><td class="n"><b>'+f(r[2])+'%</b></td><td class="n">'+f(r[3])+'%</td><td class="n '+dc+'">'+(d>0?'+':'')+f(d)+'</td><td>'+(ad?'<span class="chip s-green">Adequado</span>':(i<o.bb?'<span class="chip s-red">Abaixo do básico</span>':'<span class="chip s-yellow">Básico</span>'))+'</td><td class="small">'+r[4]+'</td></tr>';
+    bars+='<div class="bar-row"><span class="lbl">'+r[0]+' · '+r[1]+'</span><div class="track"><div class="fill" style="width:'+Math.min(r[2]*3,100)+'%;background:'+cores[i]+'"></div></div><span class="val">'+f(r[2],1)+'%</span></div>';
+  });
+  document.getElementById('p-'+k).innerHTML=
+   '<div class="grid2" style="margin-bottom:14px"><div class="card"><h3>'+o.t+' · escola</h3><div class="bars">'+bars+'</div><p class="small muted" style="margin-top:8px">Barras em escala ampliada (3x) para leitura.</p></div>'+
+   '<div class="card"><h3>Resumo</h3><div class="bars">'+
+   '<div class="bar-row"><span class="lbl">Abaixo do básico</span><div class="track"><div class="fill s-red" style="width:'+bb+'%"></div></div><span class="val t-red">'+f(bb,1)+'%</span></div>'+
+   '<div class="bar-row"><span class="lbl">Básico</span><div class="track"><div class="fill s-yellow" style="width:'+(100-bb-ae)+'%"></div></div><span class="val t-yellow">'+f(100-bb-ae,1)+'%</span></div>'+
+   '<div class="bar-row"><span class="lbl">Adequado</span><div class="track"><div class="fill s-green" style="width:'+ae+'%"></div></div><span class="val t-green">'+f(ae,1)+'%</span></div>'+
+   '<div class="bar-row"><span class="lbl">Adequado similares</span><div class="track"><div class="fill s-gray" style="width:'+as+'%"></div></div><span class="val t-gray">'+f(as,1)+'%</span></div>'+
+   '</div><p class="small muted" style="margin-top:8px">Proficiência média: escola '+f(o.esc)+' · similares '+f(o.sim)+'</p></div></div>'+
+   '<div class="tbl-wrap"><div class="tbl-scroll"><table class="tbl"><thead><tr><th>Nível</th><th>Pontos</th><th class="n">Escola</th><th class="n">Similares</th><th class="n">Diferença</th><th>Faixa</th><th>O que o aluno já demonstra</th></tr></thead><tbody>'+rows+'</tbody></table></div></div>';
+});
+document.getElementById('tb-comp').innerHTML=comp;
+var H=[['2011',152.2,176.4],['2013',169.1,166.3],['2015',201.6,204.5],['2017',203.3,205.0],['2019',206.3,232.2],['2021',208.0,213.4],['2023',196.4,244.7]];
+document.getElementById('tb-hist').innerHTML=H.map(function(r,i){
+  function v(j){if(!i)return '<td class="n t-gray">·</td>';var d=r[j]-H[i-1][j];return '<td class="n '+(d<0?'t-red':'t-green')+'">'+(d>0?'+':'')+f(d,1)+'</td>';}
+  return '<tr'+(i===H.length-1?' class="hl"':'')+'><td><b>'+r[0]+'</b></td><td class="n"><b>'+f(r[1],1)+'</b></td>'+v(1)+'<td class="n"><b>'+f(r[2],1)+'</b></td>'+v(2)+'</tr>';}).join('');
+</script>
+<script src="escola.js"></script>
+<script src="../assets/painel.js"></script>
+</body>
+</html>
