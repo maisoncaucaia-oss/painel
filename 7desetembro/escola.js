@@ -25,7 +25,7 @@ window.ESCOLA = {
     cnca:             { status: 's-red',    nome: 'CNCA 2025' },
     qedu:             { status: 's-gray',   nome: 'QEdu / Censo' },
     recomposicao:     { status: 's-red',    nome: 'Recomposição 2025' },
-    saeb:             { status: 's-red',    nome: 'SAEB 2023' },
+    saeb:             { status: 's-red',    nome: 'SAEB 2025' },
     spaece:           { status: 's-red',    nome: 'SPAECE 2025' }
   }
 };

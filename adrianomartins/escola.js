@@ -24,7 +24,7 @@ window.ESCOLA = {
     bimestrais:       { status: 's-yellow', nome: 'Bimestrais 2025' },
     cnca:             { status: 's-red',    nome: 'CNCA 2025' },
     qedu:             { status: 's-green',  nome: 'QEdu / Censo' },
-    saeb:             { status: 's-yellow', nome: 'SAEB 2023' },
+    saeb:             { status: 's-yellow', nome: 'SAEB 2025' },
     spaece:           { status: 's-red',    nome: 'SPAECE 2025' }
   }
 };

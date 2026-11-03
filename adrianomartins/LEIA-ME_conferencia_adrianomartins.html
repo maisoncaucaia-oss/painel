@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conferência de dados · Adriano Martins</title>
+<style>
+body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;max-width:980px;margin:0 auto;padding:28px 20px 60px;color:#0f1e2e;line-height:1.55;font-size:15px;background:#fff}
+h1{font-size:24px;color:#1a3a5c}h2{font-size:18px;color:#1a3a5c;margin-top:30px;border-bottom:2px solid #dbe3ec;padding-bottom:6px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:10px 0}th{background:#1a3a5c;color:#fff;text-align:left;padding:7px 10px}td{padding:7px 10px;border-bottom:1px solid #e9eef4;vertical-align:top}
+.r{color:#b83227;font-weight:700}.g{color:#1a7a4a;font-weight:700}.box{border:1px solid #f2b8b1;background:#fdf0ef;border-left:5px solid #b83227;padding:12px 16px;border-radius:8px;margin:12px 0}
+.ok{border:1px solid #93dbb3;background:#ecf8f1;border-left:5px solid #1a7a4a;padding:12px 16px;border-radius:8px;margin:12px 0}
+code{background:#f1f4f7;padding:1px 5px;border-radius:4px;font-size:13px}pre{background:#f1f4f7;padding:12px;border-radius:8px;font-size:13px;overflow-x:auto}
+small{color:#4a5e75}
+</style>
+</head>
+<h1>Conferência de dados e novo layout · Adriano Martins EEIEF</h1>
+<p><small>Elaborado em 27/10/2026 a partir das 10 páginas enviadas. Documento de trabalho: não publicar no site.</small></p>
+
+<h2>1. Estrutura</h2>
+<pre>site/
+├── assets/                    (o mesmo das outras escolas, sem alteração)
+└── adrianomartins/
+    ├── escola.js              nome, INEP, regional, status do semáforo
+    └── painel.html … spaece.html   (10 páginas, mesmos nomes de arquivo)</pre>
+<p>A escola oferta Educação Infantil e 1º ao 5º Ano, por isso não há página de Recomposição (a linha foi retirada do <code>escola.js</code> e some do menu). O endereço não aparece em nenhuma página enviada: inserir no campo <code>endereco</code>. Verificar no <code>index.html</code> se o link aponta para a pasta <code>adrianomartins</code>.</p>
+
+<h2>2. Erros de maior impacto para a decisão</h2>
+<div class="box"><b>1. A Visão Geral contradizia as demais páginas.</b> "100% das turmas de 5º Ano em situação crítica em LP e MT" (no Avalie.CE nenhuma turma de 5º Ano é crítica); "QEdu 38% em LP e MT" (LP é 54%); "SPAECE 2º Ano apenas 4,5% Proficiente, média 187,9" (4,5% é o Abaixo do Básico do 2º LP e 187,9 é o 5º MT; o 2º Ano é Proficiente); "reprovações acima do esperado" (são 0); "atualizado em março de 2025".<br><br>
+<b>2. SAEB com cortes de adequado trocados.</b> LP estava como "N6+ (≥ 250)" e MT como "N7+ (≥ 275)". Os percentuais (54% e 38%) conferem com os cortes corretos do QEdu, N4+ (≥ 200) e N5+ (≥ 225). Os grupos de habilidades usavam os cortes errados (ex.: "MT adequado: 10,9%").<br><br>
+<b>3. Ideb "5,8 = 6,39 × 0,93".</b> O produto é 5,94. Pelas médias do SAEB (LP 210, MT 213), o aprendizado é 5,85, e o Ideb de 5,8 confere com fluxo próximo de 1,00, coerente com aprovação de 100%. O mesmo "6,39 × 0,93" estava na página da Adélia Crisóstomo: é texto de modelo, e vale revisar as outras escolas geradas pelo mesmo processo.<br><br>
+<b>4. Busca Ativa: "13 alunos no nível Baixo, risco elevado de evasão".</b> "BAIXO" é o rótulo do sistema nos 13 registros justificados (11 por doença e 2 "outros"). Nenhum aluno tem mais de 2 registros, e 28 dos 36 registros são de um único dia (26/02), quase todos saídas parciais do integral.</div>
+
+<h2>3. Correções por página</h2>
+<table><thead><tr><th>Página</th><th>Antes</th><th>Depois (conferido)</th><th>Motivo</th></tr></thead><tbody>
+<tr><td>Avalie.CE</td><td>215 previstos, 192 avaliados, 89%</td><td class="g">123 previstos, 112 avaliados (91,1%); 224 avaliações</td><td>Soma das turmas</td></tr>
+<tr><td>Avalie.CE, Resumo</td><td>"6 turmas críticas"; "mais de 50 alunos em situação crítica"</td><td class="g">3 casos críticos, todos em MT (2º B, 4º A, 4º B); cerca de 46 alunos em defasagem</td><td>Regra da própria página</td></tr>
+<tr><td>Avalie.CE</td><td>4º A e 4º B LP em Atenção, "próximas da zona crítica"</td><td class="g">Positivo (55% e 53% de adequado)</td><td>Regra da página</td></tr>
+<tr><td>Avalie.CE</td><td>2º B MT índice 2, 100% de defasagem</td><td class="r">Mantido, marcado para verificar aplicação</td><td>Destoa da LP da mesma turma (índice 61)</td></tr>
+<tr><td>CNCA, Resumo</td><td>38 pré-leitores</td><td class="g">34 (10 + 16 + 4 + 4)</td><td>Soma por turma</td></tr>
+<tr><td>CNCA</td><td>"5 turmas"; "3 turmas críticas" (2º B e 5º B)</td><td class="g">7 turmas; nenhuma crítica por defasagem; 2º A e 2º B críticas pela leitura</td><td>Regra do CNCA</td></tr>
+<tr><td>CNCA</td><td>2º B Av2: 65%, 31%, 8%</td><td class="r">Idêntico ao 2º A; marcado "a confirmar"</td><td>A própria fonte indica ausência de coleta</td></tr>
+<tr><td>CNCA</td><td>Título "1º ao 5º Ano"</td><td class="g">4º Ano ausente; componente da Av1/Av2 não identificado</td><td>Lacuna da fonte</td></tr>
+<tr><td>ADSEC, Resumo</td><td>"23% não leitores no 4º Período"; painel "25%"</td><td class="g">Não leitores 11,9%; iniciantes 23,3%</td><td>Grupo trocado</td></tr>
+<tr><td>ADSEC</td><td>3º Período</td><td class="r">Níveis somam 180 para 176 avaliados</td><td>Inconsistência da fonte, sinalizada</td></tr>
+<tr><td>Bimestrais</td><td>Topo "Adequado 28%, LP + Mat."; "Intermediário 48%"; "Crítico 24%"</td><td class="g">São só de LP; LP e MT juntos: 23,4%, 51,7% e 24,8%</td><td>Rótulo errado</td></tr>
+<tr><td>Bimestrais</td><td>"Evolução positiva confirmada em LP"</td><td class="g">Adequado de LP caiu: 42,5% · 37,7% · 28,8%</td><td>Tabela da página</td></tr>
+<tr><td>Bimestrais</td><td>"78 alunos, 100% de participação"; ADSEC "2º Período 46%"</td><td class="g">73 registros em LP; MT com 44, 50 e 72; ADSEC 42,05%</td><td>Bases da página</td></tr>
+<tr><td>SPAECE</td><td>2º LP "686 · 2023" como resultado atual</td><td class="g">2024: 642,82 (meta 657,82 = 642,82 + 15)</td><td>Tabela de metas</td></tr>
+<tr><td>SPAECE</td><td>"Padrão 2024" do 9º Ano</td><td class="g">Retirado (sem resultado desde 2022)</td><td>Etapa não ofertada</td></tr>
+<tr><td>QEdu</td><td>"Fluxo 0,93: 93 de cada 100 aprovados" e "aprovação 100%"</td><td class="g">Fluxo ≈ 1,00</td><td>Contradição interna</td></tr>
+<tr><td>QEdu</td><td>"Meta nacional de 5,5 para 2023"; "1º Ano 6% de distorção"</td><td class="g">Sem meta após 2021; dado por ano retirado</td><td>Texto de modelo</td></tr>
+<tr><td>Busca Ativa</td><td>"1º A: 30,6% dos acionamentos (11 alunos)"</td><td class="g">30,6% dos registros; 34,4% dos alunos</td><td>Unidade</td></tr>
+<tr><td>Resumo</td><td>"7 indicadores críticos"</td><td class="g">3 críticos, 4 em atenção, 1 positivo</td><td>Semáforo das páginas</td></tr>
+<tr><td>Várias</td><td>"Monitorar SAEB 2025", aplicação "março/2025"</td><td class="g">Prazos relativos; SAEB 2025 já aplicado, próxima edição em 2027</td><td>Datas vencidas</td></tr>
+</tbody></table>
+<div class="ok"><b>Conferido e correto:</b> SAEB (níveis somam 100%; participação 37 de 41; diferenças de −18 e −16 em relação às similares), Avalie.CE por turma, ADSEC no 4º Período (soma 176) e percentuais de grupo de todos os períodos, Bimestrais por faixa (LP e MT), SPAECE (metas, quedas de −31,20 e −7,58, distribuição do 2º MT), CNCA por turma, Busca Ativa (36 registros, 32 alunos, 9 turmas).</div>
+
+<h2>4. Pendências que dependem da fonte original</h2>
+<table><thead><tr><th>Página</th><th>O que verificar</th></tr></thead><tbody>
+<tr><td>Avalie.CE</td><td class="r">2º B MT com índice 2 e 100% de defasagem: confirmar aplicação e lançamento.</td></tr>
+<tr><td>CNCA</td><td class="r">Av2 do 2º B (cópia do 2º A?), Av1 do 3º Ano, 4º Ano ausente, componente avaliado.</td></tr>
+<tr><td>Bimestrais</td><td>Quais turmas a planilha cobre (73 registros para 44 matrículas de 5º Ano).</td></tr>
+<tr><td>SPAECE</td><td>2º LP 2023: 686 ou 189,00; padrões do 5º Ano no boletim CAEd.</td></tr>
+<tr><td>QEdu</td><td>Fluxo do Ideb 2023; meta 2021; Educação Especial contada em dobro no total de 316?; ano das taxas de rendimento; distorção atualizada.</td></tr>
+<tr><td>ADSEC</td><td>3º Período (180 para 176) e base de 176 contra 191 matrículas de Anos Iniciais.</td></tr>
+<tr><td>Visão Geral</td><td>Endereço da escola.</td></tr>
+</tbody></table>
+
+<h2>5. Critérios adotados e segurança</h2>
+<p>Os mesmos das escolas anteriores: semáforo único, pontos de corte do SAEB pelo QEdu, prazos relativos, números da Busca Ativa calculados da lista nominal e metas internas identificadas como internas. A lista da Busca Ativa foi agregada por aluno, e a coluna de filiação (nome da mãe ou responsável) foi retirada por não ser necessária ao acompanhamento.</p>
+<div class="box"><b>Alerta de segurança (repetido em todas as escolas):</b> a Busca Ativa lista 32 estudantes com nome e turma, dados de menores protegidos pelo art. 14 da LGPD. A página mantém <code>noindex</code> e o aviso de uso restrito, mas o login do <code>index.html</code> guarda senhas em texto aberto no próprio código e não impede o acesso direto pelo endereço da página. Só uma proteção real no servidor (autenticação do hospedeiro ou área restrita) resolve.</div>
+</body>
+</html>

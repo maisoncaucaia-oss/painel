@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conferência de dados · Adélia Crisóstomo</title>
+<style>
+body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;max-width:980px;margin:0 auto;padding:28px 20px 60px;color:#0f1e2e;line-height:1.55;font-size:15px;background:#fff}
+h1{font-size:24px;color:#1a3a5c}h2{font-size:18px;color:#1a3a5c;margin-top:30px;border-bottom:2px solid #dbe3ec;padding-bottom:6px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:10px 0}th{background:#1a3a5c;color:#fff;text-align:left;padding:7px 10px}td{padding:7px 10px;border-bottom:1px solid #e9eef4;vertical-align:top}
+.r{color:#b83227;font-weight:700}.g{color:#1a7a4a;font-weight:700}.box{border:1px solid #f2b8b1;background:#fdf0ef;border-left:5px solid #b83227;padding:12px 16px;border-radius:8px;margin:12px 0}
+.ok{border:1px solid #93dbb3;background:#ecf8f1;border-left:5px solid #1a7a4a;padding:12px 16px;border-radius:8px;margin:12px 0}
+code{background:#f1f4f7;padding:1px 5px;border-radius:4px;font-size:13px}pre{background:#f1f4f7;padding:12px;border-radius:8px;font-size:13px;overflow-x:auto}
+small{color:#4a5e75}
+</style>
+</head>
+<body>
+<h1>Conferência de dados e novo layout · Adélia Crisóstomo EQEIEF</h1>
+<p><small>Elaborado em 27/10/2026 a partir das 11 páginas enviadas. Documento de trabalho: não publicar no site.</small></p>
+
+<h2>1. Estrutura</h2>
+<pre>site/
+├── assets/                    (o mesmo das outras escolas, sem alteração)
+└── adeliacrisostomo/
+    ├── escola.js              nome, INEP, regional, status do semáforo
+    └── painel.html … spaece.html   (11 páginas, mesmos nomes de arquivo)</pre>
+<p>O endereço da escola não aparece em nenhuma página enviada: inserir no campo <code>endereco</code> do <code>escola.js</code>. Verificar no <code>index.html</code> se o link da escola aponta para a pasta <code>adeliacrisostomo</code>.</p>
+
+<h2>2. Erros de maior impacto para a decisão</h2>
+<div class="box"><b>1. Recomposição: "7º Ano com 92% de defasagem em MT e 0% de adequado".</b> A tabela da própria página mostra 11% de defasagem, 58% intermediário e 32% de adequado: o 7º A tem o <b>melhor</b> MT da Recomposição. O erro estava em quatro páginas e levaria a gastar reforço onde ele não é prioridade.<br><br>
+<b>2. Ideb "5,27 = 6,39 × 0,93".</b> O produto é 5,94. Além disso, o boletim SAEB 2023 da escola não traz resultado do 5º Ano, que é a base do Ideb dos Anos Iniciais. A série 2015 a 2021 foi marcada como "estimada" na própria página, e não existe meta oficial do Ideb para 2023 (o INEP fixou metas até 2021). Tudo marcado "a confirmar".<br><br>
+<b>3. SPAECE 2º LP com dois valores.</b> O cartão dizia 652; a tabela de metas, 620,01. A meta 2025 (635,01) é exatamente 620,01 + 15, a mesma regra do 2º MT (539,27 + 15). O valor mais provável é 620,01, e a frase "meta já superada" foi retirada até a confirmação.<br><br>
+<b>4. ADSEC: "cobertura de 55%".</b> A cobertura nos Anos Iniciais é 97,8% (135 de 138); o cálculo antigo incluía os 106 alunos dos Anos Finais, fora da ADSEC. É o mesmo erro encontrado nas escolas anteriores.</div>
+
+<h2>3. Correções por página</h2>
+<table><thead><tr><th>Página</th><th>Antes</th><th>Depois (conferido)</th><th>Motivo</th></tr></thead><tbody>
+<tr><td>SAEB</td><td>LP adequado 21,8% rotulado "N5+ (≥ 300)"</td><td class="g">21,8% é N4+ (≥ 275), corte correto</td><td>N5+ seria 14,3%</td></tr>
+<tr><td>SAEB, Resumo</td><td>"LP acima das similares (237 vs 241)"; "−3,73"</td><td class="g">4,27 pontos abaixo</td><td>237,42 − 241,69</td></tr>
+<tr><td>SAEB</td><td>"MT: 71,3% em N0+N1"; "LP: 49,6% abaixo de 200"</td><td class="g">MT 49,85%; LP abaixo de 200 = 24,93% (só N0)</td><td>Soma dos níveis</td></tr>
+<tr><td>SAEB</td><td>Sem adequado das similares</td><td class="g">LP 26,1%; MT 8,8% (escola supera em MT)</td><td>Recalculado</td></tr>
+<tr><td>SAEB, QEdu</td><td>"5º Ano sem dados por participação abaixo de 80%"</td><td class="g">Sem resultado no boletim; motivo a confirmar</td><td>Hipótese sem fonte</td></tr>
+<tr><td>QEdu</td><td>"Sem dados de aprendizado do 9º Ano"</td><td class="g">Aprendizado AF recalculado: 4,44</td><td>Boletim do 9º Ano existe</td></tr>
+<tr><td>SPAECE</td><td>5º LP "melhor resultado recente"</td><td class="g">2022 teve 215,4 (maior)</td><td>Série histórica</td></tr>
+<tr><td>SPAECE</td><td>9º MT "Muito Crítico desde 2017"; 9º LP "sempre Crítico"</td><td class="g">2019 Crítico em MT; LP Intermediário em 2018 e 2019</td><td>Série histórica</td></tr>
+<tr><td>SPAECE</td><td>"7º Ano da Recomposição são os atuais alunos do 9º"</td><td class="g">Retirado</td><td>Turmas e anos diferentes</td></tr>
+<tr><td>Avalie.CE</td><td>Cabeçalho "9º MT 82%, 8º MT 61%"</td><td class="g">94% e 82%</td><td>Tabela da própria página</td></tr>
+<tr><td>Avalie.CE, Resumo</td><td>"153 alunos"; média 57% e 24%</td><td class="g">257 avaliações; 55,0% e 24,4%</td><td>Média ponderada</td></tr>
+<tr><td>Avalie.CE</td><td>"8º B com 57% de proficiência, 25 pontos acima"</td><td class="g">Índices 57 e 32 da planilha</td><td>Não são percentuais</td></tr>
+<tr><td>CNCA</td><td>"4 turmas"; "1º A sem dado de MT"</td><td class="g">5 turmas; quem não tem MT é o 2º A</td><td>Tabela da página</td></tr>
+<tr><td>CNCA</td><td>2º A LP, 3º A LP e 3º A MT como "Crítico"</td><td class="g">Atenção</td><td>Regra: crítico acima de 50%</td></tr>
+<tr><td>ADSEC</td><td>"Pico anômalo de iniciantes no 1º Período"</td><td class="g">Explicado em parte pelos 14,8% "não informado" na Inicial</td><td>Sem eles, iniciantes = 31,3%</td></tr>
+<tr><td>ADSEC</td><td>"Maior salto no 3º Período"</td><td class="g">Maior salto: Inicial para 1º Período; estagnação no 4º</td><td>Evolução por período</td></tr>
+<tr><td>Bimestrais, Resumo, Visão Geral</td><td>"7,38 → 6,2 → 5,93, queda progressiva"</td><td class="g">7,38 · 5,93 · 6,22</td><td>Períodos fora de ordem; 4º Período = 3.315 ÷ 5.328</td></tr>
+<tr><td>Bimestrais</td><td>2º Período: Crítico em branco e 11 no Muito Crítico</td><td class="g">60 · 43 · 11 · 1</td><td>Soma de LP e MT</td></tr>
+<tr><td>Bimestrais</td><td>"3º Ano com os melhores índices em todos os períodos"; "8º e 9º os mais críticos"</td><td class="g">5º Ano lidera no 2º e 3º; menores: 6º, 7º e 8º</td><td>Tabela por ano</td></tr>
+<tr><td>Bimestrais</td><td>"352 alunos sem RP"</td><td class="g">352 registros de nota</td><td>Unidade</td></tr>
+<tr><td>Busca Ativa</td><td>Anos Finais "228 registros, 76 alunos"</td><td class="g">281 registros (47%), 78 alunos</td><td>Lista nominal</td></tr>
+<tr><td>Busca Ativa</td><td>"Outros" 491 e "Aluno doente" 103 registros</td><td class="g">499 e 97 (somam 596)</td><td>Lista nominal</td></tr>
+<tr><td>Várias</td><td>"SAEB 2025", "SPAECE 2025", calendário de 2025</td><td class="g">Prazos relativos; SAEB volta em 2027</td><td>Datas vencidas</td></tr>
+</tbody></table>
+<div class="ok"><b>Conferido e correto:</b> SAEB (níveis somam 100%; participação 29 de 33), SPAECE (metas, padrões e distribuição de 2024; séries históricas), Avalie.CE por turma, Recomposição por turma, CNCA (15 pré-leitores, 25 iniciantes, 3 fluentes), ADSEC (níveis somam 135; grupos de cada período somam 100%), Bimestrais (faixas de LP e MT; faixas gerais do 3º e 4º Período), Busca Ativa (198 alunos, 596 registros, 14 turmas).</div>
+
+<h2>4. Pendências que dependem da fonte original</h2>
+<table><thead><tr><th>Página</th><th>O que verificar</th></tr></thead><tbody>
+<tr><td>QEdu</td><td class="r">Ideb 2023 oficial (AI e AF) e componentes; existe Ideb AI sem resultado do 5º Ano no SAEB?</td></tr>
+<tr><td>SPAECE</td><td class="r">2º LP: 620,01 ou 652? Participação acima de 100% (16 de 15; 23 de 22).</td></tr>
+<tr><td>QEdu</td><td>Matrículas (244 na ADSEC, 307 no EF e cerca de 350 no total pelo QEdu); NSE (Grupo 4 no SAEB e NSE 3 no INSE 2021); distorção dos Anos Finais; taxas de rendimento.</td></tr>
+<tr><td>Recomposição</td><td>9º A MT com 72% de participação: reaplicar para os ausentes.</td></tr>
+<tr><td>CNCA</td><td>Fluência do 3º A e 5º A com 68% de participação; MT do 2º A sem dado.</td></tr>
+<tr><td>Visão Geral</td><td>Endereço da escola.</td></tr>
+</tbody></table>
+
+<h2>5. Critérios adotados</h2>
+<p>Os mesmos das escolas anteriores: semáforo único, pontos de corte do SAEB pelo QEdu, prazos relativos, números da Busca Ativa calculados da lista nominal e metas internas identificadas como internas. Vale também o alerta de segurança: a Busca Ativa lista 198 estudantes com nome e turma; só uma proteção real no servidor impede o acesso direto pelo endereço.</p>
+</body>
+</html>

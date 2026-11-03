@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conferência de dados · Aba Tapeba</title>
+<style>
+body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;max-width:980px;margin:0 auto;padding:28px 20px 60px;color:#0f1e2e;line-height:1.55;font-size:15px;background:#fff}
+h1{font-size:24px;color:#1a3a5c}h2{font-size:18px;color:#1a3a5c;margin-top:30px;border-bottom:2px solid #dbe3ec;padding-bottom:6px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:10px 0}th{background:#1a3a5c;color:#fff;text-align:left;padding:7px 10px}td{padding:7px 10px;border-bottom:1px solid #e9eef4;vertical-align:top}
+.r{color:#b83227;font-weight:700}.g{color:#1a7a4a;font-weight:700}.box{border:1px solid #f2b8b1;background:#fdf0ef;border-left:5px solid #b83227;padding:12px 16px;border-radius:8px;margin:12px 0}
+.ok{border:1px solid #93dbb3;background:#ecf8f1;border-left:5px solid #1a7a4a;padding:12px 16px;border-radius:8px;margin:12px 0}
+code{background:#f1f4f7;padding:1px 5px;border-radius:4px;font-size:13px}pre{background:#f1f4f7;padding:12px;border-radius:8px;font-size:13px;overflow-x:auto}
+small{color:#4a5e75}
+</style>
+</head>
+<body>
+<h1>Conferência de dados e novo layout · Aba Tapeba EDEIEF</h1>
+<p><small>Elaborado em 27/10/2026 a partir das 11 páginas enviadas. Documento de trabalho: não publicar no site.</small></p>
+
+<h2>1. Estrutura</h2>
+<pre>site/
+├── assets/                    (o mesmo das outras escolas, sem alteração)
+└── abatapeba/
+    ├── escola.js              nome, INEP, território, status do semáforo
+    └── painel.html … spaece.html   (11 páginas, mesmos nomes de arquivo)</pre>
+<p>Se a pasta <code>assets</code> já foi publicada, basta subir a pasta <code>abatapeba</code>. Verificar no <code>index.html</code> se o link da escola aponta para essa pasta.</p>
+
+<h2>2. Problemas de origem nos arquivos enviados</h2>
+<div class="box"><b>1. O painel.html enviado é o da 7 de Setembro</b> (título, INEP 23063726 e todos os números). A Visão Geral da Aba Tapeba foi montada a partir das outras dez páginas, já conferidas.<br><br>
+<b>2. Bimestrais com dados de outra escola.</b> A tabela "% acima da média por ano" repete, casa por casa, os valores do 5º ao 9º Ano da 7 de Setembro; os do 3º e 4º Ano também reaproveitam números dela. O cabeçalho "91,62% acima da média" também é da 7 de Setembro (na Aba Tapeba a média do período é 85,1%). A tabela foi retirada até nova extração no Power BI.<br><br>
+<b>3. Bimestrais: faixas gerais impossíveis.</b> No 2º Período, mesmo com todos os alunos na nota máxima de cada faixa, a média seria no máximo 7,05, abaixo da média informada (7,14). As quantidades 103 e 31 se repetem em dois períodos. Marcadas "a conferir"; as faixas por componente, que são coerentes, foram mantidas.</div>
+
+<h2>3. Erros de maior impacto para a decisão</h2>
+<table><thead><tr><th>Página</th><th>Antes</th><th>Depois (conferido)</th><th>Motivo</th></tr></thead><tbody>
+<tr><td>SAEB, Resumo</td><td>MT 5º adequado 38,8%; similares 55,9%</td><td class="g">36,8%; similares 42,0%</td><td>Corte 225 (QEdu); o próprio boletim não dava 38,8% nem pelo corte 200 (51,1%)</td></tr>
+<tr><td>SAEB, Resumo</td><td>LP 9º adequado 10,5% (corte 300)</td><td class="g">25,9% (corte 275); similares 38,0%</td><td>Ponto de corte QEdu / Todos Pela Educação</td></tr>
+<tr><td>SAEB</td><td>MT 9º similares 4,5%</td><td class="g">12,7%</td><td>Soma dos níveis N5 a N9 das similares</td></tr>
+<tr><td>SAEB</td><td>LP 5º "acima da média estadual (41,9%)"</td><td class="g">Retirado; similares 60,2%</td><td>Sem fonte (mesma frase da página da 7 de Setembro)</td></tr>
+<tr><td>SAEB</td><td>LP 9º "45 alunos na zona crítica"; MT 9º "4 em cada 10 no N0 e N1"</td><td class="g">Cerca de 35 alunos; 1 em cada 3 (32,6%)</td><td>Recalculado pelos níveis</td></tr>
+<tr><td>SPAECE, Resumo</td><td>2º Ano "acima da meta"</td><td class="g">Nenhuma das seis metas de 2025 alcançada em 2024</td><td>2º LP −35,97; 2º MT −15,00</td></tr>
+<tr><td>SPAECE</td><td>5º LP "melhor desde 2017"; MT "avança para Intermediário"</td><td class="g">Queda de 2023 para 2024 (LP −6,2; MT −10,6)</td><td>2023: 217,3 nos dois componentes, já Intermediário</td></tr>
+<tr><td>SPAECE</td><td>9º LP "+12 pts, maior salto em um ano"</td><td class="g">+11,8; maior salto foi 2017 para 2018 (+13,1)</td><td>Série histórica</td></tr>
+<tr><td>Resumo</td><td>"9º MT 228 pts (Muito Crítico)"; metas do 5º "+13,72 e +13,10"</td><td class="g">Média no padrão Crítico; +13,00 e +13,00</td><td>Página SPAECE</td></tr>
+<tr><td>SPAECE</td><td>"Mover 7 alunos basta para a meta"</td><td class="g">Retirado</td><td>Não calculável com os dados</td></tr>
+<tr><td>CNCA, Resumo, QEdu</td><td>"30 pré-leitores"</td><td class="g">36 (2ºA 18, 3ºA 6, 3ºB 2, 3ºC 6, 5ºA 1, 5ºB 1, 5ºC 2)</td><td>Soma das turmas</td></tr>
+<tr><td>CNCA</td><td>3º A como "Crítico" (35% e 45%)</td><td class="g">Atenção</td><td>Regra da página: crítico acima de 50%</td></tr>
+<tr><td>ADSEC, Resumo</td><td>"Cobertura de 46%"; "489 matriculados nos Anos Iniciais"</td><td class="g">98,7% (223 de 226 nos Anos Iniciais)</td><td>489 inclui os 263 alunos dos Anos Finais, fora da ADSEC</td></tr>
+<tr><td>Avalie.CE, Resumo</td><td>Média geral 52% de defasagem e 28% de adequado; "382 alunos"</td><td class="g">41,7% e 33,9%; 569 avaliações</td><td>Média ponderada; cada aluno fez LP e MT</td></tr>
+<tr><td>Avalie.CE</td><td>"Δ 35pp", "proficiência de 9 pontos"</td><td class="g">Índice da planilha</td><td>Não é percentual nem escala SAEB</td></tr>
+<tr><td>Bimestrais, Resumo</td><td>"7,14 → 5,84 → 5,60, queda progressiva"</td><td class="g">7,14 · 5,60 · 5,84</td><td>Períodos fora de ordem (mesmo erro da 7 de Setembro)</td></tr>
+<tr><td>Bimestrais</td><td>MT 2º Período: 34,2 · 27,7 · 16,9 · 7,7%</td><td class="g">Retirado ("a conferir")</td><td>Incompatível com as quantidades (51, 31, 18, 5)</td></tr>
+<tr><td>Bimestrais</td><td>LP 4º Período: 39,2 · 30,6 · 19,1 · 11,0%</td><td class="g">39,4 · 30,3 · 19,2 · 11,1%</td><td>Recalculado de 82, 63, 40, 23</td></tr>
+<tr><td>Busca Ativa, Resumo</td><td>"7º Ano: 40 alunos, quase 28% do total"</td><td class="g">22% dos alunos; 28% dos registros</td><td>40 de 181 alunos; 64 de 230 registros</td></tr>
+<tr><td>QEdu</td><td>SAEB "estimado", LP e MT "básico/intermediário"</td><td class="g">Aprendizado recalculado: 5,50 (AI) e 4,88 (AF)</td><td>Boletim completo disponível na página SAEB</td></tr>
+<tr><td>QEdu</td><td>"Garantir participação no SAEB 2025, dados ausentes indicam participação insuficiente"</td><td class="g">Retirado</td><td>Participação 2023: 98,0% e 96,9%; SAEB 2025 já aplicado</td></tr>
+<tr><td>Recomposição</td><td>6º C LP (47%) como "Crítico"</td><td class="g">Atenção</td><td>Regra única do painel</td></tr>
+<tr><td>Várias</td><td>"SPAECE 2025", "SAEB 2025", calendários de 2025</td><td class="g">Prazos relativos; próxima edição do SAEB: 2027</td><td>Datas vencidas</td></tr>
+<tr><td>Várias</td><td>"Região BR-222" e "Regional Maracanau"</td><td class="g">Região BR-222 (via escola.js)</td><td>Padronização; confirmar com a SME</td></tr>
+</tbody></table>
+
+<h2>4. Texto retirado por falta de evidência</h2>
+<p>As páginas QEdu, Bimestrais e Busca Ativa traziam afirmações sobre a comunidade sem dado que as sustentasse: "família engajada", "alta coesão social", "entrada tardia e mobilidade típicas de territórios indígenas", "práticas provavelmente incorporam elementos culturais Tapeba", "uma das maiores escolas do município", "índice acima da média regional", "dados nacionais sobre a transição do 6º para o 7º Ano". Foram retiradas. O contexto de escola indígena é relevante e aparece no painel, mas generalizações sem evidência podem levar a explicações prontas para resultados que dependem de práticas pedagógicas, como mostram as diferenças entre turmas do mesmo ano.</p>
+
+<div class="ok"><b>Conferido e correto:</b> SAEB (níveis somam 100%; médias e participação), SPAECE (metas, padrões e série histórica), Avalie.CE por turma (médias de cada ano batem com as turmas), Recomposição por turma, CNCA (percentuais por turma; 18 pré-leitores do 2º A por nível), ADSEC (evolução +17,40 e −18,93; cobertura por etapa), Busca Ativa (181 alunos, 230 registros, 12 com 3 registros, registros por servidora).</div>
+
+<h2>5. Pendências que dependem da fonte original</h2>
+<table><thead><tr><th>Página</th><th>O que verificar</th></tr></thead><tbody>
+<tr><td>Visão Geral</td><td class="r">Enviar o painel.html correto da Aba Tapeba, se houver informações próprias nele.</td></tr>
+<tr><td>Bimestrais</td><td class="r">Nova extração da tabela por ano, das faixas gerais e de MT do 2º Período; RP somando 104%; 217 alunos = 63,08% de qual matrícula?</td></tr>
+<tr><td>QEdu</td><td class="r">Ideb 2023 (AI e AF), metas, taxas de rendimento, distorção idade-série, professores e turmas do Censo 2025.</td></tr>
+<tr><td>Recomposição</td><td>Motivo da participação zero em LP do 7º A e em MT do 9º C.</td></tr>
+<tr><td>SPAECE</td><td>Participação do 2º Ano acima de 100% (51 de 50); valor idêntico de 217,3 em LP e MT do 5º Ano em 2023.</td></tr>
+<tr><td>ADSEC</td><td>Níveis da Avaliação Inicial somam 224 para 223 avaliados; 2º Período soma 100,44%.</td></tr>
+<tr><td>CNCA</td><td>MT do 2º A não consta da planilha.</td></tr>
+</tbody></table>
+
+<h2>6. Critérios adotados</h2>
+<p>Os mesmos das escolas anteriores: semáforo único, pontos de corte do SAEB pelo QEdu, prazos relativos, números da Busca Ativa calculados da lista nominal e metas internas identificadas como internas. Vale também o alerta de segurança: a Busca Ativa lista 181 crianças e adolescentes com nome e turma; só uma proteção real no servidor impede o acesso direto pelo endereço.</p>
+</body>
+</html>

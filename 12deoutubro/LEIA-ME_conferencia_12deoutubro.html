@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conferência de dados · 12 de Outubro</title>
+<style>
+body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;max-width:980px;margin:0 auto;padding:28px 20px 60px;color:#0f1e2e;line-height:1.55;font-size:15px;background:#fff}
+h1{font-size:24px;color:#1a3a5c}h2{font-size:18px;color:#1a3a5c;margin-top:30px;border-bottom:2px solid #dbe3ec;padding-bottom:6px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:10px 0}th{background:#1a3a5c;color:#fff;text-align:left;padding:7px 10px}td{padding:7px 10px;border-bottom:1px solid #e9eef4;vertical-align:top}
+.r{color:#b83227;font-weight:700}.g{color:#1a7a4a;font-weight:700}.box{border:1px solid #f2b8b1;background:#fdf0ef;border-left:5px solid #b83227;padding:12px 16px;border-radius:8px;margin:12px 0}
+.ok{border:1px solid #93dbb3;background:#ecf8f1;border-left:5px solid #1a7a4a;padding:12px 16px;border-radius:8px;margin:12px 0}
+code{background:#f1f4f7;padding:1px 5px;border-radius:4px;font-size:13px}pre{background:#f1f4f7;padding:12px;border-radius:8px;font-size:13px;overflow-x:auto}
+small{color:#4a5e75}
+</style>
+</head>
+<body>
+<h1>Conferência de dados e novo layout · 12 de Outubro EEIEF</h1>
+<p><small>Elaborado em 27/10/2026 a partir das 10 páginas enviadas. Documento de trabalho: não publicar no site.</small></p>
+
+<h2>1. Estrutura</h2>
+<pre>site/
+├── assets/                    (o mesmo da 7 de Setembro, sem alteração)
+└── 12deoutubro/
+    ├── escola.js              nome, INEP, endereço, status do semáforo
+    └── painel.html … spaece.html   (10 páginas, mesmos nomes de arquivo)</pre>
+<p>A escola não tem página de Recomposição (atende Educação Infantil e 1º ao 5º Ano). A linha foi retirada do <code>escola.js</code>, e o link quebrado que existia no menu antigo desapareceu. Se a pasta <code>assets</code> já foi publicada com a 7 de Setembro, basta subir a pasta <code>12deoutubro</code>.</p>
+
+<h2>2. Erros de maior impacto para a decisão</h2>
+<div class="box"><b>1. "Metas 2025 do SPAECE 5º Ano já superadas" (Visão Geral, Resumo, SPAECE).</b> As metas são LP 238,43 e MT 263,67; o resultado de 2024 foi 225,43 e 250,67. Faltam 13 pontos em cada componente. A afirmação poderia levar a escola a reduzir o esforço no 5º Ano.<br><br>
+<b>2. "SAEB MT 78,18% adequado, meta de 70% superada".</b> O cálculo usou corte de 200 pontos. Pelo critério do QEdu (225 pontos no 5º Ano MT) o adequado é 67,17%, ainda mais que o dobro das similares (30,47%), mas abaixo de 70%.<br><br>
+<b>3. "ADSEC: 109 avaliados".</b> 109 é o número de não leitores; foram 288 avaliados (99%). O erro dava a impressão de baixa cobertura e de amostra pequena.<br><br>
+<b>4. Ideb "≈ 6,2" com série histórica "estimada" (~4,8, ~5,2, ~5,5) e meta "≥ 6,4".</b> Os valores históricos e a meta não têm fonte. O produto 6,21 × 0,99 dá 6,15. Ideb marcado "a confirmar".</div>
+
+<h2>3. Correções por página</h2>
+<table><thead><tr><th>Página</th><th>Antes</th><th>Depois (conferido)</th><th>Motivo</th></tr></thead><tbody>
+<tr><td>SPAECE, Visão Geral, Resumo</td><td>Metas 2025 do 5º Ano "já superadas"</td><td class="g">Faltam 13,00 pts em LP e 13,00 em MT</td><td>Meta maior que o resultado de 2024</td></tr>
+<tr><td>SPAECE, Resumo</td><td>"Adequado inédito" em LP no 5º Ano</td><td class="g">Inédito é MT no Adequado e as duas no mesmo ano</td><td>LP foi Adequado em 2018 (249,3)</td></tr>
+<tr><td>SPAECE</td><td>2º MT "queda vs 2023 (679,2)"</td><td class="g">Retirado</td><td>679,2 é LP; não há MT 2023 na fonte</td></tr>
+<tr><td>SAEB, Visão Geral, Resumo</td><td>MT 5º adequado 78,18% (corte 200); "meta 70% superada"</td><td class="g">67,17% (corte 225)</td><td>Ponto de corte QEdu / Todos Pela Educação</td></tr>
+<tr><td>SAEB, Resumo</td><td>"+41,74 pp" acima das similares</td><td class="g">+41,74 pontos</td><td>Diferença de proficiência, não de percentual</td></tr>
+<tr><td>SAEB, Resumo, Busca Ativa</td><td>"Garantir participação no SAEB 2025"; "meta LP ≥ 210 no SAEB 2025"; "risco para o SAEB 2025"</td><td class="g">Retirados; próxima edição é 2027</td><td>SAEB 2025 já aplicado</td></tr>
+<tr><td>QEdu</td><td>SAEB LP "satisfatório", MT "médio"</td><td class="g">MT muito acima das similares; LP abaixo</td><td>Classificação invertida em relação ao boletim</td></tr>
+<tr><td>QEdu</td><td>"Acima da média nacional de redes municipais (~5,2)"</td><td class="g">Retirado</td><td>Sem fonte</td></tr>
+<tr><td>QEdu</td><td>"EF completo"</td><td class="g">Educação Infantil e Anos Iniciais</td><td>16 turmas do 1º ao 5º Ano</td></tr>
+<tr><td>ADSEC, Visão Geral, Resumo, Bimestrais</td><td>"109 avaliados"</td><td class="g">288 (Inicial) e 291 (4º Período)</td><td>109 = não leitores</td></tr>
+<tr><td>CNCA</td><td>"11 turmas"</td><td class="g">13 turmas</td><td>1ºA a D, 2ºA a C, 3ºA a C, 5ºA a C</td></tr>
+<tr><td>CNCA, QEdu, Resumo</td><td>"Nenhuma das três turmas do 2º Ano tem fluentes"</td><td class="g">2ºC tem 1 fluente</td><td>Tabela de fluência</td></tr>
+<tr><td>CNCA</td><td>"3ºB e 3ºC com 60% de defasagem em MT"</td><td class="g">3ºB 54%; 3ºC 60%</td><td>Tabela de MT</td></tr>
+<tr><td>CNCA</td><td>2ºC LP (50%) como "Crítico"</td><td class="g">Atenção</td><td>A regra da página é "acima de 50%"</td></tr>
+<tr><td>Avalie.CE</td><td>"274 alunos avaliados"</td><td class="g">274 avaliações (≈137 estudantes)</td><td>Cada aluno fez LP e MT</td></tr>
+<tr><td>Avalie.CE, Resumo</td><td>5ºB "proficiência de 36 pontos", contrastando com SPAECE</td><td class="g">Índice 36 da planilha; comparação retirada</td><td>Escalas diferentes</td></tr>
+<tr><td>Bimestrais</td><td>2º Período: 38,9% · 38,1% · 14,7% · 4,0%</td><td class="g">38,7% · 42,9% · 14,6% · 3,8%</td><td>Recalculado de 82, 91, 31, 8 (212)</td></tr>
+<tr><td>Bimestrais</td><td>"MT 2ºP: 30,6% em Crítico"; "MT 3ºP: 34% Crítico"</td><td class="g">Crítico 41,8% (30,6% é Adequado); 3ºP Crítico ≈ 24%</td><td>Troca de faixa</td></tr>
+<tr><td>Bimestrais, Resumo</td><td>LP 3ºP M.Crítico 3,6%; LP 4ºP Adequado 47,1%; MT 3ºP 33,3/29,5/23,3/12,4</td><td class="g">3,8%; 46,7%; 32,7/30,7/23,8/12,9</td><td>Recalculado pelas quantidades</td></tr>
+<tr><td>Bimestrais</td><td>MT 4º Período (50, 33, 21, 3)</td><td class="g">Retirado ("a conferir")</td><td>Idêntico à LP do mesmo período</td></tr>
+<tr><td>Busca Ativa, Resumo</td><td>Turmas: 5ºB 163; 2ºA 25 al./154; 4ºA 27/124; 2ºB 19/92; 4ºC 26/84</td><td class="g">168; 24/152; 22/119; 18/94; 18/76</td><td>Recontado da lista nominal (agora calculado ao abrir a página)</td></tr>
+<tr><td>Busca Ativa</td><td>Encaminhar ao Conselho Tutelar 3 alunos nominais</td><td class="g">Visita aos 7 com 15+ registros; Conselho Tutelar só para casos sem justificativa e sem retorno</td><td>Um dos três está registrado como "aluno doente"</td></tr>
+<tr><td>Visão Geral</td><td>Link para Recomposição</td><td class="g">Retirado</td><td>Página não existe</td></tr>
+<tr><td>Várias</td><td>"Região BR-222", "Região: Jurema", "Regional Maracanau"</td><td class="g">Regional Jurema (via escola.js)</td><td>Padronização, igual à 7 de Setembro (mesmo bairro)</td></tr>
+</tbody></table>
+<div class="ok"><b>Conferido e correto:</b> SAEB (níveis somam 100%; LP adequado 47,92%, similares 50,76%; aprendizado 6,21 recalculado), SPAECE (proficiências, padrões, histórico, recorde de MT, queda do 2º LP), ADSEC (níveis somam 288; cobertura por etapa; evolução +18,45 e −27,63), CNCA (67 pré-leitores, 38 iniciantes, 44 fluentes; 45 no 2º Ano), Avalie.CE (médias de cada ano batem com as turmas; média geral 36,1% de defasagem e 36,4% de adequado), Bimestrais (médias 6,42 · 6,74 · 6,72; faixas do 3º e 4º Período), Busca Ativa (296 alunos, 1.535 registros, faixas de 1 a 19 registros).</div>
+
+<h2>4. Pendências que dependem da fonte original</h2>
+<table><thead><tr><th>Página</th><th>O que verificar</th></tr></thead><tbody>
+<tr><td>QEdu</td><td class="r">Ideb 2023 oficial (6,1 ou 6,2), série histórica e meta; taxas de aprovação, abandono e distorção (a página só traz "baixo"); professores e turmas do Censo 2025; matrícula total com a Educação Infantil.</td></tr>
+<tr><td>Bimestrais</td><td class="r">MT do 4º Período (números repetidos da LP).</td></tr>
+<tr><td>Bimestrais</td><td>"109 alunos, 100% de participação" x 174 matrículas do 3º ao 5º Ano (ADSEC); totais das faixas (212, 208) diferentes da soma LP + MT (202, 205); rótulo repetido na Recuperação Paralela (318 registros, 5,5%).</td></tr>
+<tr><td>Busca Ativa</td><td>A divisão "82,1% dos registros sem justificativa" não pode ser refeita: a lista tem uma justificativa por aluno (86,5% dos alunos sem justificativa).</td></tr>
+<tr><td>ADSEC</td><td>No 1º Período os três grupos somam 101,03%.</td></tr>
+<tr><td>Avalie.CE</td><td>Por que o 2º C não fez MT e só 1 aluno fez LP.</td></tr>
+<tr><td>SPAECE e SAEB</td><td>Inserir SPAECE 2025 e SAEB 2025 quando publicados.</td></tr>
+</tbody></table>
+
+<h2>5. Critérios adotados</h2>
+<p>Os mesmos da 7 de Setembro: semáforo único (Crítico, Atenção, Positivo, sem dados); SAEB pelos pontos de corte do Todos Pela Educação, usados pelo QEdu (5º Ano LP 200 e MT 225); prazos em termos relativos; números por turma da Busca Ativa calculados direto da lista nominal; metas internas (70% de adequado, 75% de leitores na ADSEC) identificadas como internas. Exageros como "referência nacional" e "excepcional para qualquer escola municipal" foram retirados.</p>
+<p><b>Segurança:</b> vale o mesmo alerta da 7 de Setembro. A Busca Ativa desta escola lista 296 crianças com nome e turma; a página tem <code>noindex</code> e aviso de LGPD, mas só uma proteção real no servidor impede o acesso direto pelo endereço.</p>
+</body>
+</html>

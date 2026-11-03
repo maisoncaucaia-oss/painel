@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conferência de dados · 7 de Setembro</title>
+<style>
+body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;max-width:980px;margin:0 auto;padding:28px 20px 60px;color:#0f1e2e;line-height:1.55;font-size:15px;background:#fff}
+h1{font-size:24px;color:#1a3a5c}h2{font-size:18px;color:#1a3a5c;margin-top:30px;border-bottom:2px solid #dbe3ec;padding-bottom:6px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:10px 0}th{background:#1a3a5c;color:#fff;text-align:left;padding:7px 10px}td{padding:7px 10px;border-bottom:1px solid #e9eef4;vertical-align:top}
+.r{color:#b83227;font-weight:700}.g{color:#1a7a4a;font-weight:700}.box{border:1px solid #f2b8b1;background:#fdf0ef;border-left:5px solid #b83227;padding:12px 16px;border-radius:8px;margin:12px 0}
+.ok{border:1px solid #93dbb3;background:#ecf8f1;border-left:5px solid #1a7a4a;padding:12px 16px;border-radius:8px;margin:12px 0}
+code{background:#f1f4f7;padding:1px 5px;border-radius:4px;font-size:13px}pre{background:#f1f4f7;padding:12px;border-radius:8px;font-size:13px;overflow-x:auto}
+small{color:#4a5e75}
+</style>
+</head>
+<body>
+<h1>Conferência de dados e novo layout · 7 de Setembro EEIEF</h1>
+<p><small>Elaborado em 27/10/2026 a partir das 11 páginas enviadas. Documento de trabalho da CAAR: não publicar no site.</small></p>
+
+<h2>1. Estrutura do novo layout</h2>
+<pre>site/
+├── index.html                 (login, sem alteração)
+├── assets/                    NOVO · compartilhado por todas as escolas
+│   ├── painel.css             visual único
+│   └── painel.js              menu, barra do celular, abas, atalhos
+└── 7desetembro/
+    ├── escola.js              NOVO · nome, INEP, endereço, status do semáforo
+    ├── painel.html … spaece.html   (11 páginas, mesmos nomes de arquivo)</pre>
+<p>Toda página segue a mesma ordem: <b>Em 30 segundos</b> (números-chave e leitura) · <b>O que fazer agora</b> (até 5 ações com prazo) · detalhes · <b>Plano de ação</b> · <b>Conferência dos dados</b>. O menu lateral é gerado automaticamente, inclusive os atalhos "Nesta página", e no celular vira um botão ☰ (antes o menu sumia no celular).</p>
+<p><b>Para as próximas escolas:</b> subir a pasta <code>assets</code> uma única vez na raiz; copiar a pasta da escola, trocar <code>escola.js</code> e o conteúdo das páginas. Página que a escola não tem (ex.: 12 de Outubro sem Recomposição) é removida apagando a linha correspondente em <code>escola.js</code>.</p>
+
+<h2>2. Alerta de segurança (prioritário)</h2>
+<div class="box"><b>O login não protege os dados.</b> As senhas estão escritas no código do <code>index.html</code> (qualquer pessoa vê com "Exibir código-fonte") e são iguais ao login. Além disso, as páginas abrem diretamente pelo endereço, sem passar pelo login. A Busca Ativa expõe nome completo de 94 estudantes com registro de faltas, dado pessoal de crianças e adolescentes (LGPD, art. 14).
+<br><br><b>Recomendação:</b> antes de publicar, usar proteção real no servidor (ex.: senha por pasta na hospedagem, Cloudflare Access ou Google Sites restrito ao domínio da SME). Até lá, avaliar publicar a Busca Ativa sem a lista nominal. Incluí <code>noindex</code> nessa página para evitar indexação por buscadores, o que não substitui a proteção.</div>
+<p>Outros pontos do <code>index.html</code>: a pasta <code>luizdegonzaga</code> existe mas não tem login cadastrado; o rodapé ainda diz © 2025.</p>
+
+<h2>3. Correções por página</h2>
+<table><thead><tr><th>Página</th><th>Antes</th><th>Depois (conferido)</th><th>Motivo</th></tr></thead><tbody>
+<tr><td>Visão Geral e Resumo</td><td>Recomposição: 9º MT 82%; 7ºC LP 88%; 6º LP 61 a 67%; 6ºA MT 71%</td><td class="g">95% e 91%; 81%; 47 a 57%; 60%</td><td>Números de outra versão do relatório</td></tr>
+<tr><td>Visão Geral e Resumo</td><td>Avalie.CE: 9º MT 82%; 8ºC 100%; 8º Ano 86,15%; 9º MT 18% adequado</td><td class="g">85%; 91%; 77%; 1%</td><td>Não constam da fonte</td></tr>
+<tr><td>Visão Geral e Resumo</td><td>Bimestrais "6,59 → 5,78 → 5,45, queda progressiva"</td><td class="g">6,59 · 5,45 · 5,78 (queda e recuperação parcial)</td><td>Períodos fora de ordem (2º, 4º, 3º)</td></tr>
+<tr><td>Visão Geral, Resumo, Bimestrais</td><td>"1.073 alunos sem RP"</td><td class="g">1.073 registros de nota</td><td>A base tem 325 alunos</td></tr>
+<tr><td>Visão Geral e Resumo</td><td>SPAECE 9º MT "0% Adequado pelo 10º ano"</td><td class="g">Média no padrão Crítico ou pior desde 2014</td><td>Tabela mostra 9,3% (2016) e 3,3% (2024)</td></tr>
+<tr><td>Resumo</td><td>SPAECE 9º MT 243 pts, meta 255</td><td class="g">240,53 e meta 250,53</td><td>Valores da página SPAECE</td></tr>
+<tr><td>Visão Geral</td><td>SPAECE 2º LP "57,1% Proficiente"</td><td class="g">45,3% (57,1% é do 2º MT)</td><td>Troca de componente</td></tr>
+<tr><td>Visão Geral e Resumo</td><td>ADSEC "apenas ~50% avaliados"</td><td class="g">96,3% (Inicial) e ≈100% (4º Per.) dos Anos Iniciais</td><td>Denominador incluía os Anos Finais, fora do escopo</td></tr>
+<tr><td>Visão Geral</td><td>CNCA "2ºA com 1 único fluente"</td><td class="g">2ºA 0; o único fluente está no 2ºB</td><td>Página CNCA</td></tr>
+<tr><td>Resumo</td><td>"3ºB com resultados satisfatórios"</td><td class="g">3ºB sem dados de LP e MT</td><td>Página CNCA</td></tr>
+<tr><td>SAEB</td><td>LP 5º adequado 46,09%</td><td class="g">48,09%</td><td>Soma dos níveis N4 a N9 do boletim</td></tr>
+<tr><td>SAEB</td><td>MT 5º adequado 36,6% (corte 200)</td><td class="g">25,49% (corte 225)</td><td>Ponto de corte QEdu / Todos Pela Educação</td></tr>
+<tr><td>SAEB</td><td>LP 9º adequado 7,13% (corte 300)</td><td class="g">25,62% (corte 275)</td><td>Ponto de corte QEdu / Todos Pela Educação</td></tr>
+<tr><td>SAEB</td><td>Similares LP 9º 23,27%; MT 9º 17,14%; MT 5º 55,7%</td><td class="g">41,84%; 17,44%; 37,98%</td><td>Recalculado pelos níveis</td></tr>
+<tr><td>Resumo</td><td>SAEB MT 9º "18,01% adequado"</td><td class="g">7,94%</td><td>18,01% é a fatia do N1</td></tr>
+<tr><td>Avalie.CE</td><td>Média geral: defasagem 48%, adequado 25%</td><td class="g">44,8% e 29,0%</td><td>Média ponderada das 725 avaliações</td></tr>
+<tr><td>Avalie.CE</td><td>"725 alunos avaliados"</td><td class="g">725 avaliações (≈363 estudantes)</td><td>Cada aluno fez LP e MT</td></tr>
+<tr><td>Avalie.CE</td><td>Índice 8 x "225 pontos do SAEB"</td><td class="g">Comparação retirada</td><td>Escalas diferentes</td></tr>
+<tr><td>Bimestrais</td><td>Menu: "44,7% Adequado no 3º Período"</td><td class="g">44,7% é do 2º Período</td><td>Troca de período</td></tr>
+<tr><td>Bimestrais</td><td>MT 3ºP "Crítico 37,7%"</td><td class="g">Crítico 48,0% (37,7% é Intermediário)</td><td>Troca de faixa</td></tr>
+<tr><td>Bimestrais</td><td>4º Período: 45,1%, 32,5%, 14,6%, 7,8%</td><td class="g">43,4%, 31,3%, 18,1%, 7,2%</td><td>Recalculado de 115, 83, 48, 19 (total 265)</td></tr>
+<tr><td>Busca Ativa</td><td>8º e 9º Ano: 65 registros (65%)</td><td class="g">69 registros (69%), 63 alunos</td><td>Contagem da lista nominal</td></tr>
+<tr><td>Busca Ativa, Avalie.CE</td><td>9º Ano "candidatos ao SAEB" em 2026</td><td class="g">SPAECE 2026</td><td>SAEB é bienal: 2025 e 2027</td></tr>
+<tr><td>Recomposição</td><td>6ºB "melhor MT"</td><td class="g">7ºA tem a menor defasagem (25%)</td><td>Mesmo adequado (31%), menor defasagem</td></tr>
+<tr><td>SPAECE</td><td>9º LP "primeiro Intermediário desde 2016"</td><td class="g">Retorno ao Intermediário após 2023</td><td>Houve Intermediário em 2018, 2019 e 2022</td></tr>
+<tr><td>SPAECE</td><td>"Mover 7 alunos basta para a meta"; "2º MT recuou"</td><td class="g">Retirados</td><td>Sem base nos dados</td></tr>
+<tr><td>CNCA</td><td>"3ºC encerra os Anos Iniciais"</td><td class="g">Corrigido</td><td>Anos Iniciais terminam no 5º Ano</td></tr>
+<tr><td>QEdu</td><td>Ideb, fluxo e distorção apenas estimados</td><td class="g">Marcados "a confirmar"; estimativas separadas como leitura técnica</td><td>Sem número oficial na página</td></tr>
+<tr><td>Várias</td><td>"Regional Jurema", "Região JUREMA", "Regional Maracanau"</td><td class="g">Regional Jurema (via escola.js)</td><td>Padronização</td></tr>
+</tbody></table>
+<div class="ok"><b>Conferido e correto:</b> ADSEC (todas as somas e percentuais), CNCA (74 pré-leitores, 47 no 2º Ano, 86 iniciantes, 14 fluentes), Avalie.CE por turma (médias de cada ano batem com as turmas), Recomposição por turma, SAEB (níveis somam 100%; diferenças de proficiência), SPAECE (metas, distâncias e alunos por padrão), Busca Ativa (94 alunos, 100 registros, 6 reincidentes), Provas Objetivas (médias = acertos ÷ questões).</div>
+
+<h2>4. Pendências que dependem da fonte original</h2>
+<table><thead><tr><th>Página</th><th>O que verificar</th></tr></thead><tbody>
+<tr><td>QEdu</td><td>Ideb 2023 dos Anos Iniciais e Finais (valores 4,4 e 3,8 sem fonte), taxas de rendimento, distorção idade-série, número de professores (25 ou 34) e turmas.</td></tr>
+<tr><td>Bimestrais</td><td class="r">Faixas do 3º Período incompatíveis com a média 5,45 (com 47,1% Adequado a média mínima seria 5,47).</td></tr>
+<tr><td>Bimestrais</td><td class="r">MT do 4º Período: números repetem valores de LP; foram retirados até nova extração.</td></tr>
+<tr><td>Bimestrais</td><td>2º Período com 590 alunos nas faixas x 325 avaliados; 325 = 62,62% de qual matrícula?</td></tr>
+<tr><td>SPAECE</td><td>Participação acima de 100% (64/62, 65/64, 121/119). Inserir resultados do SPAECE 2025, se já divulgados.</td></tr>
+<tr><td>SAEB</td><td>Inserir o SAEB 2025 quando o boletim da escola estiver disponível.</td></tr>
+<tr><td>Busca Ativa</td><td>Não há registros dos Anos Iniciais: confirmar se o monitoramento cobre essas turmas.</td></tr>
+<tr><td>Avalie.CE</td><td>Confirmar se "Regional Maracanau" da planilha se refere à CREDE 1.</td></tr>
+</tbody></table>
+
+<h2>5. Critérios adotados</h2>
+<p>Semáforo único: <span class="r">Crítico</span> (agir já), <b style="color:#b7790d">Atenção</b> (acompanhar), <span class="g">Positivo</span> (manter) e cinza (sem dados ou a conferir). Regras de corte explicitadas em cada página. SAEB pelos pontos de corte do Todos Pela Educação, usados pelo QEdu: 5º Ano LP 200 e MT 225; 9º Ano LP 275 e MT 300. Prazos das ações em termos relativos (imediato, 15 dias, 1 mês), sem meses fixos de 2025 que já passaram.</p>
+</body>
+</html>
