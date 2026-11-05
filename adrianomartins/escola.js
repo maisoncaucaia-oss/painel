@@ -14,13 +14,13 @@ window.ESCOLA = {
   inep: '23061944',
   endereco: '',   // inserir endereço (não consta das páginas enviadas)
   matriculas: 316,
-  atualizado: 'out/2026',
+  atualizado: 'nov/2026',
   paginas: {
     painel:           { status: '' },
     resumo_executivo: { status: '' },
     busca_ativa:      { status: 's-yellow', nome: 'Busca Ativa 2026' },
     adsec:            { status: 's-yellow', nome: 'ADSEC 2025 · Leitura' },
-    avalie_ce:        { status: 's-red',    nome: 'Avalie.CE 2025.1' },
+    avalie_ce:        { status: 's-yellow',    nome: 'Avalie.CE 2026' },
     bimestrais:       { status: 's-yellow', nome: 'Bimestrais 2025' },
     cnca:             { status: 's-red',    nome: 'CNCA 2025' },
     qedu:             { status: 's-green',  nome: 'QEdu / Censo' },

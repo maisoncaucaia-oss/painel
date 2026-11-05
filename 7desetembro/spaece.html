@@ -57,14 +57,16 @@
 <section class="sec" id="padroes">
   <h2 data-nav="Padrões 2025">📊 Distribuição por padrão · 2025</h2>
   <div class="legend" style="margin-bottom:10px"><span><i class="seg-1"></i>Muito Crítico / Abaixo do Básico</span><span><i class="seg-2"></i>Crítico</span><span><i class="seg-3"></i>Intermediário</span><span><i class="seg-4"></i>Adequado</span></div>
+  <div class="legend" style="margin-bottom:10px"><span><b>2º Ano:</b></span><span><i class="seg-1"></i>Abaixo do Básico</span><span><i class="seg-3"></i>Básico</span><span><i class="seg-4"></i>Proficiente</span><span><i class="seg-5"></i>Avançado</span></div>
   <div class="grid3" id="cards25"></div>
-  <p class="small muted" style="margin-top:8px">2º Ano: a planilha de 2025 informa apenas o número de alunos Abaixo do Básico. 5º e 9º Ano: distribuição completa.</p>
+  <p class="small muted" style="margin-top:8px">2º Ano: Abaixo do Básico · Básico · Proficiente · Avançado (planilha definitiva, por estudante); o cartão de Leitura e Escrita é a segunda medida de LP do 2º Ano em 2025. 5º e 9º Ano: distribuição completa.</p>
 </section>
 
 <section class="sec" id="rede">
   <h2 data-nav="Escola x rede">⚖️ Escola x rede municipal · 2025</h2>
   <div class="tbl-wrap"><div class="tbl-scroll"><table class="tbl"><thead><tr><th>Etapa e componente</th><th class="n">Média escola</th><th class="n">Média rede</th><th class="n">Diferença</th><th>Indicador de risco</th><th class="n">Escola</th><th class="n">Rede</th></tr></thead><tbody>
     <tr><td><b>2º Ano · LP</b></td><td class="n">587,7</td><td class="n">601,1</td><td class="n t-red">−13,4</td><td>Abaixo do Básico</td><td class="n t-red">22,9%</td><td class="n">18,7%</td></tr>
+    <tr><td><b>2º Ano · LP (Leitura e Escrita)</b></td><td class="n">589,9</td><td class="n">606,1</td><td class="n t-red">−16,2</td><td>Abaixo do Básico</td><td class="n t-red">27,1%</td><td class="n">23,0%</td></tr>
     <tr><td><b>2º Ano · MT</b></td><td class="n">477,4</td><td class="n">514,3</td><td class="n t-red">−36,9</td><td>Abaixo do Básico</td><td class="n t-red">17,4%</td><td class="n">9,6%</td></tr>
     <tr><td><b>5º Ano · LP</b></td><td class="n">202,1</td><td class="n">213,9</td><td class="n t-red">−11,8</td><td>Crítico + Muito Crítico</td><td class="n t-red">33,3%</td><td class="n">24,8%</td></tr>
     <tr><td><b>5º Ano · MT</b></td><td class="n">205,2</td><td class="n">211,4</td><td class="n t-red">−6,2</td><td>Crítico + Muito Crítico</td><td class="n t-red">44,9%</td><td class="n">41,3%</td></tr>
@@ -78,7 +80,7 @@
   <h2 data-nav="Por turma">🏫 Resultados por turma</h2>
   <div class="tabs"><button class="on" data-tab="tt-25">2025</button><button data-tab="tt-24">2024</button></div>
   <div class="tab-pane on" id="tt-25"></div><div class="tab-pane" id="tt-24"></div>
-  <p class="small muted">Número de alunos por padrão. No 2º Ano, só o número Abaixo do Básico está disponível. Em 2024, o 5º e 9º Ano LP não constam das planilhas por turma.</p>
+  <p class="small muted">Número de alunos por padrão. 2º Ano: Ab. Básico · Básico · Proficiente · Avançado; 2º LP+E = Leitura e Escrita. Em 2024, o 5º e 9º Ano LP não constam das planilhas por turma.</p>
 </section>
 
 <section class="sec" id="historico">
@@ -103,6 +105,7 @@
 </section>
 
 <div class="conf"><b class="t">🔎 Conferência dos dados (out/2026)</b><ul>
+  <li><b>Atualização nov/2026:</b> dados conferidos com as planilhas SPAECE Definitivo 2025 (2º, 5º e 9º Ano, dados por estudante). As médias e a distribuição do 5º e 9º Ano já estavam corretas. Foram incluídos: a distribuição completa do 2º Ano (Básico, Proficiente e Avançado), por escola e por turma; o resultado de LP Leitura e Escrita do 2º Ano; e a participação (avaliados de previstos). A meta e a comparação com 2024 seguem usando o 2º LP Leitura.</li>
   <li><b>2025 conferido:</b> a média de cada etapa bate com a média das turmas ponderada pelos avaliados, e no 5º e 9º Ano as turmas somam a distribuição da escola.</li>
   <li><b>2024 conferido:</b> as planilhas da rede reproduzem os números desta página (2º LP 627,1; 2º MT 499,6; 5º MT 12, 22, 22 e 9 alunos; 9º MT 41, 63, 13 e 4 alunos).</li>
   <li><b>Método:</b> em 2025 a média é a média simples das proficiências dos estudantes presentes avaliados (SPAECE Definitivo 2025). Convém confirmar o resultado oficial por escola com a SME.</li>
@@ -117,25 +120,27 @@
 
 <script>
 function f(x){return String(x).replace('.',',');}
-var E2=['Ab. Básico','Básico ou acima'], E5=['M. Crítico','Crítico','Intermediário','Adequado'];
+var E2=['Ab. Básico','Básico','Proficiente','Avançado'], E5=['M. Crítico','Crítico','Intermediário','Adequado'];
 var C25=[
- ['2º Ano · LP','587,7','Básico','s-red',[22.9,77.1],E2,'70 avaliados · 16 Abaixo do Básico'],
- ['2º Ano · MT','477,4','Básico','s-red',[17.4,82.6],E2,'69 avaliados · 12 Abaixo do Básico'],
- ['5º Ano · LP','202,1','Intermediário','s-yellow',[4.3,29.0,30.4,36.2],E5,'69 avaliados · 3 · 20 · 21 · 25'],
- ['5º Ano · MT','205,2','Intermediário','s-yellow',[11.6,33.3,39.1,15.9],E5,'69 avaliados · 8 · 23 · 27 · 11'],
- ['9º Ano · LP','231,4','Crítico','s-red',[23.6,43.1,23.6,9.7],E5,'72 avaliados · 17 · 31 · 17 · 7'],
- ['9º Ano · MT','233,2','Crítico','s-red',[40.3,43.1,16.7,0.0],E5,'72 avaliados · 29 · 31 · 12 · 0']];
+ ['2º Ano · LP','587,7','Básico','s-red',[22.9,28.6,30.0,18.6],E2,'70 de 73 previstos (95,9%) · 16 · 20 · 21 · 13'],
+ ['2º Ano · LP (Leitura e Escrita)','589,9','Básico','s-red',[27.1,20.0,28.6,24.3],E2,'70 de 73 previstos · 19 · 14 · 20 · 17 · rede 606,1'],
+ ['2º Ano · MT','477,4','Básico','s-red',[17.4,49.3,23.2,10.1],E2,'69 de 73 previstos (94,5%) · 12 · 34 · 16 · 7'],
+ ['5º Ano · LP','202,1','Intermediário','s-yellow',[4.3,29.0,30.4,36.2],E5,'69 de 74 previstos (93,2%) · 3 · 20 · 21 · 25'],
+ ['5º Ano · MT','205,2','Intermediário','s-yellow',[11.6,33.3,39.1,15.9],E5,'69 de 74 previstos (93,2%) · 8 · 23 · 27 · 11'],
+ ['9º Ano · LP','231,4','Crítico','s-red',[23.6,43.1,23.6,9.7],E5,'72 de 77 previstos (93,5%) · 17 · 31 · 17 · 7'],
+ ['9º Ano · MT','233,2','Crítico','s-red',[40.3,43.1,16.7,0.0],E5,'72 de 77 previstos (93,5%) · 29 · 31 · 12 · 0']];
 document.getElementById('cards25').innerHTML=C25.map(function(c){
- var segs=c[4].length===2?[1,4]:[1,2,3,4];
+ var segs=c[5]===E2?[1,3,4,5]:[1,2,3,4];
  var st='<div class="stack">'+c[4].map(function(v,i){return '<span class="seg-'+segs[i]+'" style="width:'+v+'%"></span>';}).join('')+'</div>';
- var rows=c[4].map(function(v,i){return '<div class="row"><span>'+c[5][i]+'</span><b>'+f(v)+'%</b></div>';}).join('');
+ var rows=c[4].map(function(v,i){return '<div class="row"><span>'+c[5][i]+'</span><b>'+f(v.toFixed(1))+'%</b></div>';}).join('');
  return '<div class="tcard '+c[3]+'"><div class="h"><b>'+c[0]+'</b><span class="chip '+c[3]+'">'+c[2]+'</span></div><div style="font-size:24px;font-weight:700">'+c[1]+'</div>'+st+rows+'<div class="small muted" style="margin-top:4px">'+c[6]+'</div></div>';
 }).join('');
 var cls={'Muito Crítico':'s-red','Crítico':'s-red','Intermediário':'s-yellow','Adequado':'s-green','Abaixo do Básico':'s-red','Básico':'s-yellow','Proficiente':'s-green','Avançado':'s-green'};
 /* [etapa, turma, profic.|null, padrão, n1, n2, n3, n4 (null = n/d), avaliados] */
 var T={
- 'tt-25':[['2º LP','2º A',595.8,'Básico',4,null,null,null,21],['2º LP','2º B',546.4,'Básico',8,null,null,null,22],['2º LP','2º C',615.1,'Proficiente',4,null,null,null,27],
-  ['2º MT','2º A',462.9,'Básico',6,null,null,null,21],['2º MT','2º B',479.0,'Básico',2,null,null,null,21],['2º MT','2º C',487.4,'Básico',4,null,null,null,27],
+ 'tt-25':[['2º LP','2º A',595.8,'Básico',4,6,7,4,21],['2º LP','2º B',546.4,'Básico',8,8,5,1,22],['2º LP','2º C',615.1,'Proficiente',4,6,9,8,27],
+  ['2º LP+E','2º A',602.7,'Proficiente',5,5,4,7,21],['2º LP+E','2º B',548.9,'Básico',7,6,7,2,22],['2º LP+E','2º C',613.3,'Proficiente',7,3,9,8,27],
+  ['2º MT','2º A',462.9,'Básico',6,9,5,1,21],['2º MT','2º B',479.0,'Básico',2,13,4,2,21],['2º MT','2º C',487.4,'Básico',4,12,7,4,27],
   ['5º LP','5º A',206.2,'Intermediário',2,9,7,14,32],['5º LP','5º B',198.6,'Intermediário',1,11,14,11,37],
   ['5º MT','5º A',203.9,'Intermediário',4,10,13,5,32],['5º MT','5º B',206.4,'Intermediário',4,13,14,6,37],
   ['9º LP','9º A',230.2,'Crítico',10,15,7,6,38],['9º LP','9º B',232.7,'Crítico',7,16,10,1,34],
@@ -149,7 +154,7 @@ function nd(v){return v===null?'<span class="t-gray">n/d</span>':v;}
 Object.keys(T).forEach(function(k){
  var rows=T[k].map(function(r){
   return '<tr><td>'+r[0]+'</td><td><b>'+r[1]+'</b></td><td class="n"><b>'+(r[2]===null?'<span class="t-gray">n/d</span>':f(r[2].toFixed(1)))+'</b></td><td><span class="chip '+cls[r[3]]+'">'+r[3]+'</span></td><td class="n t-red">'+r[4]+'</td><td class="n">'+nd(r[5])+'</td><td class="n">'+nd(r[6])+'</td><td class="n t-green">'+nd(r[7])+'</td><td class="n">'+r[8]+'</td></tr>';}).join('');
- document.getElementById(k).innerHTML='<div class="tbl-wrap"><div class="tbl-cap"><b>Alunos por padrão</b><div>2º Ano: Ab. Básico · 5º e 9º Ano: M. Crítico · Crítico · Intermediário · Adequado</div></div><div class="tbl-scroll"><table class="tbl"><thead><tr><th>Etapa</th><th>Turma</th><th class="n">Profic.</th><th>Padrão</th><th class="n">1º padrão</th><th class="n">2º</th><th class="n">3º</th><th class="n">4º</th><th class="n">Avaliados</th></tr></thead><tbody>'+rows+'</tbody></table></div></div>';
+ document.getElementById(k).innerHTML='<div class="tbl-wrap"><div class="tbl-cap"><b>Alunos por padrão</b><div>2º Ano: Ab. Básico · Básico · Proficiente · Avançado · 5º e 9º Ano: M. Crítico · Crítico · Intermediário · Adequado</div></div><div class="tbl-scroll"><table class="tbl"><thead><tr><th>Etapa</th><th>Turma</th><th class="n">Profic.</th><th>Padrão</th><th class="n">1º padrão</th><th class="n">2º</th><th class="n">3º</th><th class="n">4º</th><th class="n">Avaliados</th></tr></thead><tbody>'+rows+'</tbody></table></div></div>';
 });
 /* [edição, proficiência, padrão, MC, C, I, A, alunos] (null = sem dado) */
 var H={
@@ -157,8 +162,8 @@ var H={
  'h-lp9':{t:'9º Ano · Língua Portuguesa',d:[['2014',236.9,'Crítico',14.5,50.6,30.1,4.8,83],['2015',243.4,'Crítico',16.9,40.7,28.8,13.6,59],['2016',259.2,'Intermediário',10.7,25.3,52.0,12.0,75],['2017',248.5,'Crítico',14.7,35.3,39.7,10.3,68],['2018',254.8,'Intermediário',15.8,26.3,43.9,14.0,57],['2019',251.7,'Intermediário',17.1,35.7,27.1,20.0,70],['2022 Diag.',241.0,'Crítico',18.0,44.0,25.0,13.0,55],['2022',258.3,'Intermediário',6.5,39.0,36.4,18.2,77],['2023',221.6,'Crítico',35.4,33.3,26.3,5.1,99],['2024',250.2,'Intermediário',13.2,33.1,42.1,11.6,121],['2025',231.4,'Crítico',23.6,43.1,23.6,9.7,72]]},
  'h-mt5':{t:'5º Ano · Matemática',d:[['2012',185.7,'Crítico',19.7,39.4,36.6,4.2,71],['2013',193.8,'Crítico',9.4,50.9,32.1,7.5,53],['2014',192.3,'Crítico',15.4,44.2,34.6,5.8,52],['2015',203.8,'Intermediário',4.4,46.7,33.3,15.6,45],['2016',190.9,'Crítico',14.3,49.0,24.5,12.2,49],['2017',188.2,'Crítico',23.2,35.7,30.4,10.7,56],['2018',189.3,'Crítico',17.9,49.3,19.4,13.4,67],['2019',198.1,'Crítico',4.3,52.9,32.9,10.0,70],['2022 Diag.',186.0,'Crítico',21.0,36.0,40.0,3.0,70],['2022',195.2,'Crítico',16.9,39.0,33.8,10.4,77],['2023',196.1,'Crítico',7.8,50.0,32.2,10.0,90],['2024',195.0,'Crítico',18.5,33.8,33.8,13.8,65],['2025',205.2,'Intermediário',11.6,33.3,39.1,15.9,69]]},
  'h-lp5':{t:'5º Ano · Língua Portuguesa',d:[['2012',192.0,'Intermediário',2.8,40.8,32.4,23.9,71],['2013',192.6,'Intermediário',3.8,32.1,43.4,20.8,53],['2014',181.2,'Intermediário',7.7,34.6,48.1,9.6,52],['2015',196.5,'Intermediário',0.0,33.3,42.2,24.4,45],['2016',183.1,'Intermediário',6.1,34.7,46.9,12.2,49],['2017',183.9,'Intermediário',5.4,42.9,33.9,17.9,56],['2018',181.9,'Intermediário',10.4,40.3,28.4,20.9,67],['2019',200.6,'Intermediário',1.4,27.5,42.0,29.0,69],['2022 Diag.',187.0,'Intermediário',11.0,34.0,35.0,20.0,71],['2022',210.0,'Intermediário',2.6,28.6,32.5,36.4,77],['2023',194.0,'Intermediário',10.0,30.0,33.3,26.7,90],['2024',206.8,'Intermediário',4.6,20.0,44.6,30.8,65],['2025',202.1,'Intermediário',4.3,29.0,30.4,36.2,69]]},
- 'h-lp2':{t:'2º Ano · Língua Portuguesa',two:1,d:[['2023',700.3,'Avançado',5.7,null,null,null,70],['2024',627.2,'Proficiente',15.6,15.6,45.3,23.4,64],['2025',587.7,'Básico',22.9,null,null,null,70]]},
- 'h-mt2':{t:'2º Ano · Matemática',two:1,d:[['2024',499.6,'Básico',9.5,30.2,57.1,3.2,63],['2025',477.4,'Básico',17.4,null,null,null,69]]}
+ 'h-lp2':{t:'2º Ano · Língua Portuguesa',two:1,d:[['2023',700.3,'Avançado',5.7,null,null,null,70],['2024',627.2,'Proficiente',15.6,15.6,45.3,23.4,64],['2025',587.7,'Básico',22.9,28.6,30.0,18.6,70]]},
+ 'h-mt2':{t:'2º Ano · Matemática',two:1,d:[['2024',499.6,'Básico',9.5,30.2,57.1,3.2,63],['2025',477.4,'Básico',17.4,49.3,23.2,10.1,69]]}
 };
 function pct(v){return v===null?'<span class="t-gray">n/d</span>':f(v)+'%';}
 Object.keys(H).forEach(function(k){
