@@ -15,7 +15,7 @@ window.ESCOLA = {
   inep: '23062860',
   endereco: 'Contorno Oeste, s/n · Nova Metrópole',
   matriculas: 520,
-  atualizado: 'out/2026',
+  atualizado: 'nov/2026',
   paginas: {
     painel:           { status: '' },
     resumo_executivo: { status: '' },

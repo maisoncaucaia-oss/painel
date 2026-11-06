@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avaliação de Pulso 2026 · Rede · SME Caucaia</title>
+<link rel="stylesheet" href="../assets/painel.css">
+<style>
+.main{max-width:1320px}
+.side-tag.adm{background:linear-gradient(135deg,#b7791f,#d4a439)}
+.filtro{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 10px}
+.filtro input{font:inherit;font-size:13px;padding:6px 10px;border:1px solid var(--border);border-radius:7px;min-width:240px;flex:1;max-width:360px}
+.filtro button{font:inherit;font-size:12px;font-weight:600;padding:5px 10px;border-radius:20px;border:1px solid var(--border);background:#fff;color:var(--muted);cursor:pointer}
+.filtro button.on{background:var(--brand,#1a3a5c);color:#fff;border-color:transparent}
+.tbl th.sort{cursor:pointer;white-space:nowrap}
+.tbl th.sort::after{content:" ↕";opacity:.4}
+.tbl tr.painel td:first-child{font-weight:700}
+.tbl tr.painel td:first-child a{color:inherit}
+.tbl td.pc{white-space:nowrap}
+.mini{display:inline-block;width:56px;height:8px;border-radius:4px;background:#e7edf4;vertical-align:middle;margin-right:6px;overflow:hidden}
+.mini i{display:block;height:100%}
+.tl{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.tl .card{padding:12px}
+.tl .d{font-size:12px;color:var(--muted);font-weight:700}
+.tl .v{font-size:22px;font-weight:800;margin:2px 0}
+.tl .x{font-size:12px;color:var(--muted)}
+@media print{.side,.mbar,.filtro{display:none}.main{margin:0}}
+</style>
+</head>
+<body>
+<nav class="side" aria-label="Menu do painel">
+  <div class="side-head">
+    <div class="side-tag adm">Monitoramento Geral</div>
+    <div class="side-name">Avaliação de Pulso 2026</div>
+    <div class="side-sub">Rede Municipal · 70 escolas<br>SME Caucaia · CAAR</div>
+  </div>
+  <div class="side-sec">Nesta página</div>
+  <a class="nav" href="#resumo"><span class="ic">⏱️</span>Em 30 segundos</a>
+  <a class="nav" href="#agora"><span class="ic">⚡</span>O que fazer agora</a>
+  <a class="nav" href="#niveis"><span class="ic">📊</span>Resultado por nível</a>
+  <a class="nav" href="#evolucao"><span class="ic">📈</span>Evolução da participação</a>
+  <a class="nav" href="#escolas"><span class="ic">🏫</span>Participação por escola</a>
+  <a class="nav" href="#leitura"><span class="ic">🔎</span>Como ler a plataforma</a>
+  <a class="nav" href="#painel"><span class="ic">🧩</span>Escolas do painel</a>
+  <a class="nav" href="#plano"><span class="ic">🗂️</span>Plano de ação da rede</a>
+  <div class="side-sec">Sistema</div>
+  <a class="nav" href="monitoramento_geral.html"><span class="ic">🧭</span>Monitoramento Geral</a>
+  <div class="side-foot">Secretaria Municipal de Educação<br>Caucaia-CE<a href="../index.html">Sair do painel</a></div>
+</nav>
+<div class="mbar"><button type="button" aria-label="Abrir menu" id="btnMenu">☰</button><div><b>Avaliação de Pulso 2026</b><span>Rede Municipal · Caucaia</span></div></div>
+<div class="scrim" id="scrim"></div>
+
+<main class="main">
+
+<header class="page-head">
+  <div class="crumb">Painel de Indicadores Educacionais · SME Caucaia · Visão da rede</div>
+  <h1>🩺 Avaliação de Pulso 2026 · Rede Municipal</h1>
+  <div class="meta"><span>Fonte: Relatório de Rede e planilha "Rede · Informações Gerais" (Motriz / Jovens Gênios), 05/11/2026</span><span>Matemática · 8º e 9º Ano</span><span>70 escolas · 7.130 estudantes</span><span>Aplicação de 29/09 a 09/10/2026</span></div>
+</header>
+
+<section class="sec" id="resumo">
+  <h2 data-nav="Em 30 segundos">⏱️ Em 30 segundos</h2>
+  <div class="kpis">
+    <div class="kpi s-yellow"><span class="v">70,2%</span><div class="l">Participação</div><div class="d">5.007 de 7.130 estudantes · meta de 50% da plataforma</div></div>
+    <div class="kpi s-red"><span class="v">98,8%</span><div class="l">Avaliados no Insuficiente</div><div class="d">4.949 de 5.007 · 54 no Básico</div></div>
+    <div class="kpi s-red"><span class="v">4</span><div class="l">Estudantes no Proficiente</div><div class="d">0,08% dos avaliados · 0 no Avançado · meta de 60%</div></div>
+    <div class="kpi s-red"><span class="v">2.123</span><div class="l">Estudantes não avaliados</div><div class="d">Metade (1.069) em 10 escolas · 6 escolas sem registro</div></div>
+    <div class="kpi s-red"><span class="v">0</span><div class="l">Professores ativos</div><div class="d">Nas 70 escolas · 0 atividades criadas</div></div>
+  </div>
+  <div class="callout s-red"><b class="t">Resultado de Matemática praticamente nulo em toda a rede</b>Dos 5.007 estudantes avaliados, 4.949 ficaram no Insuficiente. Só 4 chegaram ao Proficiente, um em cada uma de quatro escolas (Antônio Albuquerque Sousa Filho, Dalva Pontes da Rocha, Luiza Moraes Correia Távora e Flávio Portela Marcílio), e nenhum ao Avançado. O quadro se repete no 8º e no 9º Ano e em todas as escolas: não há escola-referência na rede para este instrumento.</div>
+  <div class="callout s-yellow"><b class="t">A participação parou em 70% e está concentrada em poucas escolas</b>Seis escolas não têm nenhum registro (405 estudantes) e a Alice Moreira de Oliveira tem 1 ativo em 144. A Flávio Portela Marcílio, maior escola da avaliação (859 estudantes), tem 433 não avaliados, um em cada cinco da rede. Desde 21/10 a rede ganhou só 4 estudantes ativos.</div>
+  <div class="callout s-gray"><b class="t">Antes de usar o resultado com as escolas</b>Pelo Glossário da plataforma, o nível vem da taxa de acertos por uma "escala simples", não da TRI. No gráfico Desempenho x Engajamento, quase todas as escolas ficam entre 0% e 25% de acerto, faixa que pode estar abaixo do acerto ao acaso. Vale pedir à Jovens Gênios a proficiência TRI e os acertos por descritor antes de divulgar os níveis às famílias.</div>
+</section>
+
+<section class="sec" id="agora">
+  <h2 data-nav="O que fazer agora">⚡ O que fazer agora</h2>
+  <div class="agora"><ol>
+    <li>Contato com as 7 escolas sem registro ou com 1 ativo (Luzia Correia Sales, São Sebastião, Josefa Alves dos Santos, Tecla Gonzaga Sales, Pedro Moreira de Oliveira, Conrado Teixeira e Alice Moreira de Oliveira): a prova foi aplicada e os cartões não foram lidos, ou não houve aplicação?<span class="chip s-red">Imediato</span></li>
+    <li>Flávio Portela Marcílio (49,6%) e Raimundo Jerônimo de Sousa (48,7%): verificar turmas sem leitura de cartão antes de fechar a base.<span class="chip s-red">Imediato</span></li>
+    <li>Pedir à Jovens Gênios o Relatório por escola, a proficiência TRI, os acertos por descritor e a explicação técnica do desempenho de 0% a 25%.<span class="chip s-red">1 semana</span></li>
+    <li>Ativar os professores de MT do 8º e 9º Ano na plataforma (0 de todas as escolas) para a "Análise acerto e erro por estudante".<span class="chip s-yellow">15 dias</span></li>
+    <li>Tratar o Pulso como diagnóstico de rede: incluir MT dos Anos Finais como prioridade no planejamento de 2027 e na jornada pedagógica.<span class="chip s-blue">Planejar</span></li>
+  </ol></div>
+</section>
+
+<section class="sec" id="niveis">
+  <h2 data-nav="Resultado por nível">📊 Resultado por nível</h2>
+  <div class="card">
+    <div class="stack" style="height:22px"><span class="seg-1" style="width:69.41%"></span><span class="seg-3" style="width:0.76%"></span><span class="seg-4" style="width:0.06%"></span><span class="seg-0" style="width:29.78%"></span></div>
+    <div class="legend" style="margin-top:6px"><span><i class="seg-1"></i>Insuficiente</span><span><i class="seg-3"></i>Básico</span><span><i class="seg-4"></i>Proficiente</span><span><i class="seg-5"></i>Avançado</span><span><i class="seg-0"></i>Não avaliado</span></div>
+  </div>
+  <div class="tbl-wrap"><div class="tbl-scroll"><table class="tbl"><thead><tr><th>Rubrica</th><th class="n">Estudantes</th><th class="n">% dos 7.130</th><th class="n">% dos 5.007 avaliados</th></tr></thead><tbody>
+    <tr><td><b>Avançado</b></td><td class="n">0</td><td class="n">0,0%</td><td class="n">0,0%</td></tr>
+    <tr><td><b>Proficiente</b></td><td class="n">4</td><td class="n">0,06%</td><td class="n">0,08%</td></tr>
+    <tr><td><b>Básico</b></td><td class="n">54</td><td class="n">0,8%</td><td class="n">1,1%</td></tr>
+    <tr><td><b>Insuficiente</b></td><td class="n t-red"><b>4.949</b></td><td class="n t-red">69,4%</td><td class="n t-red"><b>98,8%</b></td></tr>
+    <tr><td><b>Não avaliado</b></td><td class="n t-red">2.123</td><td class="n t-red">29,8%</td><td class="n t-gray">·</td></tr>
+    <tr class="hl"><td><b>Total</b></td><td class="n"><b>7.130</b></td><td class="n">100%</td><td class="n">100%</td></tr>
+  </tbody></table></div></div>
+  <p class="small muted">A plataforma mostra 0%, 0%, 1%, 69% e 30% porque arredonda sem casas decimais. Os percentuais desta página foram recalculados a partir do número de estudantes. O gráfico por série mostra o 8º e o 9º Ano com praticamente 100% no Insuficiente; o Básico aparece como uma faixa fina, um pouco maior no 9º Ano. A plataforma não informa os números por série.</p>
+  <div class="grid2" style="margin-top:12px">
+    <div class="card s-red"><h3>Aprendizado adequado: 0,08%</h3><p class="small">Meta da plataforma: 60% dos estudantes no Proficiente ou no Avançado. Os 4 proficientes estão em quatro escolas diferentes; por isso o Ranking de Aprendizagem vai de 0,6% (Antônio Albuquerque Sousa Filho, 1 de 176 ativos) a 0,2% (Flávio Portela Marcílio, 1 de 426), e todas as demais ficam em 0%.</p></div>
+    <div class="card s-red"><h3>0,06 ponto de aprendizado por estudante ativo</h3><p class="small">Meta: 11 pontos no ano. Pelo Glossário, cada tópico em que o estudante tem aprendizado adequado vale 1 ponto. O gráfico Evolução de aprendizagem fica colado no zero de janeiro a novembro.</p></div>
+  </div>
+</section>
+
+<section class="sec" id="evolucao">
+  <h2 data-nav="Evolução da participação">📈 Evolução da participação</h2>
+  <div class="tl">
+    <div class="card"><div class="d">29/09</div><div class="v">Início</div><div class="x">Janela prevista até 02/10</div></div>
+    <div class="card"><div class="d">01/10 · 15h35</div><div class="v">35,3%</div><div class="x">2.485 de 7.032 · 39 de 70 escolas com registro</div></div>
+    <div class="card"><div class="d">09/10</div><div class="v">Fim</div><div class="x">Janela prorrogada pela CAAR</div></div>
+    <div class="card"><div class="d">21/10</div><div class="v">70,2%</div><div class="x">5.003 de 7.130 · 8 escolas sem registro</div></div>
+    <div class="card s-red"><div class="d">05/11</div><div class="v">70,2%</div><div class="x">5.007 de 7.130 · 6 escolas sem registro</div></div>
+  </div>
+  <p class="small muted">01/10 e 21/10: panoramas usados nos relatórios técnicos da CAAR. O número de estudantes cadastrados mudou de 7.032 para 7.130 entre essas datas (atualização de matrícula ou ajuste da base). Entre 21/10 e 05/11, a participação ficou estável: a base parece fechada, e o que falta depende de leitura de cartões pendentes.</p>
+</section>
+
+<section class="sec" id="escolas">
+  <h2 data-nav="Participação por escola">🏫 Participação por escola</h2>
+  <div class="kpis">
+    <div class="kpi s-red"><span class="v">6</span><div class="l">Sem nenhum registro</div><div class="d">405 estudantes</div></div>
+    <div class="kpi s-red"><span class="v">4</span><div class="l">Abaixo de 50%</div><div class="d">Flávio Portela, Raimundo Jerônimo, Nicolau Noronha, Alice Moreira</div></div>
+    <div class="kpi s-yellow"><span class="v">18</span><div class="l">De 50% a 79%</div><div class="d">Abaixo do mínimo de 80% para resultado representativo</div></div>
+    <div class="kpi s-green"><span class="v">32</span><div class="l">De 80% a 99%</div><div class="d">Resultado representativo</div></div>
+    <div class="kpi s-green"><span class="v">10</span><div class="l">100%</div><div class="d">Todas com até 38 estudantes</div></div>
+  </div>
+  <div class="filtro"><input id="busca" type="search" placeholder="Buscar escola…" aria-label="Buscar escola"><button data-f="todas" class="on">Todas</button><button data-f="zero">Sem registro</button><button data-f="baixa">Abaixo de 80%</button><button data-f="painel">Escolas do painel</button></div>
+  <div class="tbl-wrap"><div class="tbl-scroll"><table class="tbl"><thead><tr><th class="n">#</th><th class="sort" data-k="0">Escola</th><th class="n sort" data-k="1">Estudantes</th><th class="n sort" data-k="2">Ativos</th><th class="n sort" data-k="4">Não avaliados</th><th class="sort" data-k="5">% ativos</th><th class="n sort" data-k="6">Interações por ativo</th></tr></thead><tbody id="tb"></tbody></table></div></div>
+  <p class="small muted">Ativos = estudantes com a prova processada (os 5.007 ativos coincidem com os 5.007 avaliados nas rubricas). Interações por ativo: 39 das 64 escolas com registro têm exatamente 84; valores muito acima (Nicolau Noronha 148, Áurea Alves Pereira 133, Osmar Diógenes Pinheiro 111, Monsenhor André Viana Camurça 100) ou abaixo (Alice Moreira 31, José Crisóstomo Basílio 69) podem indicar cartões lidos mais de uma vez ou provas incompletas.</p>
+</section>
+
+<section class="sec" id="leitura">
+  <h2 data-nav="Como ler a plataforma">🔎 Como ler os indicadores da plataforma</h2>
+  <div class="grid2">
+    <div class="card s-gray"><h3>"Interações" e "tempo de estudo" são a própria prova</h3><p class="small">A média de 60,93 interações é calculada sobre todos os 7.130 estudantes (434.483 ÷ 7.130), inclusive os que não fizeram a prova; por ativo, são 86,8. O tempo de estudo é sempre cerca de 30 segundos por interação (3.491 horas na rede), ou seja, é estimado pela plataforma, não medido. A meta de 40 interações foi "batida" só pelas respostas à prova.</p></div>
+    <div class="card s-gray"><h3>Desempenho x Engajamento</h3><p class="small">As escolas com registro ficam todas no quadrante "alto engajamento / baixo desempenho", entre 0% e 25% de acerto. Um ponto isolado com cerca de 45% de desempenho e engajamento perto de zero deve ser a Alice Moreira de Oliveira (1 estudante). "Engajamento" aqui é o percentual de estudantes ativos, não uso da plataforma.</p></div>
+    <div class="card s-red"><h3>Professores fora da plataforma</h3><p class="small">0 professores ativos e 0 atividades criadas nas 70 escolas (metas de 50% e de 1 atividade). Sem o professor ativo, a devolutiva por estudante e por descritor prevista na plataforma não chega à sala de aula. O gráfico Atividades criadas fica vazio de janeiro a novembro.</p></div>
+    <div class="card s-blue"><h3>O que falta para o uso pedagógico</h3><p class="small">Proficiência na escala TRI, cortes dos níveis, acertos por descritor, resultado por série e por turma e cruzamento com o questionário socioeconômico. Esses dados estão previstos no Relatório por escola e na base bruta da Jovens Gênios.</p></div>
+  </div>
+</section>
+
+<section class="sec" id="painel">
+  <h2 data-nav="Escolas do painel">🧩 Escolas com página no painel</h2>
+  <div class="tbl-wrap"><div class="tbl-scroll"><table class="tbl"><thead><tr><th>Escola</th><th class="n">Estudantes</th><th class="n">Ativos</th><th class="n">% ativos</th><th>Comparação com a rede (70,2%)</th><th></th></tr></thead><tbody>
+    <tr><td><b>Aba Tapeba EDEIEF</b></td><td class="n">113</td><td class="n">101</td><td class="n">89,4%</td><td><span class="chip s-green">+19,2 p.p.</span> · 99 no Insuficiente, 2 no Básico</td><td><a href="../abatapeba/pulso.html">Ver →</a></td></tr>
+    <tr><td><b>Adélia Crisóstomo EQEIEF</b></td><td class="n">51</td><td class="n">38</td><td class="n">74,5%</td><td><span class="chip s-yellow">+4,3 p.p.</span> · 0% de aprendizado adequado</td><td><a href="../adeliacrisostomo/pulso.html">Ver →</a></td></tr>
+    <tr><td><b>7 de Setembro EEIEF</b></td><td class="n">232</td><td class="n">163</td><td class="n">70,3%</td><td><span class="chip s-yellow">igual à rede</span> · 161 no Insuficiente, 2 no Básico</td><td><a href="../7desetembro/pulso.html">Ver →</a></td></tr>
+  </tbody></table></div></div>
+  <p class="small muted">12 de Outubro, Adriano Martins e Luiz de Gonzaga atendem só os Anos Iniciais e não participam do Pulso.</p>
+</section>
+
+<section class="sec" id="plano">
+  <h2 data-nav="Plano de ação da rede">🗂️ Plano de ação da rede</h2>
+  <div class="tbl-wrap"><div class="tbl-scroll"><table class="tbl"><thead><tr><th>#</th><th>Ação</th><th>Escopo</th><th>Responsável</th><th>Prazo</th><th>Prioridade</th></tr></thead><tbody>
+    <tr><td>1</td><td>Apurar com as 7 escolas sem registro (ou com 1 ativo) se houve aplicação e cartões não lidos</td><td>7 escolas · 549 estudantes</td><td>CAAR</td><td>Imediato</td><td><span class="chip s-red">Urgente</span></td></tr>
+    <tr><td>2</td><td>Verificar turmas sem leitura na Flávio Portela e na Raimundo Jerônimo</td><td>2 escolas · 512 não avaliados</td><td>CAAR + direções</td><td>Imediato</td><td><span class="chip s-red">Urgente</span></td></tr>
+    <tr><td>3</td><td>Solicitar Relatório por escola, proficiência TRI, descritores e nota técnica sobre o desempenho</td><td>Rede</td><td>CAAR → Jovens Gênios</td><td>1 semana</td><td><span class="chip s-red">Urgente</span></td></tr>
+    <tr><td>4</td><td>Conferir interações fora do padrão (possível leitura duplicada)</td><td>6 escolas</td><td>CAAR</td><td>1 semana</td><td><span class="chip s-yellow">Atenção</span></td></tr>
+    <tr><td>5</td><td>Cadastro e ativação dos professores de MT do 8º e 9º Ano</td><td>Rede</td><td>SME + direções</td><td>15 dias</td><td><span class="chip s-yellow">Atenção</span></td></tr>
+    <tr><td>6</td><td>Devolutiva às escolas com o recorte por descritor, sem divulgar níveis antes da confirmação técnica</td><td>Rede</td><td>CAAR</td><td>Após item 3</td><td><span class="chip s-blue">Planejar</span></td></tr>
+    <tr><td>7</td><td>MT dos Anos Finais como prioridade no planejamento de 2027 (cruzando com Avalie.CE, SPAECE e SAEB)</td><td>6º ao 9º · MT</td><td>SME</td><td>Jornada pedagógica</td><td><span class="chip s-blue">Planejar</span></td></tr>
+  </tbody></table></div></div>
+</section>
+
+<div class="conf"><b class="t">🔎 Conferência dos dados (nov/2026)</b><ul>
+  <li><b>Somas conferidas:</b> a planilha tem 70 escolas, 7.130 estudantes e 5.007 ativos (70,2%). As rubricas do Relatório de Rede somam 7.130 (0 + 4 + 54 + 4.949 + 2.123), e os avaliados (5.007) coincidem com os ativos.</li>
+  <li><b>Indicadores conferidos:</b> 60,93 interações = 434.483 ÷ 7.130. Aprendizado adequado de 0,08% = 4 ÷ 5.007 (sobre os avaliados), enquanto as rubricas usam os 7.130 como base. O Ranking de Aprendizagem bate com 1 proficiente em cada uma das quatro primeiras escolas (1 ÷ 176, 1 ÷ 188, 1 ÷ 267 e 1 ÷ 426).</li>
+  <li><b>Três arquivos iguais:</b> os PDFs "CAUCAIA_CE", "CAUCAIA_CE_1" e "CAUCAIA_CE_2" têm o mesmo conteúdo (período de 01/01 a 05/11/2026).</li>
+  <li><b>Divergência:</b> nas telas de 27/10, a Aba Tapeba e a Adélia Crisóstomo apareciam com 30 e 18 atividades criadas; na planilha de rede de 05/11, todas as escolas têm 0 atividades e 0 professores ativos. Confirmar com a Jovens Gênios qual registro vale.</li>
+  <li><b>Ranking de Engajamento:</b> várias escolas têm 100% de ativos; a ordem entre elas (1º ao 5º) é da plataforma. Na tabela desta página, a posição segue o % de ativos e, no empate, o número de estudantes.</li>
+  <li><b>Nomes:</b> mantidos como na planilha (ex.: "ADELIA CRISOSTOMO EQEIEF").</li>
+</ul></div>
+
+<footer class="foot">Fonte: Avaliação de Pulso 2026 · Motriz / Jovens Gênios · Relatório de Rede CAUCAIA (CE), período de 01/01 a 05/11/2026, e planilha "Rede · Informações Gerais" de 05/11/2026 · Panoramas de 01/10 e 21/10/2026 dos relatórios técnicos da CAAR.</footer>
+</main>
+
+<script>
+/* [escola, estudantes, ativos, interações] · planilha Rede · Informações Gerais · 05/11/2026 */
+var R=[["FLAVIO PORTELA MARCILIO EEIEF", 859, 426, 37204], ["FRANCISCA ALVES DO AMARAL EEIEF", 403, 337, 28122], ["MONSENHOR ANDRE VIANA CAMURCA EEIEF", 377, 288, 28920], ["LUIZA MORAES CORREIA TAVORA EEIEF", 373, 267, 22458], ["DALVA PONTES DA ROCHA EEIEF", 244, 188, 15822], ["CORALIA GONZAGA SALES EEIEF", 228, 183, 17136], ["ANTONIO ALBUQUERQUE SOUSA FILHO EEIEF", 231, 176, 14730], ["DOM ANTONIO DE ALMEIDA LUSTOSA EEIEF", 203, 169, 14280], ["7 DE SETEMBRO EEIEF", 232, 163, 13638], ["DANILO DALMO DA ROCHA CORREA EEIEF", 220, 155, 13242], ["MIRIAN PONTES JUCA EEIEF", 156, 130, 10920], ["CELINA SA MORAIS EEIEF", 182, 127, 10752], ["ANTONIO MIRANDA DE MELO EEIEF", 155, 126, 10584], ["OSMAR DIOGENES PINHEIRO EEIEF", 156, 120, 13362], ["AFFONSO DE MEDEIROS EEIEF", 133, 120, 10134], ["TIRADENTES EEIEF", 155, 119, 10164], ["HELENA DE AGUIAR DIAS EEIEF", 121, 118, 10165], ["ALBA PESSOA DA SILVA EEIEF", 117, 101, 8568], ["ABA TAPEBA EDEIEF", 113, 101, 8484], ["PEDRO LAURINO DE OLIVEIRA EEIEF", 119, 95, 8094], ["DONA LAVINIA DE MEDEIROS EEIEF", 93, 89, 7422], ["AUGUSTO CESAR SILVA SALES EEIEF", 119, 78, 6444], ["RAIMUNDO JERONIMO DE SOUSA EEIEF", 154, 75, 6630], ["MARIA DE LOURDES ROCHA EEIEF", 95, 75, 6300], ["OSMIRA EDUARDO DE CASTRO EEIEF", 83, 75, 6300], ["PAULO FERREIRA DA ROCHA EEIEF", 71, 66, 5628], ["RAIMUNDA NONATA FORTE SALES EEIEF", 75, 63, 5292], ["MARIA LUIZA DO VALE FORTE EEIEF", 70, 63, 5292], ["CESAR NILDO GONDIM PAMPLONA EEIEF", 64, 55, 4620], ["RAIMUNDO JOSE DOS SANTOS EIEIEF", 56, 54, 4536], ["VERONICA MARIA SILVA DE MENEZES EEIEF", 54, 52, 4452], ["INSTITUTO BATISTA MARIA CARMELIA BARROS EEIEF", 56, 51, 4392], ["MARIA HELENA MOREIRA DA SILVA EEIEF", 53, 49, 4116], ["ESTEVAO FERREIRA DA ROCHA EEIEF", 61, 48, 4032], ["MARIA MOTA RODRIGUES EEIEF", 57, 43, 3612], ["ADELIA CRISOSTOMO EQEIEF", 51, 38, 3192], ["ERNESTINA NUNES DE MIRANDA EEIEF", 38, 38, 3197], ["AUREA ALVES PEREIRA EEIEF", 41, 36, 4794], ["LUIZ ROCHA MOTA EEIEF", 40, 36, 3024], ["JOSE PONTES FILHO EEIEF", 38, 33, 2772], ["SAUL GOMES DE MATOS EEIEF", 33, 33, 2772], ["MARIA INOCENCIA DE ARAUJO EEIEF", 35, 32, 2658], ["DOMINGOS ABREU BRASILEIRO EEIEF", 35, 31, 2604], ["JOSE CRISOSTOMO BASILIO EEIEF", 42, 29, 2004], ["FRANCISCO ALVES DE PAIVA EEIEF", 27, 26, 2130], ["PEDRO PAULINO DA ROCHA EEIEF", 26, 25, 2100], ["FIRMINO SOARES DE MOURA EEIEF", 27, 24, 2016], ["SANTA RITA CATARINA EEIEF", 25, 24, 2016], ["NELY SALES GADELHA EEIEF", 20, 20, 1680], ["AMARO RODRIGUES DOS SANTOS EEIEF", 18, 18, 1458], ["VICENTE TORQUATO DE ARAUJO EEIEF", 23, 14, 1176], ["MOACIR PINHEIRO DE SOUSA EEIEF", 14, 13, 1092], ["CRISTIANO NUNES DE MELO EEIEF", 13, 13, 1092], ["MARIA SILVA DO NASCIMENTO EDEIEF TAPEBA", 18, 11, 1008], ["LAURIANO BRAZ XAVIER EEIEF", 11, 11, 924], ["MANUEL PEREIRA MARQUES EEIEF", 11, 10, 840], ["NOSSA SENHORA DA CONCEICAO EEIEF", 11, 10, 840], ["YARA GUERRA SILVA EQEIEF", 10, 9, 756], ["MARIA SOUSA DOS SANTOS ECEIEF", 6, 6, 504], ["JOAO CORDEIRO DE MIRANDA EEIEF", 6, 6, 504], ["MARIANA DE MIRANDA FIRMEZA EEIEF", 6, 6, 504], ["JULIO DE CASTRO E SILVA EEIEF", 6, 6, 504], ["NICOLAU NORONHA EQEIEF", 12, 3, 444], ["ALICE MOREIRA DE OLIVEIRA EEIEF", 144, 1, 31], ["LUZIA CORREIA SALES EEIEF", 126, 0, 0], ["SAO SEBASTIAO EEIEF", 89, 0, 0], ["JOSEFA ALVES DOS SANTOS EEIEF", 89, 0, 0], ["TECLA GONZAGA SALES EEIEF", 51, 0, 0], ["PEDRO MOREIRA DE OLIVEIRA EEIEF", 40, 0, 0], ["CONRADO TEIXEIRA EDEIEF TAPEBA", 10, 0, 0]];
+var PAINEL={'7 DE SETEMBRO EEIEF':'../7desetembro/pulso.html','ABA TAPEBA EDEIEF':'../abatapeba/pulso.html','ADELIA CRISOSTOMO EQEIEF':'../adeliacrisostomo/pulso.html'};
+function tc(s){var low=['de','da','do','dos','das','e'];return s.split(' ').map(function(w,i){if(/^(EEIEF|EDEIEF|EQEIEF|EIEIEF|ECEIEF)$/.test(w))return w;w=w.toLowerCase();return (i>0&&low.indexOf(w)>=0)?w:w.charAt(0).toUpperCase()+w.slice(1);}).join(' ');}
+function f(x,d){return x.toFixed(d).replace('.',',');}
+var L=R.map(function(r){var p=r[2]/r[1]*100;return [r[0],r[1],r[2],r[3],r[1]-r[2],p,r[2]?r[3]/r[2]:null];});
+L.sort(function(a,b){return b[5]-a[5]||b[1]-a[1];});L.forEach(function(r,i){r.push(i+1);});
+var filtro='todas',chave=5,dir=-1;
+function cor(p){return p==0?'var(--red)':p<50?'var(--red)':p<80?'#e0a020':'#2ea36a';}
+function desenha(){
+ var q=(document.getElementById('busca').value||'').toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+ var V=L.filter(function(r){if(q&&r[0].indexOf(q)<0)return false;if(filtro==='zero')return r[2]===0;if(filtro==='baixa')return r[5]<80;if(filtro==='painel')return !!PAINEL[r[0]];return true;});
+ V.sort(function(a,b){var x=a[chave],y=b[chave];if(x==null)x=-1;if(y==null)y=-1;return (typeof x==='string'?x.localeCompare(y):x-y)*dir;});
+ document.getElementById('tb').innerHTML=V.map(function(r){var p=r[5],ip=r[6],odd=ip!=null&&Math.abs(ip-84)>3;
+  var nome=PAINEL[r[0]]?'<a href="'+PAINEL[r[0]]+'">'+tc(r[0])+' →</a>':tc(r[0]);
+  return '<tr class="'+(PAINEL[r[0]]?'painel':'')+'"><td class="n muted">'+r[7]+'º</td><td>'+nome+'</td><td class="n">'+r[1].toLocaleString('pt-BR')+'</td><td class="n">'+r[2].toLocaleString('pt-BR')+'</td><td class="n'+(r[4]>=50?' t-red':'')+'">'+r[4].toLocaleString('pt-BR')+'</td><td class="pc"><span class="mini"><i style="width:'+p.toFixed(1)+'%;background:'+cor(p)+'"></i></span><span class="'+(p<50?'t-red':p<80?'t-yellow':'')+'">'+f(p,1)+'%</span></td><td class="n'+(odd?' t-yellow':'')+'">'+(ip==null?'—':f(ip,1))+'</td></tr>';}).join('')||'<tr><td colspan="7" class="muted">Nenhuma escola encontrada.</td></tr>';
+}
+document.getElementById('busca').oninput=desenha;
+document.querySelectorAll('.filtro button').forEach(function(b){b.onclick=function(){document.querySelectorAll('.filtro button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');filtro=b.getAttribute('data-f');desenha();};});
+document.querySelectorAll('th.sort').forEach(function(th){th.onclick=function(){var k=+th.getAttribute('data-k');dir=(k===chave)?-dir:(k===0?1:-1);chave=k;desenha();};});
+desenha();
+document.getElementById('btnMenu').onclick=function(){document.body.classList.toggle('menu-open');};
+document.getElementById('scrim').onclick=function(){document.body.classList.remove('menu-open');};
+document.querySelector('.side').addEventListener('click',function(ev){if(ev.target.closest('a'))document.body.classList.remove('menu-open');});
+</script>
+</body>
+</html>
